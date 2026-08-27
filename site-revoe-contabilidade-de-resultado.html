@@ -586,17 +586,34 @@
     <section class="tab-panel" id="tab-4">
       <h1 class="section-title">Diferenciais impulseup</h1>
       <p class="section-sub">Comparativo com base nos critérios mais importantes para este projeto</p>
-      <div class="empty-state" id="tab4EmptyState">
+      <div class="empty-state" id="tab4EmptyState" style="display:none;">
         <i class="fa-regular fa-list-check"></i>
         <h3>Aba liberada após a reunião de Diagnóstico</h3>
         <p>Assim que o closer finalizar o diagnóstico, esta aba mostra o comparativo entre a impulseup e os concorrentes identificados na conversa. Se nenhum concorrente específico for mencionado, o comparativo é feito contra "Outras soluções", com resultado mediano.</p>
       </div>
-      <div id="tab4TableWrap" style="margin-top:24px;overflow-x:auto;display:none;">
+      <div id="tab4TableWrap" style="margin-top:24px;overflow-x:auto;">
         <table class="rfp-table" id="tab4Table">
-          <!-- Preenchido pela skill site-cliente-impulseup a partir da transcrição da reunião de Diagnóstico e de references/rfp-criterios.json.
-               Cada critério exibe sua tag (campo "tags" do JSON) junto ao nome, ex:
-               <tr><td><div class="feat-name">Formatos de avaliação diferentes (90/180/360)</div><span class="feat-tag">Flexível</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td>...</tr> -->
+<thead><tr><th>Critério</th><th class="iup-col">impulseup</th><th>Outras soluções</th></tr></thead>
+<tbody>
+<tr><td><div class="feat-name">Formatos de avaliação diferentes (90/180/360)</div><span class="feat-tag">Flexível</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-check icon-yes"></i></td></tr>
+<tr><td><div class="feat-name">Avaliação de consenso</div><span class="feat-tag">Confiável</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td></tr>
+<tr><td><div class="feat-name">Avaliação de experiência com envios automáticos</div><span class="feat-tag">Fácil</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-check icon-yes"></i></td></tr>
+<tr><td><div class="feat-name">Planejamento de carreira e sucessão</div><span class="feat-tag">Liderança</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-check icon-yes"></i></td></tr>
+<tr><td><div class="feat-name">Cruzamento automático de Avaliação e Metas</div><span class="feat-tag">Inteligente</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td></tr>
+<tr><td><div class="feat-name">Perfil 360 (todas as informações do colaborador em uma única página)</div><span class="feat-tag">Fácil</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td></tr>
+<tr><td><div class="feat-name">Inteligência Artificial para insights automáticos</div><span class="feat-tag">Inteligente</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-check icon-yes"></i></td></tr>
+<tr><td><div class="feat-name">Diversos formatos de pesquisa (pulso, clima, NPS, etc.)</div><span class="feat-tag">Flexível</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-check icon-yes"></i></td></tr>
+<tr><td><div class="feat-name">Comparativo histórico de resultados de pesquisas</div><span class="feat-tag">Confiável</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td></tr>
+<tr><td><div class="feat-name">Alinhamento de metas e objetivos</div><span class="feat-tag">Liderança</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-check icon-yes"></i></td></tr>
+<tr><td><div class="feat-name">Remuneração variável, calculado através de metas, avaliação, fórmulas etc.</div><span class="feat-tag">Confiável</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td></tr>
+<tr><td><div class="feat-name">Conexão de gaps da avaliação com PDI e cursos de desenvolvimento</div><span class="feat-tag">Inteligente</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-check icon-yes"></i></td></tr>
+<tr><td><div class="feat-name">Construção de PDI com biblioteca e IA</div><span class="feat-tag">Inteligente</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td></tr>
+<tr><td><div class="feat-name">Permite personalizar as categorias de feedback</div><span class="feat-tag">Flexível</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td></tr>
+<tr><td><div class="feat-name">Ajuda de IA para escrever feedbacks</div><span class="feat-tag">Inteligente</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td></tr>
+<tr><td><div class="feat-name">Organização de cursos em categorias e trilhas de aprendizado</div><span class="feat-tag">Flexível</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-check icon-yes"></i></td></tr>
+</tbody>
         </table>
+        <p style="font-size:12px;color:var(--color-fg-muted);margin-top:16px;">A Revoe mencionou uma conversa com outro fornecedor, ainda sem nome confirmado. Assim que identificado, o comparativo pode ser refeito com o concorrente específico.</p>
       </div>
     </section>
 
