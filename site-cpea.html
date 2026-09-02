@@ -1,0 +1,1326 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>impulseup para CPEA</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+  :root{
+    --color-bg:#FFFFFF;
+    --color-bg-alt:#F4F2EF;
+    --color-fg:#0C0C0C;
+    --color-fg-muted:#666666;
+    --color-border:#E0E0E0;
+    --color-primary:#CC0088;
+    --color-primary-hover:#A3006D;
+    --color-surface:#F4F2EF;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Poppins',sans-serif;background:var(--color-bg);color:var(--color-fg);}
+  .wrap{max-width:1360px;margin:0 auto;padding:0 32px;}
+
+  header{border-bottom:1px solid var(--color-border);padding:20px 0;}
+  .header-row{display:flex;align-items:center;gap:16px;}
+  .brand-iup{font-weight:800;font-size:19px;letter-spacing:-0.02em;}
+  .brand-iup span{color:var(--color-primary);}
+  .divider-v{width:1px;height:28px;background:var(--color-border);}
+  .for-label{font-size:10px;font-weight:600;color:var(--color-fg-muted);letter-spacing:0.08em;text-transform:uppercase;display:block;margin-bottom:2px;}
+
+  .logo-upload-slot{
+    width:120px;height:34px;border:1px dashed var(--color-border);border-radius:6px;
+    display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--color-fg-muted);
+    cursor:pointer;overflow:hidden;background:#fff;position:relative;
+  }
+  .logo-upload-slot img{width:100%;height:100%;object-fit:contain;}
+  .logo-upload-slot input{position:absolute;inset:0;opacity:0;cursor:pointer;}
+  .logo-upload-slot:hover{border-color:var(--color-primary);color:var(--color-primary);}
+
+  .client-logo{width:120px;height:34px;object-fit:contain;display:block;}
+
+  nav.side-nav{display:flex;flex-direction:column;gap:2px;position:sticky;top:24px;align-self:start;}
+  nav.side-nav button{
+    font-family:'Poppins',sans-serif;background:none;border:none;cursor:pointer;text-align:left;
+    font-size:13px;font-weight:600;letter-spacing:0.01em;color:var(--color-fg-muted);
+    padding:11px 14px;border-radius:10px;display:flex;align-items:center;gap:10px;
+    border-left:3px solid transparent;line-height:1.3;
+  }
+  nav.side-nav button.active{color:var(--color-fg);background:var(--color-bg-alt);border-left-color:var(--color-primary);}
+  nav.side-nav button .num{color:var(--color-primary);font-size:11px;flex-shrink:0;}
+  nav.side-nav button:hover:not(.active){background:var(--color-bg-alt);}
+
+  .app-shell{display:grid;grid-template-columns:230px 1fr;gap:44px;padding:40px 0 80px;align-items:start;}
+  @media (max-width:860px){
+    .app-shell{grid-template-columns:1fr;padding-top:24px;}
+    nav.side-nav{
+      flex-direction:row;overflow-x:auto;position:static;gap:6px;padding-bottom:8px;
+      border-bottom:1px solid var(--color-border);margin-bottom:8px;
+    }
+    nav.side-nav button{white-space:nowrap;border-left:none;border-bottom:2px solid transparent;border-radius:8px 8px 0 0;}
+    nav.side-nav button.active{border-left:none;border-bottom-color:var(--color-primary);}
+  }
+
+  main{min-width:0;}
+  .tab-panel{display:none;}
+  .tab-panel.active{display:block;}
+  .section-title{font-size:26px;font-weight:700;margin-bottom:6px;}
+  .section-sub{font-size:14px;color:var(--color-fg-muted);margin-bottom:40px;}
+
+  .top-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:24px;margin-bottom:48px;}
+  .card{background:var(--color-surface);border-radius:14px;padding:28px;}
+  .card-label{font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-primary);margin-bottom:12px;}
+  .card p{font-size:14.5px;line-height:1.7;color:var(--color-fg);}
+  .card.dark{background:var(--color-fg);color:#fff;}
+  .card.dark .card-label{color:#FF7FC8;}
+  .card.dark p{color:#EDEDED;}
+
+  .block-title{font-size:15px;font-weight:700;margin-bottom:18px;display:flex;align-items:center;gap:8px;}
+  .block-title i{color:var(--color-primary);font-size:16px;}
+
+  .challenges{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:48px;}
+  .challenges.cols-2{grid-template-columns:repeat(2,1fr);}
+  .challenge-card{border:1px solid var(--color-border);border-radius:12px;padding:20px;}
+  .challenge-card .ch-num{font-size:12px;font-weight:700;color:var(--color-primary);margin-bottom:8px;display:block;}
+  .challenge-card h4{font-size:14.5px;font-weight:600;margin-bottom:6px;}
+  .challenge-card p{font-size:13px;color:var(--color-fg-muted);line-height:1.6;}
+  .centered-row{grid-column:1 / -1;display:flex;gap:16px;justify-content:center;}
+  .centered-row .challenge-card{flex:1;max-width:calc((100% - 32px) / 3);}
+
+  .team{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:48px;}
+  .person-card{border:1px solid var(--color-border);border-radius:12px;padding:18px;display:flex;align-items:center;gap:14px;}
+  .person-photo{
+    width:48px;height:48px;border-radius:50%;background:var(--color-surface);
+    display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;color:var(--color-primary);
+    flex-shrink:0;cursor:pointer;position:relative;overflow:hidden;
+  }
+  .person-photo img{width:100%;height:100%;object-fit:cover;}
+  .person-photo input{position:absolute;inset:0;opacity:0;cursor:pointer;}
+  .person-card h4{font-size:14px;font-weight:600;}
+  .person-card p{font-size:12.5px;color:var(--color-fg-muted);}
+  .person-name[contenteditable="true"],.person-role[contenteditable="true"]{outline:none;border-radius:4px;padding:1px 3px;margin:-1px -3px;}
+  .person-name[contenteditable="true"]:hover,.person-role[contenteditable="true"]:hover,
+  .person-name[contenteditable="true"]:focus,.person-role[contenteditable="true"]:focus{background:var(--color-surface);}
+  .add-person-btn{
+    margin-bottom:48px;background:none;border:1px dashed var(--color-border);border-radius:10px;
+    padding:10px 18px;font-family:'Poppins',sans-serif;font-size:13px;font-weight:600;color:var(--color-fg-muted);
+    cursor:pointer;display:inline-flex;align-items:center;gap:8px;
+  }
+  .add-person-btn:hover{border-color:var(--color-primary);color:var(--color-primary);}
+
+  .timeline{border:1px solid var(--color-border);border-radius:12px;padding:8px 24px;}
+  .tl-item{display:flex;align-items:center;gap:16px;padding:16px 0;border-bottom:1px solid var(--color-border);}
+  .tl-item:last-child{border-bottom:none;}
+  .tl-dot{width:10px;height:10px;border-radius:50%;background:var(--color-primary);flex-shrink:0;}
+  .tl-date{font-size:12.5px;font-weight:600;color:var(--color-fg-muted);width:110px;flex-shrink:0;}
+  .tl-date[contenteditable="true"]{outline:none;border-radius:4px;padding:1px 3px;margin:-1px -3px;cursor:text;}
+  .tl-date[contenteditable="true"]:hover,.tl-date[contenteditable="true"]:focus{background:var(--color-surface);}
+  .tl-desc{font-size:14px;font-weight:600;}
+  .tl-meta{font-size:12.5px;color:var(--color-fg-muted);margin-top:2px;}
+
+  .stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:40px;}
+  .stat-card{background:var(--color-surface);border-radius:14px;padding:22px;text-align:center;}
+  .stat-card .num{font-size:30px;font-weight:800;color:var(--color-primary);}
+  .stat-card .label{font-size:12.5px;color:var(--color-fg-muted);margin-top:4px;}
+
+  .logo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:14px;margin-bottom:40px;}
+  .logo-placeholder{border:1px solid var(--color-border);border-radius:10px;height:64px;display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--color-fg-muted);}
+  .logo-grid-slot{border:1px solid var(--color-border);border-radius:10px;height:64px;padding:8px;display:flex;align-items:center;justify-content:center;position:relative;background:#fff;}
+  .logo-grid-slot img{max-width:100%;max-height:100%;object-fit:contain;}
+  .logo-grid-slot input{position:absolute;inset:0;opacity:0;cursor:pointer;}
+  .logo-grid-slot:hover{border-color:var(--color-primary);}
+
+  .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:40px;}
+  .positioning-line{font-size:15px;font-weight:600;color:var(--color-fg);background:#FBEAF0;border-left:3px solid var(--color-primary);border-radius:8px;padding:16px 20px;margin-bottom:32px;line-height:1.5;}
+  .positioning-line i{color:var(--color-primary);margin-right:6px;}
+
+  .positioning-block{background:#FBEAF0;border-left:4px solid var(--color-primary);border-radius:16px;padding:26px 30px 20px;margin-bottom:32px;}
+  .positioning-block .headline{font-size:20px;font-weight:700;color:var(--color-fg);line-height:1.45;margin-bottom:10px;text-align:center;}
+  .positioning-block .body-text{font-size:15px;font-weight:400;color:var(--color-fg);line-height:1.65;margin-bottom:18px;}
+  .positioning-block .divider{border-top:1px solid rgba(204,0,136,0.18);margin-bottom:16px;}
+  .positioning-block .keywords-row{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  .positioning-block .kw-item{background:#fff;border:1px solid var(--color-border);border-radius:12px;padding:16px 14px;display:flex;align-items:center;gap:10px;}
+  .positioning-block .kw-item i{color:var(--color-primary);font-size:15px;width:18px;text-align:center;flex-shrink:0;}
+  .positioning-block .kw-item span{font-size:13.5px;font-weight:600;color:var(--color-fg);line-height:1.3;}
+  @media (max-width:700px){.positioning-block .keywords-row{grid-template-columns:1fr;}}
+  .logo-grid.logo-grid-fixed5{grid-template-columns:repeat(5,1fr);}
+  .pillar-card{border:1px solid var(--color-border);border-radius:12px;padding:20px;}
+  .pillar-card .pillar-num{font-size:12px;font-weight:700;color:var(--color-primary);margin-bottom:8px;display:block;}
+  .pillar-card h4{font-size:14px;font-weight:600;margin-bottom:6px;}
+  .pillar-card p{font-size:13px;color:var(--color-fg-muted);line-height:1.6;}
+
+  .empty-state{border:1px dashed var(--color-border);border-radius:14px;padding:48px;text-align:center;color:var(--color-fg-muted);}
+  .empty-state i{font-size:26px;margin-bottom:12px;display:block;color:var(--color-border);}
+  .empty-state h3{font-size:15px;font-weight:600;color:var(--color-fg);margin-bottom:6px;}
+  .empty-state p{font-size:13px;}
+
+  .rfp-table{width:100%;border-collapse:collapse;border:1px solid var(--color-border);border-radius:12px;overflow:hidden;}
+  .rfp-table th{background:var(--color-bg-alt);font-size:11px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;color:var(--color-fg-muted);text-align:center;padding:16px 14px;border-bottom:1px solid var(--color-border);}
+  .rfp-table th:first-child{text-align:left;}
+  .rfp-table th.iup-col{color:var(--color-primary);background:#FBEAF0;}
+  .rfp-table td{padding:16px 14px;border-bottom:1px solid var(--color-border);vertical-align:top;}
+  .rfp-table td.iup-col{background:#FBEAF0;}
+  .rfp-table .feat-name{font-size:13.5px;font-weight:600;margin-bottom:4px;}
+  .rfp-table .feat-desc{font-size:12px;color:var(--color-fg-muted);line-height:1.5;}
+  .feat-tag{display:inline-block;font-size:10px;font-weight:700;letter-spacing:0.03em;text-transform:uppercase;padding:3px 8px;border-radius:20px;margin-top:2px;background:#FBEAF0;color:var(--color-primary);}
+  .pillar-card .feat-tag{display:block;width:fit-content;margin-bottom:8px;}
+  .rfp-table td.check-cell{text-align:center;}
+  .rfp-table .icon-yes{color:#1D9E75;font-size:16px;}
+  .rfp-table .icon-no{color:#D4534F;font-size:16px;}
+
+  .video-grid{display:flex;flex-direction:column;gap:28px;margin-top:8px;}
+  .video-card{border:1px solid var(--color-border);border-radius:14px;padding:20px;background:var(--color-surface);}
+  .video-card h4{font-size:15px;font-weight:600;margin-bottom:4px;}
+  .video-card p{font-size:13px;color:var(--color-fg-muted);margin-bottom:16px;line-height:1.5;}
+  .video-embed-wrap{position:relative;width:100%;padding-top:56.25%;border-radius:10px;overflow:hidden;background:#000;}
+  .video-embed-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+  .video-embed-empty{background:var(--color-bg-alt);border:1px dashed var(--color-border);}
+  .video-paste-label{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;cursor:text;color:var(--color-fg-muted);font-size:13px;padding:24px 24px 54px;text-align:center;}
+  .video-paste-label i{font-size:22px;color:var(--color-primary);}
+  .video-url-input{position:absolute;bottom:14px;left:14px;right:14px;padding:9px 12px;border:1px solid var(--color-border);border-radius:8px;font-size:12.5px;background:#FFFFFF;}
+  .video-link-card{border:1px dashed var(--color-border);border-radius:10px;padding:32px;text-align:center;background:var(--color-bg-alt);}
+  .video-link-card i{font-size:24px;color:var(--color-primary);margin-bottom:10px;display:block;}
+  .video-link-card p{font-size:13px;color:var(--color-fg-muted);}
+  .video-link-btn{display:inline-flex;align-items:center;gap:6px;margin-top:10px;color:var(--color-primary);font-weight:600;font-size:13px;text-decoration:none;}
+  .video-link-btn:hover{color:var(--color-primary-hover);}
+  .rfp-cat-row td{background:var(--color-bg-alt);font-size:11px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;color:var(--color-primary);padding:10px 14px;border-bottom:1px solid var(--color-border);}
+
+  .investment-hero{background:var(--color-fg);color:#fff;border-radius:14px;padding:32px 28px;margin-bottom:12px;}
+  .investment-hero .label{font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#FF7FC8;margin-bottom:10px;}
+  .investment-hero .value{font-size:36px;font-weight:700;color:#fff;}
+  .investment-hero-meta{font-size:12.5px;color:var(--color-fg-muted);margin-bottom:32px;}
+
+  .module-list{display:flex;flex-direction:column;gap:0;margin-bottom:32px;border:1px solid var(--color-border);border-radius:12px;overflow:hidden;}
+  .module-row{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 18px;border-bottom:1px solid var(--color-border);}
+  .module-row:last-child{border-bottom:none;}
+  .module-row-main h4{font-size:14px;font-weight:600;margin-bottom:3px;}
+  .module-row-main p{font-size:12.5px;color:var(--color-fg-muted);}
+  .module-row-users{font-size:12px;color:var(--color-fg-muted);white-space:nowrap;}
+
+  .approval-row{display:grid;grid-template-columns:28px 1fr;gap:0;margin-bottom:32px;}
+  .approval-row:last-child{margin-bottom:0;}
+  .approval-num-col{display:flex;flex-direction:column;align-items:center;}
+  .approval-num-col .approval-num{width:28px;height:28px;border-radius:50%;background:var(--color-primary);color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .approval-num-col .approval-line{flex:1;width:2px;background:var(--color-border);margin:6px 0;}
+  .approval-row:last-child .approval-num-col .approval-line{display:none;}
+  .approval-stages{display:grid;grid-template-columns:1fr 1fr;gap:20px;padding-left:20px;align-items:stretch;}
+  .approval-inputs{display:grid;grid-template-columns:1fr;gap:14px;}
+  .approval-stage{border:1px solid var(--color-border);border-radius:12px;padding:16px;}
+  .approval-stage .approval-stage-label{font-size:10.5px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:8px;display:block;}
+  .approval-stage.motivador .approval-stage-label{color:var(--color-fg-muted);}
+  .approval-stage.solucao{background:#FBEAF0;border-color:#FBEAF0;}
+  .approval-stage.solucao .approval-stage-label{color:var(--color-primary);}
+  .approval-stage h4{font-size:13.5px;font-weight:600;margin-bottom:6px;}
+  .approval-stage p{font-size:12.5px;color:var(--color-fg-muted);line-height:1.6;}
+  .approval-outcome{background:var(--color-bg-alt);border-radius:16px;padding:18px;border:1px solid var(--color-border);}
+  .approval-outcome-title{font-size:11.5px;font-weight:800;letter-spacing:0.06em;text-transform:uppercase;color:var(--color-primary);margin-bottom:12px;display:flex;align-items:center;gap:6px;}
+  .approval-outcome-title i{font-size:13px;}
+  .approval-outcome-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .approval-outcome .approval-stage{border:none;padding:14px;border-radius:10px;}
+  .approval-outcome .approval-stage.futuro{background:var(--color-fg);}
+  .approval-outcome .approval-stage.futuro .approval-stage-label{color:#FF7FC8;}
+  .approval-outcome .approval-stage.futuro p{color:#EDEDED;}
+  .approval-outcome .approval-stage.negocio{background:#fff;border:2px solid var(--color-primary);}
+  .approval-outcome .approval-stage.negocio .approval-stage-label{color:var(--color-primary);}
+  @media (max-width:980px){.approval-stages{grid-template-columns:1fr;}.approval-outcome-grid{grid-template-columns:1fr 1fr;}}
+  @media (max-width:560px){.approval-outcome-grid{grid-template-columns:1fr;}}
+
+  .objetivo-card{border:1px solid var(--color-border);border-radius:16px;padding:22px 24px;margin-bottom:20px;}
+  .objetivo-card:last-child{margin-bottom:0;}
+  .objetivo-header{display:flex;align-items:flex-start;gap:14px;margin-bottom:18px;}
+  .objetivo-num{width:32px;height:32px;border-radius:50%;background:var(--color-primary);color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .objetivo-header h3{font-size:16.5px;font-weight:700;margin-bottom:4px;}
+  .objetivo-header p{font-size:12.5px;color:var(--color-fg-muted);line-height:1.55;}
+  .objetivo-body{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start;}
+  .objetivo-compare-col{display:flex;flex-direction:column;gap:10px;}
+  .objetivo-compare-col .objetivo-indicador{margin-top:0;}
+  .objetivo-card>.approval-outcome{margin-top:20px;}
+  .objetivo-compare-box{border-radius:12px;padding:13px 15px;}
+  .objetivo-compare-box.atual{background:var(--color-bg-alt);border:1px solid var(--color-border);}
+  .objetivo-compare-box.meta{background:#FBEAF0;}
+  .objetivo-compare-label{font-size:9.5px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:5px;display:block;}
+  .objetivo-compare-box.atual .objetivo-compare-label{color:var(--color-fg-muted);}
+  .objetivo-compare-box.meta .objetivo-compare-label{color:var(--color-primary);}
+  .objetivo-compare-box p{font-size:12px;line-height:1.5;color:var(--color-fg);}
+  .objetivo-plan-col{border-left:1px solid var(--color-border);padding-left:24px;}
+  .objetivo-etapas-title{font-size:10.5px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;color:var(--color-fg-muted);margin-bottom:10px;}
+  .objetivo-etapas{display:flex;flex-direction:column;}
+  .objetivo-etapa{display:grid;grid-template-columns:18px 1fr;gap:0;padding-bottom:12px;position:relative;}
+  .objetivo-etapa:last-child{padding-bottom:0;}
+  .objetivo-etapa-dot{width:18px;height:18px;border-radius:50%;background:var(--color-fg);color:#fff;font-size:8.5px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;z-index:1;}
+  .objetivo-etapa-line{position:absolute;left:8px;top:18px;bottom:0;width:2px;background:var(--color-border);}
+  .objetivo-etapa:last-child .objetivo-etapa-line{display:none;}
+  .objetivo-etapa-content{padding-left:12px;}
+  .objetivo-etapa-period{font-size:9.5px;font-weight:700;color:var(--color-primary);text-transform:uppercase;letter-spacing:0.04em;display:block;margin-bottom:2px;}
+  .objetivo-etapa-content h4{font-size:12.5px;font-weight:600;margin-bottom:3px;}
+  .objetivo-etapa-content p{font-size:11.5px;color:var(--color-fg-muted);line-height:1.5;margin-bottom:3px;}
+  .objetivo-etapa-resp{font-size:10px;color:var(--color-fg-muted);font-style:italic;}
+  .objetivo-indicador{margin-top:14px;background:var(--color-fg);border-radius:12px;padding:12px 14px;display:flex;align-items:flex-start;gap:9px;}
+  .objetivo-indicador i{color:#FF7FC8;font-size:13px;margin-top:2px;}
+  .objetivo-indicador-label{font-size:9.5px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#FF7FC8;display:block;margin-bottom:3px;}
+  .objetivo-indicador p{font-size:11.5px;color:#EDEDED;line-height:1.5;}
+  @media (max-width:900px){.objetivo-body{grid-template-columns:1fr;}.objetivo-plan-col{border-left:none;padding-left:0;padding-top:16px;border-top:1px solid var(--color-border);}}
+
+  .proposal-upload-slot{border:1px dashed var(--color-border);border-radius:14px;padding:56px;text-align:center;cursor:pointer;display:block;position:relative;background:var(--color-bg-alt);}
+  .proposal-upload-slot:hover{border-color:var(--color-primary);}
+  .proposal-upload-slot input{position:absolute;inset:0;opacity:0;cursor:pointer;}
+  .proposal-upload-slot img{max-width:100%;border-radius:8px;display:block;}
+  footer p{font-size:11px;color:var(--color-fg-muted);}
+
+  /* ABA 8 — COMPARATIVO DE CENÁRIOS (2 ou 3 alternativas simultâneas) */
+  .cenarios-comparativo .cards{display:grid;grid-template-columns:repeat(3, 1fr);gap:18px;margin-bottom:36px;}
+  @media (max-width:900px){.cenarios-comparativo .cards{grid-template-columns:1fr;}}
+  .cenarios-comparativo .card{
+    background:var(--color-bg);border-radius:16px;overflow:hidden;position:relative;
+    box-shadow:0 1px 3px rgba(0,0,0,0.06);border:2px solid transparent;
+    display:flex;flex-direction:column;padding:0;
+  }
+  .cenarios-comparativo .card.recommended{border-color:var(--color-primary);}
+  .cenarios-comparativo .card-header{padding:18px 20px 16px 20px;position:relative;color:#fff;background:var(--color-fg);}
+  .cenarios-comparativo .card.recommended .card-header{background:var(--color-primary);}
+  .cenarios-comparativo .eyebrow-card{font-size:10.5px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;opacity:0.85;}
+  .cenarios-comparativo .card-title{font-size:17px;font-weight:700;margin-top:4px;}
+  .cenarios-comparativo .badge-recommended{
+    position:absolute;top:14px;right:16px;background:#fff;color:var(--color-primary);
+    font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:0.03em;
+    padding:4px 11px;border-radius:20px;
+  }
+  .cenarios-comparativo .card-body{padding:20px;display:flex;flex-direction:column;flex:1;}
+  .cenarios-comparativo .price-line{display:flex;align-items:baseline;gap:6px;}
+  .cenarios-comparativo .price-value{font-size:26px;font-weight:800;color:var(--color-primary);}
+  .cenarios-comparativo .price-unit{font-size:12.5px;color:var(--color-fg-muted);font-weight:500;}
+  .cenarios-comparativo .price-base{font-size:11.5px;color:var(--color-fg-muted);margin-top:2px;}
+  .cenarios-comparativo .divider{border:none;border-top:1px solid var(--color-border);margin:16px 0;}
+  .cenarios-comparativo .inclui-label{font-size:10.5px;font-weight:700;letter-spacing:0.03em;color:var(--color-fg-muted);text-transform:uppercase;margin-bottom:10px;}
+  .cenarios-comparativo .module-desc{font-size:12px;color:var(--color-fg-muted);margin:0 0 10px 0;line-height:1.4;}
+  .cenarios-comparativo .module-desc b{color:var(--color-fg);font-weight:600;}
+  .cenarios-comparativo .check-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px;}
+  .cenarios-comparativo .check-list li{font-size:12px;display:flex;gap:8px;align-items:flex-start;line-height:1.4;}
+  .cenarios-comparativo .check-list .tick{color:var(--color-primary);flex-shrink:0;font-weight:700;}
+  /* Alinhamento: "Ver detalhamento" sempre no rodapé do card, independente do tamanho da lista
+     de diferenciais acima — margin-top:auto empurra para baixo dentro do flex column do card-body,
+     então os três toggles ficam na mesma altura mesmo com quantidades de item diferentes. */
+  .cenarios-comparativo .detalhamento{margin-top:auto;padding-top:16px;}
+  .cenarios-comparativo .detalhamento summary{
+    cursor:pointer;font-size:11.5px;font-weight:600;color:var(--color-primary-hover);
+    list-style:none;display:flex;align-items:center;gap:5px;
+  }
+  .cenarios-comparativo .detalhamento summary::-webkit-details-marker{display:none;}
+  .cenarios-comparativo .detalhamento summary::after{content:'▾';font-size:9px;transition:transform 0.15s;}
+  .cenarios-comparativo .detalhamento[open] summary::after{transform:rotate(180deg);}
+  .cenarios-comparativo .detalhamento-table{width:100%;border-collapse:collapse;margin-top:10px;font-size:11px;}
+  .cenarios-comparativo .detalhamento-table th{
+    text-align:left;font-weight:600;color:var(--color-fg-muted);padding:6px 4px;
+    border-bottom:1px solid var(--color-border);font-size:10px;text-transform:uppercase;
+  }
+  .cenarios-comparativo .detalhamento-table td{padding:7px 4px;border-bottom:1px solid var(--color-bg-alt);}
+  .cenarios-comparativo .additional-title{font-size:11px;font-weight:700;letter-spacing:0.05em;color:var(--color-fg-muted);text-transform:uppercase;margin:0 0 12px 4px;}
+  .cenarios-comparativo .additional-list{display:flex;flex-direction:column;gap:10px;}
+  .cenarios-comparativo .additional-row{
+    background:var(--color-bg);border-radius:12px;padding:14px 18px;display:flex;align-items:center;
+    justify-content:space-between;gap:16px;box-shadow:0 1px 3px rgba(0,0,0,0.05);
+  }
+  .cenarios-comparativo .additional-name{font-size:13px;font-weight:600;}
+  .cenarios-comparativo .additional-desc{font-size:11.5px;color:var(--color-fg-muted);margin-top:1px;}
+  .cenarios-comparativo .additional-right{text-align:right;}
+  .cenarios-comparativo .additional-value{font-size:13px;font-weight:700;}
+  .cenarios-comparativo .additional-status{font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;margin-top:3px;display:inline-block;background:var(--color-bg-alt);color:var(--color-fg-muted);}
+
+
+  /* ABA 7 — PROCESSO DE IMPLEMENTAÇÃO (modelo v4 — cadeia por cluster) */
+  .impl-processo{}
+  .impl-suporte-note{
+    display:flex;align-items:center;gap:10px;background:#EAEAF6;color:#4B4B8A;border-radius:10px;
+    padding:11px 16px;margin-bottom:14px;font-size:12.5px;font-weight:500;
+  }
+  .impl-weeklies-note{
+    display:flex;align-items:center;gap:10px;background:#FFF8E5;color:#8a6400;border-radius:10px;
+    padding:11px 16px;margin-bottom:24px;font-size:12.5px;font-weight:500;
+  }
+  .impl-rows{display:flex;flex-direction:column;gap:26px;}
+  .impl-row-label{font-weight:700;font-size:12.5px;color:var(--color-fg);margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+  .impl-dot{width:8px;height:8px;border-radius:50%;background:var(--color-primary);display:inline-block;}
+  .impl-row-empty{font-size:12px;color:var(--color-fg-muted);font-style:italic;}
+
+  .impl-chain{display:flex;align-items:flex-start;flex-wrap:wrap;row-gap:22px;column-gap:0;overflow-x:auto;padding-bottom:4px;}
+  /* Largura da caixa: 158px ficava apertado para textos como "Relatórios e PDI's" ou
+     "Nine-box e Sucessão" — 186px com padding lateral maior resolve sem quebrar o alinhamento
+     em cadeia (setas e linha de bastão continuam com largura fixa entre as caixas). */
+  .impl-step-unit{display:flex;flex-direction:column;align-items:center;width:186px;flex-shrink:0;}
+  .impl-box{
+    font-size:12px;font-weight:600;padding:8px 16px;border-radius:10px;text-align:center;
+    border:1.5px solid var(--color-border);background:var(--color-bg);color:var(--color-fg);width:100%;
+    min-height:52px;display:flex;align-items:center;justify-content:center;line-height:1.3;
+  }
+  .impl-box-weeklies{border-color:#B8860B;background:#FFF8E5;}
+  .role-tag{margin-top:8px;font-size:10px;font-weight:600;padding:2px 9px;border-radius:12px;white-space:nowrap;}
+  .role-consultor{background:#FCE4F2;color:var(--color-primary-hover);}
+  .role-gerente{background:#111;color:#fff;}
+  .role-csi{background:#EAEAF6;color:#4B4B8A;}
+  .impl-tag-weeklies{margin-top:4px;font-size:9px;font-weight:700;color:#8a6400;text-transform:uppercase;letter-spacing:0.03em;}
+  .impl-arrow{color:var(--color-border);font-size:16px;width:22px;min-height:52px;flex-shrink:0;display:flex;align-items:center;justify-content:center;}
+  .impl-handoff-divider{width:22px;min-height:78px;flex-shrink:0;display:flex;align-items:center;justify-content:center;position:relative;}
+  .impl-handoff-divider::before{content:'';position:absolute;left:50%;top:0;bottom:0;width:0;border-left:2px dashed var(--color-primary);}
+  .impl-legend{margin-top:32px;padding-top:20px;border-top:1px solid var(--color-border);display:flex;gap:22px;flex-wrap:wrap;font-size:12px;color:var(--color-fg-muted);}
+  .impl-legend-item{display:flex;align-items:center;gap:6px;}
+  .impl-legend-dot{width:10px;height:10px;border-radius:50%;}
+
+  /* ABA 7 — MODELO CRONOGRAMA (alternativa ao modelo cadeia, eixo de semanas) */
+  .cron-axis{display:grid;gap:0;margin-bottom:6px;}
+  .cron-axis-week{font-size:10px;font-weight:700;color:var(--color-fg-muted);text-align:center;border-left:1px dashed var(--color-border);padding-bottom:6px;}
+  .cron-module-row{margin-bottom:30px;}
+  .cron-row-label{font-weight:700;font-size:13px;margin-bottom:8px;display:flex;align-items:center;gap:8px;}
+  .cron-timeline-row{display:grid;align-items:center;min-height:56px;position:relative;}
+  .cron-timeline-row::after{content:'';position:absolute;left:180px;right:0;top:50%;height:1px;background:var(--color-border);z-index:0;}
+  .cron-bar{
+    grid-row:1;position:relative;z-index:1;height:38px;border-radius:8px;
+    border:1.5px solid var(--color-border);background:var(--color-bg);
+    display:flex;align-items:center;justify-content:center;padding:0 8px;
+    font-size:11px;font-weight:600;text-align:center;line-height:1.25;
+  }
+  .cron-bar.consultor{border-color:#F4C2E0;background:#FCE4F2;color:var(--color-primary-hover);}
+  .cron-bar.gerente{border-color:#0C0C0C;background:#0C0C0C;color:#fff;}
+  .cron-bar.csi{border-color:#4B4B8A;background:#EAEAF6;color:#4B4B8A;}
+  .cron-handoff-line{position:absolute;top:-6px;bottom:-6px;width:0;border-left:2px dashed var(--color-primary);z-index:2;}
+  .cron-acompanhamento{margin-top:10px;padding:12px 14px;background:var(--color-bg-alt);border-radius:10px;}
+  .cron-acomp-label{font-size:11px;font-style:italic;color:var(--color-fg-muted);margin-bottom:8px;}
+  .cron-acomp-items{display:flex;flex-wrap:wrap;gap:8px;}
+  .cron-acomp-item{font-size:11px;font-weight:600;padding:6px 12px;border-radius:8px;border:1.5px solid var(--color-border);background:var(--color-bg);}
+  .cron-acomp-item.gerente{border-color:#0C0C0C;background:#0C0C0C;color:#fff;}
+  .cron-acomp-item.csi{border-color:#4B4B8A;background:#EAEAF6;color:#4B4B8A;}
+  /* BOTÃO DE EXPORTAÇÃO — resumo executivo (HTML) */
+  .export-exec-btn{
+    display:flex;align-items:center;gap:8px;width:100%;margin-top:16px;padding:10px 20px;
+    font-family:'Poppins',sans-serif;font-size:13px;font-weight:600;color:#fff;
+    background:var(--color-primary);border:none;border-radius:8px;cursor:pointer;
+  }
+  .export-exec-btn:hover{background:var(--color-primary-hover);}
+  .export-exec-btn:disabled{opacity:0.6;cursor:wait;}
+  .export-exec-btn i{font-size:13px;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="header-row">
+      <span class="brand-iup">impulse<span>up</span></span>
+      <div class="divider-v"></div>
+      <div>
+        <span class="for-label">Para</span>
+        <label class="logo-upload-slot" id="clientLogoSlot">
+          <span id="clientLogoText">logo do cliente</span>
+          <input type="file" accept="image/*" id="clientLogoInput">
+        </label>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="app-shell">
+    <nav class="side-nav" id="tabNav">
+      <button class="active" data-tab="1"><span class="num">01</span>A impulseup</button>
+      <button data-tab="2"><span class="num">02</span>Diagnóstico</button>
+      <button data-tab="3"><span class="num">03</span>Demonstração</button>
+      <button data-tab="4"><span class="num">04</span>Diferenciais impulseup</button>
+      <button data-tab="5"><span class="num">05</span>Aprovação e plano de ação</button>
+      <button data-tab="6"><span class="num">06</span>Processo de implementação</button>
+      <button data-tab="7"><span class="num">07</span>Proposta comercial</button>
+      <button data-tab="8"><span class="num">08</span>Próximos passos</button>
+      <button type="button" id="exportExecHtmlBtn" class="export-exec-btn">
+        <i class="fa-regular fa-file-code"></i> Resumo executivo (HTML)
+      </button>
+    </nav>
+
+    <main>
+
+    <!-- ABA 1 — A IMPULSEUP -->
+    <section class="tab-panel active" id="tab-1">
+      <h1 class="section-title">A impulseup</h1>
+      <p class="section-sub">Quem somos e por que empresas como a CPEA escolhem a gente</p>
+
+      <!-- BLOCO DE POSICIONAMENTO — fixo, não personalizado por cliente (ver estrutura-abas.md,
+           Aba 1, "Bloco de posicionamento"). Texto de marca institucional, mudança só a pedido
+           de Luís. -->
+      <div class="positioning-block">
+        <div class="headline">O mercado trata desempenho apenas como burocracia do RH</div>
+        <div class="body-text">Gestão de desempenho não é para cumprir tabela. Para nós, ela é o meio para decidir sobre carreira e desenvolvimento com a confiança que os seus líderes precisam.</div>
+        <div class="divider"></div>
+        <div class="keywords-row">
+          <div class="kw-item"><i class="fa-solid fa-sliders"></i><span>Seu projeto, suas regras</span></div>
+          <div class="kw-item"><i class="fa-solid fa-chart-line"></i><span>Transforme dados em insights</span></div>
+          <div class="kw-item"><i class="fa-solid fa-users"></i><span>Adesão em todos os públicos</span></div>
+        </div>
+      </div>
+
+      <div class="stat-grid">
+        <div class="stat-card"><div class="num">400+</div><div class="label">empresas clientes</div></div>
+        <div class="stat-card"><div class="num">180 mil</div><div class="label">usuários ativos</div></div>
+        <div class="stat-card"><div class="num">1M+</div><div class="label">avaliações e pesquisas realizadas</div></div>
+      </div>
+
+      <div class="block-title"><i class="fa-regular fa-building"></i>Empresas que confiam na impulseup</div>
+      <div class="logo-grid" id="logoGrid">
+        <!--LOGO_GRID_SLOTS-->
+      </div>
+
+      <div class="block-title"><i class="fa-regular fa-star"></i>Por que empresas com equipes técnicas em campo escolhem a impulseup</div>
+      <div class="pillars">
+        <!-- Cada pillar-card carrega a tag do critério correspondente em rfp-criterios.json
+             (mesmo padrão da .feat-tag da Aba 4) — ver estrutura-abas.md, Aba 1. -->
+        <div class="pillar-card"><span class="pillar-num">01</span><span class="feat-tag">Fácil</span><h4>A avaliação chega a quem está em campo, sem depender de e-mail corporativo</h4><p>Colaboradores sem acesso frequente a computador respondem pelo celular, por link enviado via WhatsApp ou SMS. A empresa passa a enxergar desempenho em toda a operação, não só no time administrativo.</p></div>
+        <div class="pillar-card"><span class="pillar-num">02</span><span class="feat-tag">Atendimento consultivo</span><h4>A virada da cultura de feedback é conduzida, não só implantada</h4><p>Psicólogos organizacionais acompanham a capacitação das lideranças para dar e receber feedback. O risco de o projeto travar na mudança de hábito cai, e o resultado aparece mais rápido.</p></div>
+        <div class="pillar-card"><span class="pillar-num">03</span><span class="feat-tag">Flexível</span><h4>Competências desenhadas por cargo técnico, com uma visão de fora</h4><p>Da formação de campo à pós-graduação, cada função ganha competências próprias, construídas com apoio de quem já estruturou esse desenho em empresas parecidas.</p></div>
+      </div>
+
+    </section>
+
+    <!-- ABA 2 — DIAGNÓSTICO -->
+    <section class="tab-panel" id="tab-2">
+      <h1 class="section-title">Diagnóstico — CPEA</h1>
+      <p class="section-sub">Reunião de conexão</p>
+
+      <div class="top-grid">
+        <div class="card">
+          <div class="card-label">Perfil</div>
+          <p>Consultoria ambiental com 26 anos de mercado, referência nacional em licenciamento, planejamento territorial e gerenciamento de áreas contaminadas. Escritórios em São Paulo, Santos e Araxá, com equipe técnica atuando em campo em todo o Brasil. 102 colaboradores, mais da metade PJ, com forte presença de biólogos, geógrafos e outros especialistas com mestrado e doutorado.</p>
+        </div>
+        <div class="card dark">
+          <div class="card-label">Momento atual</div>
+          <p>Estruturando pela primeira vez um processo formal de gestão de desempenho, com aprovação direta da CEO Patrícia. Em 2025 revisaram cargos e salários; em 2026 estão desenhando as competências internamente e já validaram com diretoria e gerências. Buscam agora uma plataforma para rodar avaliação e feedback, com meta de fechar o projeto ainda este ano e iniciar o primeiro ciclo em junho de 2027.</p>
+        </div>
+      </div>
+
+      <div class="block-title"><i class="fa-regular fa-flag"></i>Desafios mapeados</div>
+      <div class="challenges">
+        <div class="challenge-card"><span class="ch-num">01</span><h4>Nunca houve avaliação de desempenho</h4><p>Nem formal, nem em planilha. Colaboradores não sabem se estão indo bem nem qual o próximo passo de carreira.</p></div>
+        <div class="challenge-card"><span class="ch-num">02</span><h4>Ausência de cultura de feedback</h4><p>Lideranças não sabem estruturar, dar nem receber feedback. O tema só aparece quando alguém já está de saída.</p></div>
+        <div class="challenge-card"><span class="ch-num">03</span><h4>Competências ainda em construção</h4><p>Desenho interno em andamento, sem apoio externo. Falta uma visão de mercado para validar o que já foi estruturado.</p></div>
+        <div class="centered-row">
+          <div class="challenge-card"><span class="ch-num">04</span><h4>Público de campo sem e-mail corporativo</h4><p>Boa parte da equipe técnica está em campo, com comunicação concentrada em WhatsApp, sem hábito de acessar e-mail ou agenda digital.</p></div>
+          <div class="challenge-card"><span class="ch-num">05</span><h4>Plano de cargos e salários recente</h4><p>Estrutura revisada em 2025, mas ainda sem trilha clara de promoção e movimentação interna.</p></div>
+        </div>
+      </div>
+
+      <div class="block-title"><i class="fa-regular fa-user-tie"></i>Responsáveis pelo projeto</div>
+      <div class="team" id="teamGrid">
+        <div class="person-card">
+          <label class="person-photo" data-initials="DV"><span>DV</span><input type="file" accept="image/*" class="personPhotoInput"></label>
+          <div>
+            <h4 contenteditable="true" class="person-name">Damares Vanderley</h4>
+            <p contenteditable="true" class="person-role">Especialista de RH</p>
+          </div>
+        </div>
+        <div class="person-card">
+          <label class="person-photo" data-initials="BL"><span>BL</span><input type="file" accept="image/*" class="personPhotoInput"></label>
+          <div>
+            <h4 contenteditable="true" class="person-name">Bruna Lima</h4>
+            <p contenteditable="true" class="person-role">Gerente de RH</p>
+          </div>
+        </div>
+        <div class="person-card">
+          <label class="person-photo" data-initials="P"><span>P</span><input type="file" accept="image/*" class="personPhotoInput"></label>
+          <div>
+            <h4 contenteditable="true" class="person-name">Patrícia</h4>
+            <p contenteditable="true" class="person-role">CEO</p>
+          </div>
+        </div>
+      </div>
+      <button type="button" id="addPersonBtn" class="add-person-btn"><i class="fa-solid fa-plus"></i> Adicionar pessoa</button>
+
+      <div class="block-title"><i class="fa-regular fa-calendar"></i>Cronograma preliminar</div>
+      <div class="timeline">
+        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">Setembro</span><span class="tl-desc">Diagnóstico e comparação de fornecedores</span></div>
+        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">Outubro</span><span class="tl-desc">Definição de orçamento e fechamento do projeto</span></div>
+        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">Início de 2027</span><span class="tl-desc">Implantação, parametrização e desenho final das competências</span></div>
+        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">Junho de 2027</span><span class="tl-desc">Primeiro ciclo de avaliação de desempenho na plataforma</span></div>
+      </div>
+    </section>
+
+    <!-- ABA 3 — DEMONSTRAÇÃO -->
+    <section class="tab-panel" id="tab-3">
+      <h1 class="section-title">Demonstração</h1>
+      <p class="section-sub">Vídeos da plataforma, orientados aos desafios da CPEA</p>
+      <div class="empty-state" id="tab3EmptyState">
+        <i class="fa-regular fa-circle-play"></i>
+        <h3>Aba liberada após a reunião de Demo</h3>
+        <p>O closer vai incluir aqui vídeos curtos mostrando a solução aplicada aos desafios mapeados no Diagnóstico.</p>
+      </div>
+      <div id="tab3Content" style="display:none;">
+        <div class="stat-grid" id="tab3ImpactoGrid">
+          <!-- Preenchido pela skill a partir de "impacto" (estrutura-abas.md, Aba 3). Ex:
+               <div class="stat-card"><div class="num">32%</div><div class="label">redução no tempo de ciclo de avaliação</div></div> -->
+        </div>
+        <div style="overflow-x:auto;margin-bottom:40px;">
+          <table class="rfp-table" id="tab3ComparativoTable">
+            <thead>
+              <tr><th>Situação atual</th><th>Módulo impulseup</th><th>Como fica</th></tr>
+            </thead>
+            <tbody>
+              <!-- Preenchido pela skill a partir de "comparativo" (máx. 4 linhas). Ex:
+                   <tr><td>Avaliação só em planilha</td><td class="feat-name">Ciclos de avaliação</td><td>Fluxo 100% digital com lembretes automáticos</td></tr> -->
+            </tbody>
+          </table>
+        </div>
+        <div class="video-grid" id="tab3VideoGrid">
+          <!-- Preenchido pela skill a partir de "videos" (estrutura-abas.md, Aba 3), um .video-card por vídeo.
+               Ver scripts/gerar_video_embed.py::gerar_bloco_video() para a lógica de geração.
+
+               Caso 1 — url_video já veio do closer (link de Drive ou YouTube) e foi reconhecida:
+               <div class="video-card">
+                 <h4>{{titulo}}</h4><p>{{descricao}}</p>
+                 <div class="video-embed-wrap">
+                   <iframe src="{{embed_url}}" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                 </div>
+               </div>
+
+               Caso 2 — url_video veio mas não foi possível gerar embed (ex: link de pasta do Drive,
+               sem permissão de embed): mostrar card de link em vez de iframe.
+               <div class="video-card">
+                 <h4>{{titulo}}</h4><p>{{descricao}}</p>
+                 <div class="video-link-card">
+                   <i class="fa-brands fa-google-drive"></i>
+                   <p>Vídeo disponível para acesso externo</p>
+                   <a href="{{url_video}}" target="_blank" rel="noopener" class="video-link-btn">Assistir vídeo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                 </div>
+               </div>
+
+               Caso 3 — vídeo ainda sem url_video: slot de colagem manual, para o closer colar o link
+               direto no site (fica salvo no localStorage do navegador via saveImage/loadStore).
+               <div class="video-card">
+                 <h4>{{titulo}}</h4><p>{{descricao}}</p>
+                 <div class="video-embed-wrap video-embed-empty" data-video-idx="{{indice}}">
+                   <label class="video-paste-label">
+                     <i class="fa-regular fa-circle-play"></i>
+                     <span>Cole aqui o link do vídeo (YouTube ou Drive)</span>
+                   </label>
+                   <input type="text" class="video-url-input" data-video-idx="{{indice}}" placeholder="https://...">
+                 </div>
+               </div> -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ABA 4 — DIFERENCIAIS IMPULSEUP -->
+    <section class="tab-panel" id="tab-4">
+      <h1 class="section-title">Diferenciais impulseup</h1>
+      <p class="section-sub">Comparativo com base nos critérios mais importantes para este projeto</p>
+      <div class="empty-state" id="tab4EmptyState">
+        <i class="fa-regular fa-list-check"></i>
+        <h3>Aba liberada após a reunião de Diagnóstico</h3>
+        <p>Assim que o closer finalizar o diagnóstico, esta aba mostra o comparativo entre a impulseup e os concorrentes identificados na conversa. Se nenhum concorrente específico for mencionado, o comparativo é feito contra "Outras soluções", com resultado mediano.</p>
+      </div>
+      <div id="tab4TableWrap" style="margin-top:24px;overflow-x:auto;display:none;">
+        <table class="rfp-table" id="tab4Table">
+          <!-- Preenchido pela skill site-cliente-impulseup a partir da transcrição da reunião de Diagnóstico e de references/rfp-criterios.json.
+               Cada critério exibe sua tag (campo "tags" do JSON) junto ao nome, ex:
+               <tr><td><div class="feat-name">Formatos de avaliação diferentes (90/180/360)</div><span class="feat-tag">Flexível</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td>...</tr> -->
+        </table>
+      </div>
+    </section>
+
+    <!-- ABA 5 — APROVAÇÃO E PLANO DE AÇÃO -->
+    <section class="tab-panel" id="tab-5">
+      <h1 class="section-title">Aprovação e plano de ação</h1>
+      <p class="section-sub">Objetivos de negócio da CPEA, o caminho para chegar lá e o estado futuro com a impulseup</p>
+      <div class="empty-state" id="tab5EmptyState">
+        <i class="fa-regular fa-clipboard"></i>
+        <h3>Aba liberada após a reunião de Diagnóstico</h3>
+        <p>Assim que os desafios forem mapeados, esta aba mostra os objetivos de negócio e RH por trás do projeto, o plano de ação com cronograma para chegar lá, e o estado futuro do negócio com a impulseup — pronta para embasar a apresentação à diretoria.</p>
+      </div>
+      <div id="tab5PlanoWrap" style="display:none;">
+        <!--OBJETIVOS-->
+      </div>
+    </section>
+
+    <!-- ABA 6 — PROCESSO DE IMPLEMENTAÇÃO -->
+    <section class="tab-panel" id="tab-6">
+      <h1 class="section-title">Processo de implementação</h1>
+      <p class="section-sub">Como será a jornada de implementação da CPEA com a impulseup</p>
+
+      <div class="empty-state" id="tab6EmptyState">
+        <i class="fa-regular fa-map"></i>
+        <h3>Aba liberada após o closer confirmar cluster, módulos e Weeklies (se Enterprise)</h3>
+        <p>Assim que o cluster de implementação (Low/Mid, High ou Enterprise) e os módulos da proposta forem confirmados, esta aba mostra a cadeia de implementação de cada módulo: etapas e responsáveis do nosso lado.</p>
+      </div>
+
+      <div id="tab6ProcessWrap" style="display:none;">
+        <!--IMPL_PROCESSO-->
+        <div class="impl-legend">
+          <div class="impl-legend-item"><span class="impl-legend-dot" style="background:#CC0088;"></span>Consultor de implementação</div>
+          <div class="impl-legend-item"><span class="impl-legend-dot" style="background:#4B4B8A;"></span>CSI</div>
+          <div class="impl-legend-item"><span class="impl-legend-dot" style="background:#111;"></span>Gerente de contas</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABA 7 — PROPOSTA COMERCIAL -->
+    <section class="tab-panel" id="tab-7">
+      <h1 class="section-title">Proposta comercial</h1>
+      <p class="section-sub">Investimento para a CPEA</p>
+
+      <div class="empty-state" id="tab7EmptyState">
+        <i class="fa-regular fa-file-invoice-dollar"></i>
+        <h3>Aba liberada após o closer informar a proposta comercial</h3>
+        <p>Assim que o closer passar os valores definidos na ferramenta de precificação da impulseup, esta aba mostra o investimento, os módulos e serviços incluídos e o detalhamento de valores.</p>
+      </div>
+
+      <div id="tab7ProposalWrap" style="display:none;">
+        <div class="investment-hero">
+          <div class="label">Investimento mensal</div>
+          <div class="value">R$ 12.400/mês</div>
+        </div>
+        <p class="investment-hero-meta">Investimento total do contrato: R$ 148.800 · Validade da proposta: 15 dias · Duração do contrato: 12 meses</p>
+
+        <div class="block-title"><i class="fa-regular fa-layer-group"></i>Módulos e serviços incluídos</div>
+        <div class="module-list">
+          <div class="module-row">
+            <div class="module-row-main"><h4>Avaliação de Desempenho</h4><p>Ciclos completos com nine-box e PDI integrado.</p></div>
+            <div class="module-row-users">500 usuários</div>
+          </div>
+          <div class="module-row">
+            <div class="module-row-main"><h4>Plano de Serviço III</h4><p>Implementação assistida por especialista em DHO.</p></div>
+            <div class="module-row-users"></div>
+          </div>
+        </div>
+
+        <div class="block-title"><i class="fa-regular fa-table"></i>Detalhamento de valores</div>
+        <table class="rfp-table" id="proposalValuesTable">
+          <tr><th>Item</th><th>Usuários</th><th>Valor unitário</th><th>Valor mensal</th><th>Observação</th></tr>
+          <tr><td><div class="feat-name">Avaliação de Desempenho</div></td><td class="check-cell">500</td><td class="check-cell">R$ 22,00</td><td class="check-cell">R$ 11.000,00</td><td class="check-cell">—</td></tr>
+          <tr><td><div class="feat-name">Plano de Serviço III</div></td><td class="check-cell">—</td><td class="check-cell">R$ 16.800,00</td><td class="check-cell">—</td><td class="check-cell">Cobrança única</td></tr>
+          <tr><td colspan="4" style="text-align:right;font-weight:600;">Total do contrato (12 meses)</td><td class="check-cell" style="font-weight:700;color:var(--color-primary);">R$ 148.800</td></tr>
+        </table>
+
+        <label class="proposal-upload-slot" id="proposalSlot" style="margin-top:24px;">
+          <div id="proposalPlaceholder">
+            <i class="fa-regular fa-image" style="font-size:22px;color:var(--color-border);display:block;margin-bottom:10px;"></i>
+            <span style="font-size:13px;color:var(--color-fg-muted);">Clique para anexar</span>
+          </div>
+          <input type="file" accept="image/*" id="proposalInput">
+        </label>
+      </div>
+    </section>
+
+    <!-- ABA 8 — PRÓXIMOS PASSOS -->
+    <section class="tab-panel" id="tab-8">
+      <h1 class="section-title">Próximos passos</h1>
+      <p class="section-sub">Jornada de compra da CPEA</p>
+      <div class="timeline">
+        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">02 set</span><div><span class="tl-desc">Reunião de Diagnóstico</span><div class="tl-meta">Entender contexto e desafios · Natália Baldivia, Damares Vanderley e Bruna Lima</div></div></div>
+        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">A definir</span><div><span class="tl-desc">Demonstração personalizada</span><div class="tl-meta">Mostrar solução aplicada aos desafios mapeados</div></div></div>
+        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">A definir</span><div><span class="tl-desc">Construção de projeto e proposta</span><div class="tl-meta">Definir escopo e cenários de investimento</div></div></div>
+        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">A definir</span><div><span class="tl-desc">Apresentação para diretoria</span><div class="tl-meta">Damares e Bruna apresentam o projeto internamente</div></div></div>
+        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">A definir</span><div><span class="tl-desc">Aprovação da proposta</span></div></div>
+        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">A definir</span><div><span class="tl-desc">Revisão jurídica</span></div></div>
+        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">A definir</span><div><span class="tl-desc">Assinatura e kickoff</span></div></div>
+      </div>
+    </section>
+
+    </main>
+  </div>
+</div>
+
+<!-- DADOS DO RESUMO EXECUTIVO (HTML) — nunca renderizado na tela, só lido pelo botão
+     "Resumo executivo (HTML)" (ver script no fim do arquivo, função gerarResumoExecutivoHTML()).
+     Montado/atualizado pela skill site-cliente-impulseup a cada vez que a Aba 1, 2, 4, 5, 7 ou 8
+     é publicada (ver estrutura-abas.md, seção "Resumo executivo (HTML)"). Campos ausentes =
+     seção correspondente omitida no arquivo exportado, nunca "A confirmar" ou dado inventado.
+     `contexto: null` = botão avisa que a Aba 2 (Diagnóstico) ainda não foi publicada. -->
+<script type="application/json" id="execSummaryData">
+{
+  "nomeEmpresa": "CPEA",
+  "slugEmpresa": "cpea",
+  "contexto": "Estruturando pela primeira vez a gestão de desempenho, com aprovação direta da CEO. Meta de fechar o projeto ainda em 2026 e rodar o primeiro ciclo em junho de 2027.",
+  "desafiosCentrais": [
+    {"titulo": "Nunca houve avaliação de desempenho", "numero": "102 colaboradores"},
+    {"titulo": "Ausência de cultura de feedback"},
+    {"titulo": "Público de campo sem e-mail corporativo"}
+  ],
+  "objetivos": [],
+  "pilaresDestaque": [
+    {"titulo": "A avaliação chega a quem está em campo, sem depender de e-mail corporativo", "tag": "Fácil"},
+    {"titulo": "A virada da cultura de feedback é conduzida, não só implantada", "tag": "Atendimento consultivo"},
+    {"titulo": "Competências desenhadas por cargo técnico, com uma visão de fora", "tag": "Flexível"}
+  ],
+  "comparativo": null,
+  "investimento": null,
+  "cronogramaMacro": [
+    {"data": "Setembro", "titulo": "Diagnóstico e comparação de fornecedores"},
+    {"data": "Outubro", "titulo": "Definição de orçamento e fechamento do projeto"},
+    {"data": "Início de 2027", "titulo": "Implantação e parametrização"},
+    {"data": "Junho de 2027", "titulo": "Primeiro ciclo na plataforma"}
+  ]
+}
+</script>
+
+<footer>
+  <div class="wrap"><p>impulseup · Material preparado para CPEA</p></div>
+</footer>
+
+<script>
+  document.querySelectorAll('#tabNav button[data-tab]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('#tabNav button[data-tab]').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+    });
+  });
+
+  // ---------- RESUMO EXECUTIVO (HTML) ----------
+  function hexVar(name, fallback){
+    const v = getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+    return (v || fallback).replace('#', '');
+  }
+
+  function getLogoDataUrl(selector){
+    const img = document.querySelector(selector);
+    if (!img || !img.src || !img.src.startsWith('data:')) return null;
+    return img.src;
+  }
+
+  function escapeHtml(str){
+    return String(str == null ? '' : str)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+
+  function gerarResumoExecutivoHTML(){
+    const dataEl = document.getElementById('execSummaryData');
+    let data;
+    try {
+      data = JSON.parse(dataEl.textContent);
+    } catch (e) {
+      alert('Dados do resumo executivo estão inválidos.');
+      return null;
+    }
+    if (!data.contexto){
+      alert('O resumo executivo é liberado depois da reunião de Diagnóstico.');
+      return null;
+    }
+
+    const primary = '#' + hexVar('--color-primary', 'CC0088');
+    const fg = '#' + hexVar('--color-fg', '0C0C0C');
+    const fgMuted = '#' + hexVar('--color-fg-muted', '6B6B6B');
+    const bgAlt = '#' + hexVar('--color-bg-alt', 'F7F7F9');
+    const border = '#' + hexVar('--color-border', 'E5E5EA');
+    const clientLogo = getLogoDataUrl('#clientLogoSlot img');
+    const empresa = data.nomeEmpresa || 'Cliente';
+
+    const desafios = (data.desafiosCentrais || []).slice(0, 4);
+    const comNumero = desafios.find(d => d.numero);
+    const desafiosResto = desafios.filter(d => d !== comNumero).slice(0, 3);
+    const objetivos = (data.objetivos || []).slice(0, 4);
+    const pilares = (data.pilaresDestaque || []).slice(0, 3);
+    const comparativo = (data.comparativo && (data.comparativo.criterios || []).length) ? data.comparativo : null;
+    const marcos = (data.cronogramaMacro || []).slice(0, 5);
+    const proximoMarco = marcos.find(m => (m.titulo || '').toLowerCase().includes('assinatura')) || marcos[marcos.length - 1];
+
+    const pilaresHtml = pilares.map(p => `
+      <div class="pilar-card" onclick="this.classList.toggle('open')">
+        <span class="pilar-tag">${escapeHtml(p.tag)}</span>
+        <div class="pilar-title">${escapeHtml(p.titulo)}</div>
+        <div class="pilar-hint">+ ver detalhe</div>
+      </div>`).join('');
+
+    const desafiosRestoHtml = desafiosResto.map(d => `<div class="desafio-item">${escapeHtml(d.titulo)}</div>`).join('');
+
+    const visaoTexto = objetivos.map(o => escapeHtml(o.titulo)).join(' &middot; ');
+
+    const resultadoCardsHtml = objetivos.slice(0, 2).map(o => `
+      <div class="resultado-card">
+        <h4>${escapeHtml(o.titulo)}</h4>
+        <p>${escapeHtml(o.estadoFuturoResumido)}</p>
+      </div>`).join('');
+
+    const timelineHtml = marcos.map(m => `
+      <div class="tl-item" onclick="this.classList.toggle('open')">
+        <div class="tl-dot"></div>
+        <div class="tl-head"><span class="tl-date">${escapeHtml(m.data)}</span><span class="tl-title">${escapeHtml(m.titulo)}</span></div>
+      </div>`).join('');
+
+    let comparativoSectionHtml = '';
+    if (comparativo){
+      const concorrentes = (comparativo.concorrentes || []).slice(0, 3);
+      const criterios = (comparativo.criterios || []).slice(0, 10);
+      const headerCols = concorrentes.map(c => `<th>${escapeHtml(c)}</th>`).join('');
+      const rowsHtml = criterios.map(crit => {
+        const dif = crit.porConcorrente && crit.porConcorrente.every(v => !v) ? '1' : '0';
+        const impulseupCell = crit.impulseup
+          ? '<td class="center check-yes">&check;</td>'
+          : '<td class="center check-no">&mdash;</td>';
+        const concorrenteCells = concorrentes.map((c, i) => {
+          const ok = crit.porConcorrente && crit.porConcorrente[i];
+          return ok ? '<td class="center">&check;</td>' : '<td class="center check-no">&mdash;</td>';
+        }).join('');
+        return `<tr data-dif="${dif}"><td>${escapeHtml(crit.nome)}</td>${impulseupCell}${concorrenteCells}</tr>`;
+      }).join('');
+      comparativoSectionHtml = `
+<section id="comparativo">
+  <div class="kicker">Comparativo com o mercado</div>
+  <h2>Onde a impulseup se diferencia de verdade</h2>
+  <div class="comp-controls">
+    <button class="comp-chip active" onclick="filtrarComparativo('todos', this)">Todos os critérios</button>
+    <button class="comp-chip" onclick="filtrarComparativo('diferencial', this)">Só onde a impulseup se diferencia</button>
+  </div>
+  <table class="comp">
+    <tr><th>Critério</th><th class="impulseup-col">impulseup</th>${headerCols}</tr>
+    ${rowsHtml}
+  </table>
+</section>`;
+    }
+
+    const navDots = ['capa', 'problema', 'pilares', comparativo ? 'comparativo' : null, 'plano', 'investimento']
+      .filter(Boolean).map((id, i) => `<a href="#${id}" data-i="${i}" class="${i === 0 ? 'active' : ''}"></a>`).join('');
+
+    return `<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Resumo executivo — ${escapeHtml(empresa)}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--color-primary:${primary};--color-fg:${fg};--color-fg-muted:${fgMuted};--color-bg-alt:${bgAlt};--color-border:${border};}
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;font-family:'Poppins',sans-serif;color:var(--color-fg);background:#fff;}
+  section{min-height:100vh;padding:100px 10vw 60px;position:relative;display:flex;flex-direction:column;justify-content:center;scroll-margin-top:20px;}
+  .navdots{position:fixed;right:24px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:14px;z-index:20;}
+  .navdots a{width:9px;height:9px;border-radius:50%;background:var(--color-border);display:block;transition:background .2s,transform .2s;}
+  .navdots a.active{background:var(--color-primary);transform:scale(1.3);}
+  .kicker{font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-primary);margin-bottom:14px;}
+  h1{font-size:44px;font-weight:800;margin:0 0 10px;line-height:1.1;}
+  h2{font-size:32px;font-weight:800;margin:0 0 30px;line-height:1.15;}
+  .lede{font-size:16px;color:var(--color-fg-muted);max-width:560px;line-height:1.7;}
+  .brandmark{position:absolute;top:36px;left:10vw;font-size:14px;font-weight:700;color:var(--color-fg-muted);}
+  .brandmark span{color:var(--color-primary);}
+  .clientlogo{position:absolute;top:30px;right:10vw;max-width:140px;max-height:44px;object-fit:contain;}
+  #problema .grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;margin-top:10px;}
+  .big-number{font-size:96px;font-weight:800;color:var(--color-primary);line-height:1;}
+  .big-number-label{font-size:14px;color:var(--color-fg-muted);max-width:280px;margin-top:8px;line-height:1.5;}
+  .desafio-list{display:flex;flex-direction:column;gap:18px;}
+  .desafio-item{border-left:4px solid var(--color-primary);padding-left:16px;font-size:16px;font-weight:600;}
+  .visao-panel{margin-top:50px;background:var(--color-fg);border-radius:16px;padding:28px 34px;}
+  .visao-panel .kicker{color:#FF7FC8;margin-bottom:10px;}
+  .visao-panel p{color:#fff;font-size:19px;font-weight:700;margin:0;line-height:1.5;}
+  .pilares-grid{display:grid;grid-template-columns:repeat(${Math.max(pilares.length, 1)},1fr);gap:20px;margin-top:10px;}
+  .pilar-card{border:1px solid var(--color-border);border-radius:16px;padding:26px;cursor:pointer;transition:box-shadow .2s,border-color .2s;background:#fff;}
+  .pilar-card:hover{border-color:var(--color-primary);}
+  .pilar-tag{display:inline-block;background:var(--color-primary);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;padding:6px 13px;border-radius:16px;margin-bottom:18px;}
+  .pilar-title{font-size:18px;font-weight:800;line-height:1.4;}
+  .pilar-hint{font-size:11.5px;color:var(--color-primary);font-weight:700;margin-top:12px;}
+  .comp-controls{display:flex;gap:10px;margin-bottom:18px;flex-wrap:wrap;}
+  .comp-chip{border:1px solid var(--color-border);border-radius:20px;padding:7px 16px;font-size:12.5px;font-weight:600;cursor:pointer;background:#fff;color:var(--color-fg-muted);}
+  .comp-chip.active{background:var(--color-primary);color:#fff;border-color:var(--color-primary);}
+  table.comp{width:100%;border-collapse:collapse;font-size:13px;}
+  table.comp th{padding:12px 14px;text-align:left;font-weight:700;color:#fff;background:var(--color-fg);}
+  table.comp th.impulseup-col{background:var(--color-primary);}
+  table.comp td{padding:10px 14px;border-bottom:1px solid var(--color-border);}
+  table.comp tr.dim{opacity:0.35;}
+  td.center{text-align:center;}
+  .check-yes{color:var(--color-primary);font-weight:800;font-size:15px;}
+  .check-no{color:var(--color-fg-muted);}
+  .timeline-wrap{position:relative;margin:40px 0 20px;padding-left:6px;}
+  .tl-line{position:absolute;left:14px;top:6px;bottom:6px;width:2px;background:var(--color-border);}
+  .tl-item{position:relative;padding-left:44px;margin-bottom:6px;cursor:pointer;}
+  .tl-dot{position:absolute;left:6px;top:2px;width:17px;height:17px;border-radius:50%;background:#fff;border:3px solid var(--color-primary);}
+  .tl-item.open .tl-dot{background:var(--color-primary);}
+  .tl-head{display:flex;align-items:baseline;gap:14px;padding:10px 0;}
+  .tl-date{font-size:12px;font-weight:700;color:var(--color-primary);min-width:70px;}
+  .tl-title{font-size:16px;font-weight:700;}
+  .resultado-cards{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:36px;}
+  .resultado-card{background:var(--color-bg-alt);border-radius:14px;padding:22px 24px;}
+  .resultado-card h4{margin:0 0 8px;font-size:15px;font-weight:700;}
+  .resultado-card p{margin:0;font-size:13px;color:var(--color-fg-muted);line-height:1.55;}
+  .invest-panel{display:flex;align-items:center;gap:60px;background:var(--color-fg);border-radius:18px;padding:44px 50px;margin-top:20px;}
+  .invest-value{font-size:56px;font-weight:800;color:#fff;}
+  .invest-meta{font-size:15px;color:#EDEDED;}
+  .proximo-label{font-size:12px;font-weight:700;color:var(--color-primary);letter-spacing:0.05em;text-transform:uppercase;margin-top:34px;margin-bottom:6px;}
+  .proximo-text{font-size:20px;font-weight:800;}
+  .footer-tag{position:absolute;bottom:24px;left:10vw;font-size:11px;color:var(--color-fg-muted);}
+</style>
+</head>
+<body>
+<div class="navdots">${navDots}</div>
+
+<section id="capa">
+  <div class="brandmark">impulse<span>up</span></div>
+  ${clientLogo ? `<img class="clientlogo" src="${clientLogo}">` : ''}
+  <div class="kicker">Resumo executivo</div>
+  <h1>${escapeHtml(empresa)}</h1>
+  <p class="lede">${escapeHtml(data.contexto)}</p>
+</section>
+
+<section id="problema">
+  <div class="kicker">Por que agora</div>
+  <h2>O momento da ${escapeHtml(empresa)}</h2>
+  <div class="grid">
+    <div>
+      ${comNumero ? `<div class="big-number" data-target="${escapeHtml(comNumero.numero).replace(/\D/g, '') || 0}">0</div><div class="big-number-label">${escapeHtml(comNumero.titulo)}</div>` : ''}
+    </div>
+    <div class="desafio-list">${desafiosRestoHtml}</div>
+  </div>
+  ${objetivos.length ? `<div class="visao-panel"><div class="kicker">Onde queremos chegar</div><p>${visaoTexto}</p></div>` : ''}
+</section>
+
+<section id="pilares">
+  <div class="kicker">Por que a impulseup</div>
+  <h2>O que sustenta esse projeto</h2>
+  <div class="pilares-grid">${pilaresHtml}</div>
+</section>
+
+${comparativoSectionHtml}
+
+<section id="plano">
+  <div class="kicker">O plano e o resultado</div>
+  <h2>A jornada até lá</h2>
+  <div class="timeline-wrap"><div class="tl-line"></div>${timelineHtml}</div>
+  <div class="resultado-cards">${resultadoCardsHtml}</div>
+</section>
+
+<section id="investimento">
+  <div class="kicker">Investimento e próximo passo</div>
+  <h2>O que fecha esse projeto</h2>
+  ${data.investimento && data.investimento.parcelaValor ? `
+  <div class="invest-panel">
+    <div><div class="kicker" style="color:#FF7FC8;">Investimento</div><div class="invest-value">${escapeHtml(data.investimento.parcelaValor)}</div></div>
+    ${data.investimento.duracaoContrato ? `<div class="invest-meta">Contrato de ${escapeHtml(data.investimento.duracaoContrato)}</div>` : ''}
+  </div>` : ''}
+  ${proximoMarco ? `<div class="proximo-label">Próximo passo</div><div class="proximo-text">${escapeHtml(proximoMarco.data)} — ${escapeHtml(proximoMarco.titulo)}</div>` : ''}
+  <div class="footer-tag">impulseup &middot; material preparado para ${escapeHtml(empresa)}</div>
+</section>
+
+<script>
+  const dots = document.querySelectorAll('.navdots a');
+  const sections = document.querySelectorAll('section');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting){
+        const idx = Array.from(sections).indexOf(entry.target);
+        dots.forEach(d => d.classList.remove('active'));
+        if (dots[idx]) dots[idx].classList.add('active');
+        const num = entry.target.querySelector('.big-number');
+        if (num) animateNumber(num);
+      }
+    });
+  }, { threshold: 0.5 });
+  sections.forEach(s => observer.observe(s));
+
+  function animateNumber(el){
+    if (el.dataset.done) return;
+    el.dataset.done = '1';
+    const target = parseInt(el.dataset.target, 10) || 0;
+    const start = performance.now();
+    function step(now){
+      const p = Math.min(1, (now - start) / 900);
+      el.textContent = Math.floor(p * target);
+      if (p < 1) requestAnimationFrame(step); else el.textContent = target;
+    }
+    requestAnimationFrame(step);
+  }
+
+  function filtrarComparativo(modo, btn){
+    document.querySelectorAll('.comp-chip').forEach(c => c.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('table.comp tr[data-dif]').forEach(row => {
+      row.classList.toggle('dim', modo !== 'todos' && row.dataset.dif !== '1');
+    });
+  }
+<\/script>
+</body>
+</html>`;
+  }
+
+  const execBtn = document.getElementById('exportExecHtmlBtn');
+  if (execBtn){
+    execBtn.addEventListener('click', () => {
+      const html = gerarResumoExecutivoHTML();
+      if (!html) return;
+      const dataEl = document.getElementById('execSummaryData');
+      let slug = 'cliente';
+      try { slug = JSON.parse(dataEl.textContent).slugEmpresa || 'cliente'; } catch (e) {}
+      const blob = new Blob([html], { type: 'text/html' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'resumo-executivo-' + slug + '.html';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    });
+  }
+
+  const STORAGE_KEY = 'iup_site_cpea';
+
+  function saveImage(key, dataUrl){
+    const store = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+    store[key] = dataUrl;
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(store));
+  }
+  function loadStore(){
+    return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+  }
+
+  // clientLogoInput só existe quando a logo do cliente ainda não foi embutida pela skill
+  // (fallback de upload manual) — se a skill já embutiu a logo (<img class="client-logo">
+  // estático, sem input), este bloco não faz nada.
+  const clientLogoInputEl = document.getElementById('clientLogoInput');
+  if(clientLogoInputEl){
+    clientLogoInputEl.addEventListener('change', e => {
+      const file = e.target.files[0];
+      if(!file) return;
+      const reader = new FileReader();
+      reader.onload = ev => {
+        const slot = document.getElementById('clientLogoSlot');
+        slot.innerHTML = '<img src="' + ev.target.result + '"><input type="file" accept="image/*" id="clientLogoInput">';
+        document.getElementById('clientLogoInput').addEventListener('change', arguments.callee);
+        saveImage('clientLogo', ev.target.result);
+      };
+      reader.readAsDataURL(file);
+    });
+  }
+
+  (function restoreImages(){
+    const store = loadStore();
+    const clientLogoSlotEl = document.getElementById('clientLogoSlot');
+    if(store.clientLogo && clientLogoSlotEl){
+      clientLogoSlotEl.innerHTML = '<img src="' + store.clientLogo + '">';
+      const input = document.createElement('input');
+      input.type = 'file'; input.accept = 'image/*'; input.id = 'clientLogoInput';
+      clientLogoSlotEl.appendChild(input);
+    }
+    document.querySelectorAll('.personPhotoInput').forEach((input, idx) => {
+      if(store['person_' + idx]){
+        const label = input.closest('.person-photo');
+        label.innerHTML = '<img src="' + store['person_' + idx] + '">';
+        label.appendChild(input);
+      }
+    });
+    document.querySelectorAll('.logo-grid-input').forEach((input, idx) => {
+      if(store['logo_' + idx]){
+        const slot = input.closest('.logo-grid-slot');
+        slot.innerHTML = '<img src="' + store['logo_' + idx] + '">';
+        const novoInput = document.createElement('input');
+        novoInput.type = 'file'; novoInput.accept = 'image/*'; novoInput.className = 'logo-grid-input';
+        slot.appendChild(novoInput);
+        novoInput.addEventListener('change', handleLogoGridChange);
+      }
+    });
+  })();
+
+  function handleLogoGridChange(e){
+    const input = e.target;
+    const slot = input.closest('.logo-grid-slot');
+    const idx = Array.from(document.querySelectorAll('.logo-grid-slot')).indexOf(slot);
+    const file = input.files[0];
+    if(!file) return;
+    const reader = new FileReader();
+    reader.onload = ev => {
+      slot.innerHTML = '<img src="' + ev.target.result + '">';
+      const novoInput = document.createElement('input');
+      novoInput.type = 'file'; novoInput.accept = 'image/*'; novoInput.className = 'logo-grid-input';
+      slot.appendChild(novoInput);
+      novoInput.addEventListener('change', handleLogoGridChange);
+      saveImage('logo_' + idx, ev.target.result);
+    };
+    reader.readAsDataURL(file);
+  }
+  document.querySelectorAll('.logo-grid-input').forEach(input => {
+    input.addEventListener('change', handleLogoGridChange);
+  });
+  document.getElementById('proposalInput').addEventListener('change', e => {
+    const file = e.target.files[0];
+    if(!file) return;
+    const reader = new FileReader();
+    reader.onload = ev => {
+      const slot = document.getElementById('proposalSlot');
+      slot.innerHTML = '<img src="' + ev.target.result + '"><input type="file" accept="image/*" id="proposalInput">';
+      document.getElementById('proposalInput').addEventListener('change', arguments.callee);
+      saveImage('proposalImage', ev.target.result);
+    };
+    reader.readAsDataURL(file);
+  });
+
+  (function restoreProposalImage(){
+    const store = loadStore();
+    if(store.proposalImage){
+      const slot = document.getElementById('proposalSlot');
+      slot.innerHTML = '<img src="' + store.proposalImage + '">';
+      const input = document.createElement('input');
+      input.type = 'file'; input.accept = 'image/*'; input.id = 'proposalInput';
+      slot.appendChild(input);
+    }
+  })();
+
+  // --- Aba 3 (Demonstração): embed de vídeo a partir de link de YouTube ou Drive ---
+  // Reconhece o link colado (pelo closer, no chat ou direto no site) e monta o player
+  // certo. Se não reconhecer o domínio/formato, cai num card com botão "Assistir vídeo"
+  // apontando pro link original — nunca falha silenciosamente.
+  function parseVideoEmbedUrl(url){
+    let u;
+    try{ u = new URL(url.trim()); } catch(e){ return null; }
+    if(u.hostname.includes('youtu.be')){
+      const id = u.pathname.replace('/', '');
+      if(id) return 'https://www.youtube.com/embed/' + id;
+    }
+    if(u.hostname.includes('youtube.com')){
+      if(u.pathname === '/watch' && u.searchParams.get('v')) return 'https://www.youtube.com/embed/' + u.searchParams.get('v');
+      if(u.pathname.startsWith('/shorts/')) return 'https://www.youtube.com/embed/' + u.pathname.split('/')[2];
+      if(u.pathname.startsWith('/embed/')) return url.trim();
+    }
+    if(u.hostname.includes('drive.google.com')){
+      const match = u.pathname.match(/\/file\/d\/([^/]+)/);
+      if(match) return 'https://drive.google.com/file/d/' + match[1] + '/preview';
+    }
+    return null;
+  }
+
+  function renderVideoEmbed(wrap, url){
+    const embedUrl = parseVideoEmbedUrl(url);
+    if(embedUrl){
+      wrap.classList.remove('video-embed-empty');
+      wrap.innerHTML = '<iframe src="' + embedUrl + '" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen loading="lazy"></iframe>';
+    } else {
+      const card = document.createElement('div');
+      card.className = 'video-link-card';
+      card.innerHTML = '<i class="fa-brands fa-google-drive"></i><p>Vídeo disponível para acesso externo</p>' +
+        '<a href="' + url + '" target="_blank" rel="noopener" class="video-link-btn">Assistir vídeo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>';
+      wrap.replaceWith(card);
+    }
+  }
+
+  document.querySelectorAll('.video-url-input').forEach(input => {
+    input.addEventListener('keydown', e => {
+      if(e.key !== 'Enter') return;
+      e.preventDefault();
+      const url = input.value.trim();
+      if(!url) return;
+      const idx = input.dataset.videoIdx;
+      const wrap = input.closest('.video-embed-wrap');
+      saveImage('video_' + idx, url);
+      renderVideoEmbed(wrap, url);
+    });
+  });
+
+  (function restoreVideos(){
+    const store = loadStore();
+    document.querySelectorAll('.video-embed-wrap[data-video-idx]').forEach(wrap => {
+      const idx = wrap.dataset.videoIdx;
+      if(store['video_' + idx]) renderVideoEmbed(wrap, store['video_' + idx]);
+    });
+  })();
+
+  // --- Edição de texto (responsáveis e datas) ---
+
+  function personCardHTML(initials, name, role){
+    return '<label class="person-photo" data-initials="' + initials + '"><span>' + initials + '</span>' +
+      '<input type="file" accept="image/*" class="personPhotoInput"></label>' +
+      '<div><h4 contenteditable="true" class="person-name">' + name + '</h4>' +
+      '<p contenteditable="true" class="person-role">' + role + '</p></div>';
+  }
+
+  function attachPersonPhotoHandler(input, key){
+    input.addEventListener('change', e => {
+      const file = e.target.files[0];
+      if(!file) return;
+      const reader = new FileReader();
+      reader.onload = ev => {
+        const label = input.closest('.person-photo');
+        label.innerHTML = '<img src="' + ev.target.result + '">';
+        label.appendChild(input);
+        saveImage(key, ev.target.result);
+      };
+      reader.readAsDataURL(file);
+    });
+  }
+
+  function attachEditableSave(el, key){
+    el.addEventListener('input', () => {
+      debouncedSaveText(key, el.textContent);
+    });
+  }
+
+  let textSaveTimeout;
+  function debouncedSaveText(key, value){
+    clearTimeout(textSaveTimeout);
+    textSaveTimeout = setTimeout(() => {
+      const store = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+      store[key] = value;
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(store));
+    }, 400);
+  }
+
+  document.getElementById('addPersonBtn').addEventListener('click', () => {
+    const teamGrid = document.getElementById('teamGrid');
+    const idx = teamGrid.querySelectorAll('.person-card').length;
+    const card = document.createElement('div');
+    card.className = 'person-card';
+    card.innerHTML = personCardHTML('??', 'Nome a preencher', 'Cargo a preencher');
+    teamGrid.appendChild(card);
+    const input = card.querySelector('.personPhotoInput');
+    attachPersonPhotoHandler(input, 'person_' + idx);
+    card.querySelectorAll('[contenteditable]').forEach((el, i) => {
+      const key = 'person_' + idx + (i === 0 ? '_name' : '_role');
+      attachEditableSave(el, key);
+    });
+  });
+
+  document.querySelectorAll('#teamGrid .personPhotoInput').forEach((input, idx) => {
+    attachPersonPhotoHandler(input, 'person_' + idx);
+  });
+  document.querySelectorAll('#teamGrid .person-name, #teamGrid .person-role').forEach((el) => {
+    const card = el.closest('.person-card');
+    const idx = Array.from(document.querySelectorAll('#teamGrid .person-card')).indexOf(card);
+    const key = 'person_' + idx + (el.classList.contains('person-name') ? '_name' : '_role');
+    attachEditableSave(el, key);
+  });
+  document.querySelectorAll('.tl-date[contenteditable]').forEach((el, idx) => {
+    attachEditableSave(el, 'tl_date_' + idx);
+  });
+
+  (function restoreEditableText(){
+    const store = loadStore();
+    document.querySelectorAll('#teamGrid .person-name, #teamGrid .person-role').forEach((el) => {
+      const card = el.closest('.person-card');
+      const idx = Array.from(document.querySelectorAll('#teamGrid .person-card')).indexOf(card);
+      const key = 'person_' + idx + (el.classList.contains('person-name') ? '_name' : '_role');
+      if(store[key] !== undefined) el.textContent = store[key];
+    });
+    document.querySelectorAll('.tl-date[contenteditable]').forEach((el, idx) => {
+      const key = 'tl_date_' + idx;
+      if(store[key] !== undefined) el.textContent = store[key];
+    });
+  })();
+
+  // --- Aba 7 (Processo de implementação): seletor de módulo (só existe com 2+ módulos) ---
+  document.querySelectorAll('.module-tab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.module-tab').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.impl-module-panel').forEach(p => p.style.display = 'none');
+      btn.classList.add('active');
+      const panel = document.getElementById('implModule-' + btn.dataset.module);
+      if(panel) panel.style.display = 'block';
+    });
+  });
+
+  // Botão "+ Adicionar etapa": insere uma etapa editável extra na fase clicada.
+  // Nunca reescreve as etapas fixas — só adiciona uma linha nova ao final do .steps-card.
+  document.querySelectorAll('.impl-add-step').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const card = btn.previousElementSibling;
+      const step = document.createElement('div');
+      step.className = 'impl-step extra';
+      step.innerHTML = '<svg class="impl-step-check" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#CC0088" stroke-width="1.5"/><path d="M6 10l2.5 2.5L14 7" stroke="#CC0088" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
+        '<div class="impl-step-text" contenteditable="true">Etapa combinada com o cliente</div>' +
+        '<span class="impl-role-tag impl-role-consultor">Consultor de implementação</span>';
+      card.appendChild(step);
+      step.querySelector('.impl-step-text').focus();
+    });
+  });
+</script>
+
+</body>
+</html>
