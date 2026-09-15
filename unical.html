@@ -634,13 +634,160 @@
     <section class="tab-panel" id="tab-5">
       <h1 class="section-title">Aprovação e plano de ação</h1>
       <p class="section-sub">Objetivos de negócio da Unical, o caminho para chegar lá e o estado futuro com a impulseup</p>
-      <div class="empty-state" id="tab5EmptyState">
+      <div class="empty-state" id="tab5EmptyState" style="display:none;">
         <i class="fa-regular fa-clipboard"></i>
         <h3>Aba liberada após a reunião de Diagnóstico</h3>
         <p>Assim que os desafios forem mapeados, esta aba mostra os objetivos de negócio e RH por trás do projeto, o plano de ação com cronograma para chegar lá, e o estado futuro do negócio com a impulseup — pronta para embasar a apresentação à diretoria.</p>
       </div>
-      <div id="tab5PlanoWrap" style="display:none;">
+      <div id="tab5PlanoWrap" style="display:block;">
         <!--OBJETIVOS-->
+        <div class="objetivo-card">
+          <div class="objetivo-header">
+            <span class="objetivo-num">01</span>
+            <div>
+              <h3>Automatizar o cálculo da remuneração variável (PLR)</h3>
+              <p>Tirar o cálculo do PLR da planilha e apoiar o pagamento em uma fórmula automática e auditável.</p>
+            </div>
+          </div>
+          <div class="objetivo-body">
+            <div class="objetivo-compare-col">
+              <div class="objetivo-compare-box atual">
+                <span class="objetivo-compare-label">Situação atual</span>
+                <p>A nota final que define o pagamento do PLR é calculada por planilha, cruzando manualmente índice global, avaliação de desempenho e tempo de casa.</p>
+              </div>
+              <div class="objetivo-compare-box meta">
+                <span class="objetivo-compare-label">Meta</span>
+                <p>O sistema calcula automaticamente o valor devido a cada colaborador a partir da fórmula configurada, sem intervenção manual do RH.</p>
+              </div>
+              <div class="objetivo-indicador">
+                <i class="fa-solid fa-flag-checkered"></i>
+                <div>
+                  <span class="objetivo-indicador-label">Indicador de sucesso</span>
+                  <p>Ciclo de PLR fechado sem necessidade de recálculo manual em planilha.</p>
+                </div>
+              </div>
+            </div>
+            <div class="objetivo-plan-col">
+              <div class="objetivo-etapas-title">Plano de ação (estimativa de onboarding)</div>
+              <div class="objetivo-etapas">
+                <div class="objetivo-etapa">
+                  <span class="objetivo-etapa-dot">1</span>
+                  <span class="objetivo-etapa-line"></span>
+                  <div class="objetivo-etapa-content">
+                    <strong>Mês 1 · Configuração da fórmula do PLR</strong>
+                    <p>impulseup levanta as regras da Unical (índice global, avaliação, tempo de casa) e monta a fórmula na plataforma. Responsável: conjunta.</p>
+                  </div>
+                </div>
+                <div class="objetivo-etapa">
+                  <span class="objetivo-etapa-dot">2</span>
+                  <span class="objetivo-etapa-line"></span>
+                  <div class="objetivo-etapa-content">
+                    <strong>Mês 1-2 · Teste e validação com dados reais</strong>
+                    <p>Time de implantação simula o cálculo com dados da Unical e valida com Thabatta antes de liberar. Responsável: conjunta.</p>
+                  </div>
+                </div>
+                <div class="objetivo-etapa">
+                  <span class="objetivo-etapa-dot">3</span>
+                  <div class="objetivo-etapa-content">
+                    <strong>Mês 2 em diante · Cálculo automático nos próximos ciclos</strong>
+                    <p>A plataforma calcula sozinha o valor de cada ciclo, sem necessidade de nova configuração. Responsável: impulseup.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="approval-outcome">
+            <div class="approval-outcome-title"><i class="fa-solid fa-arrow-trend-up"></i>Estado futuro</div>
+            <div class="approval-outcome-grid">
+              <div class="approval-stage futuro">
+                <span class="approval-stage-label">RH</span>
+                <p>O RH deixa de montar a fórmula do PLR manualmente a cada ciclo; o cálculo sai pronto da plataforma.</p>
+              </div>
+              <div class="approval-stage negocio">
+                <span class="approval-stage-label">Negócio</span>
+                <p>O pagamento de remuneração variável de até 140 pessoas passa a ter rastreabilidade e reduz o risco de erro que hoje recai só sobre quem monta a planilha.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="objetivo-card">
+          <div class="objetivo-header">
+            <span class="objetivo-num">02</span>
+            <div>
+              <h3>Digitalizar o ciclo de avaliação de desempenho</h3>
+              <p>Sair do processo em papel e planilha para um fluxo digital, do envio ao resultado.</p>
+            </div>
+          </div>
+          <div class="objetivo-body">
+            <div class="objetivo-compare-col">
+              <div class="objetivo-compare-box atual">
+                <span class="objetivo-compare-label">Situação atual</span>
+                <p>A avaliação de 158 colaboradores é impressa, respondida em papel e depois imputada manualmente na planilha pelo RH.</p>
+              </div>
+              <div class="objetivo-compare-box meta">
+                <span class="objetivo-compare-label">Meta</span>
+                <p>O ciclo roda inteiro na plataforma, do envio ao lembrete de prazo, sem etapa manual do RH.</p>
+              </div>
+              <div class="objetivo-indicador">
+                <i class="fa-solid fa-flag-checkered"></i>
+                <div>
+                  <span class="objetivo-indicador-label">Indicador de sucesso</span>
+                  <p>Percentual de respostas coletado direto na plataforma, sem etapa em papel.</p>
+                </div>
+              </div>
+            </div>
+            <div class="objetivo-plan-col">
+              <div class="objetivo-etapas-title">Plano de ação (estimativa de onboarding)</div>
+              <div class="objetivo-etapas">
+                <div class="objetivo-etapa">
+                  <span class="objetivo-etapa-dot">1</span>
+                  <span class="objetivo-etapa-line"></span>
+                  <div class="objetivo-etapa-content">
+                    <strong>Mês 1 · Parametrização do formulário</strong>
+                    <p>Configurar as 3 seções, pesos e escala que a Unical já usa dentro da plataforma. Responsável: conjunta.</p>
+                  </div>
+                </div>
+                <div class="objetivo-etapa">
+                  <span class="objetivo-etapa-dot">2</span>
+                  <span class="objetivo-etapa-line"></span>
+                  <div class="objetivo-etapa-content">
+                    <strong>Mês 1-2 · Piloto com uma área</strong>
+                    <p>Rodar o ciclo com uma área menor antes do rollout geral, para ajustar o que for necessário. Responsável: conjunta.</p>
+                  </div>
+                </div>
+                <div class="objetivo-etapa">
+                  <span class="objetivo-etapa-dot">3</span>
+                  <span class="objetivo-etapa-line"></span>
+                  <div class="objetivo-etapa-content">
+                    <strong>Mês 2-3 · Rollout para os 158 colaboradores</strong>
+                    <p>Abrir o ciclo completo com envio automático por e-mail, WhatsApp ou SMS. Responsável: impulseup.</p>
+                  </div>
+                </div>
+                <div class="objetivo-etapa">
+                  <span class="objetivo-etapa-dot">4</span>
+                  <div class="objetivo-etapa-content">
+                    <strong>Mês 3 em diante · Acompanhamento contínuo dos ciclos</strong>
+                    <p>impulseup acompanha a adoção e ajuda a Unical a manter o ritmo do ciclo. Responsável: impulseup.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="approval-outcome">
+            <div class="approval-outcome-title"><i class="fa-solid fa-arrow-trend-up"></i>Estado futuro</div>
+            <div class="approval-outcome-grid">
+              <div class="approval-stage futuro">
+                <span class="approval-stage-label">RH</span>
+                <p>Thabatta e Cristiano deixam de imprimir, distribuir e imputar resultado manualmente; o RH acompanha o status de resposta em tempo real.</p>
+              </div>
+              <div class="approval-stage negocio">
+                <span class="approval-stage-label">Negócio</span>
+                <p>O ciclo de avaliação dos 158 colaboradores passa a rodar sem depender de esforço manual do RH em cada etapa.</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -744,7 +891,10 @@
   "slugEmpresa": "unical",
   "contexto": "Indústria de mineração e beneficiamento de calcário e cal, com cerca de 158 colaboradores, sediada em Pedro Leopoldo (MG). Hoje avaliação de desempenho e cálculo do PLR são feitos por planilha.",
   "desafiosCentrais": ["Cálculo manual do PLR", "Processo 100% manual para 158 pessoas", "RH sem acesso à pesquisa de clima"],
-  "objetivos": [],
+  "objetivos": [
+    {"titulo": "Cálculo do PLR automático e auditável", "estadoFuturoResumido": "O RH deixa de montar a fórmula do PLR na planilha a cada ciclo."},
+    {"titulo": "Ciclo de avaliação 100% digital", "estadoFuturoResumido": "Os 158 colaboradores são avaliados sem etapa manual do RH, do envio ao resultado."}
+  ],
   "pilaresDestaque": [],
   "comparativo": null,
   "investimento": null,
