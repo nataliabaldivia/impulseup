@@ -658,15 +658,14 @@
     <section class="tab-panel" id="tab-3">
       <h1 class="section-title">Demonstração</h1>
       <p class="section-sub">Vídeos da plataforma, orientados aos desafios da Ottimizza</p>
-      <div class="empty-state" id="tab3EmptyState">
+      <div class="empty-state" id="tab3EmptyState" style="display:none;">
         <i class="fa-regular fa-circle-play"></i>
         <h3>Aba liberada após a reunião de Demo</h3>
         <p>O closer vai incluir aqui vídeos curtos mostrando a solução aplicada aos desafios mapeados no Diagnóstico.</p>
       </div>
-      <div id="tab3Content" style="display:none;">
+      <div id="tab3Content" style="display:block;">
         <div class="stat-grid" id="tab3ImpactoGrid">
-          <!-- Preenchido pela skill a partir de "impacto" (estrutura-abas.md, Aba 3). Ex:
-               <div class="stat-card"><div class="num">32%</div><div class="label">redução no tempo de ciclo de avaliação</div></div> -->
+          <div class="stat-card"><div class="num">2,5% a 3%</div><div class="label">turnover ao mês, concentrado nos primeiros 90 dias</div></div>
         </div>
         <div style="overflow-x:auto;margin-bottom:40px;">
           <table class="rfp-table" id="tab3ComparativoTable">
@@ -674,8 +673,10 @@
               <tr><th>Situação atual</th><th>Módulo impulseup</th><th>Como fica</th></tr>
             </thead>
             <tbody>
-              <!-- Preenchido pela skill a partir de "comparativo" (máx. 4 linhas). Ex:
-                   <tr><td>Avaliação só em planilha</td><td class="feat-name">Ciclos de avaliação</td><td>Fluxo 100% digital com lembretes automáticos</td></tr> -->
+              <tr><td>Decisões de carreira e promoção definidas no "feeling" da liderança (tempo de casa, destaque, aderência cultural), sem critério documentado</td><td class="feat-name">Avaliação de desempenho</td><td>Critério documentado e histórico registrado por ciclo, tornando decisões de carreira mais objetivas e defensáveis</td></tr>
+              <tr><td>Metas hoje são só de time, não individuais, e não ficam documentadas em lugar nenhum</td><td class="feat-name">Metas</td><td>Cadastro de metas individuais alinhadas aos objetivos da empresa, com acompanhamento formal do ciclo</td></tr>
+              <tr><td>Turnover de 2,5% a 3% ao mês concentrado nos primeiros 90 dias, sem processo estruturado de avaliação de experiência</td><td class="feat-name">Avaliação de desempenho (30/60/90)</td><td>Ciclo de experiência formalizado, com dados para agir antes da saída do colaborador</td></tr>
+              <tr><td>Time bastante júnior (muitos no primeiro emprego), nunca passou por um processo de performance estruturado — prioridade é usabilidade</td><td class="feat-name">Interface + Pesquisas via WhatsApp</td><td>Experiência simples e fluida para colaborador e gestor, com disparo de pesquisas por WhatsApp aumentando o engajamento de resposta</td></tr>
             </tbody>
           </table>
         </div>
@@ -825,7 +826,7 @@
       <p class="section-sub">Jornada de compra da Ottimizza</p>
       <div class="timeline">
         <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">A definir</span><div><span class="tl-desc">Reunião de Diagnóstico</span><div class="tl-meta">Entender contexto e desafios · Lucas (Analista de RH)</div></div></div>
-        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">A definir</span><div><span class="tl-desc">Demonstração personalizada</span><div class="tl-meta">Mostrar solução aplicada aos desafios mapeados</div></div></div>
+        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">24 set</span><div><span class="tl-desc">Demonstração personalizada</span><div class="tl-meta">Avaliação de desempenho, avaliação de experiência e metas · Lucas e Alinne (RH)</div></div></div>
         <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">A definir</span><div><span class="tl-desc">Construção de projeto e proposta</span><div class="tl-meta">Definir escopo e cenários de investimento</div></div></div>
         <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">A definir</span><div><span class="tl-desc">Apresentação para diretoria</span><div class="tl-meta">Lucas apresenta o projeto internamente</div></div></div>
         <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">A definir</span><div><span class="tl-desc">Aprovação da proposta</span></div></div>
@@ -857,7 +858,9 @@
   ],
   "comparativo": null,
   "investimento": null,
-  "cronogramaMacro": []
+  "cronogramaMacro": [
+    {"data": "24 set", "titulo": "Demonstração personalizada"}
+  ]
 }
 </script>
 
