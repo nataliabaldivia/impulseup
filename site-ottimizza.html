@@ -729,16 +729,46 @@
     <section class="tab-panel" id="tab-4">
       <h1 class="section-title">Diferenciais impulseup</h1>
       <p class="section-sub">Comparativo com base nos critérios mais importantes para este projeto</p>
-      <div class="empty-state" id="tab4EmptyState">
+      <div class="empty-state" id="tab4EmptyState" style="display:none;">
         <i class="fa-regular fa-list-check"></i>
         <h3>Aba liberada após a reunião de Diagnóstico</h3>
         <p>Assim que o closer finalizar o diagnóstico, esta aba mostra o comparativo entre a impulseup e os concorrentes identificados na conversa. Se nenhum concorrente específico for mencionado, o comparativo é feito contra "Outras soluções", com resultado mediano.</p>
       </div>
-      <div id="tab4TableWrap" style="margin-top:24px;overflow-x:auto;display:none;">
+
+      <div class="block-title"><i class="fa-regular fa-code-compare"></i>Build vs Buy — desenvolver internamente ou contratar</div>
+      <div class="top-grid">
+        <div class="card">
+          <div class="card-label">Desenvolvimento interno</div>
+          <p>Exige criar do zero as regras, a UX dos fluxos e a validação de perfis de usuário, além de manter recursos permanentes para evolução, correção de bugs e suporte. A Ottimizza ficaria responsável por infraestrutura, segurança (criptografia, controle de acesso, auditoria) e por toda a metodologia de gestão de desempenho, sem benchmark de mercado para medir o impacto no negócio. Custo estimado: cerca de 1 FTE sênior permanente (build, manutenção, evolução, infraestrutura e suporte) — que tende a superar o ticket anual da impulseup, com a imprevisibilidade de manter isso ao longo do tempo.</p>
+        </div>
+        <div class="card dark">
+          <div class="card-label">Com a impulseup</div>
+          <p>Produto de Avaliação de Desempenho já validado por mais de 1.000 clientes ao longo de quase 10 anos — só em 2026, até agosto, foram 301 melhorias entregues. Time dedicado de correção de bugs com SLA, suporte multicanal, infraestrutura gerenciada com Pentest, criptografia e alta disponibilidade já inclusos em contrato, e equipe consultiva acompanhando do início ao fim para garantir o ROI do projeto. Assinatura previsível, sem custo oculto de manutenção interna.</p>
+        </div>
+      </div>
+
+      <div id="tab4TableWrap" style="margin-top:24px;overflow-x:auto;display:block;">
         <table class="rfp-table" id="tab4Table">
-          <!-- Preenchido pela skill site-cliente-impulseup a partir da transcrição da reunião de Diagnóstico e de references/rfp-criterios.json.
-               Cada critério exibe sua tag (campo "tags" do JSON) junto ao nome, ex:
-               <tr><td><div class="feat-name">Formatos de avaliação diferentes (90/180/360)</div><span class="feat-tag">Flexível</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td>...</tr> -->
+          <thead><tr><th>Critério</th><th class="iup-col">impulseup</th><th>Sólides</th></tr></thead>
+          <tbody>
+            <tr><td><div class="feat-name">Formatos de avaliação diferentes (90/180/360)</div><span class="feat-tag">Flexível</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-check icon-yes"></i></td></tr>
+            <tr><td><div class="feat-name">Avaliação de consenso</div><span class="feat-tag">Confiável</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td></tr>
+            <tr><td><div class="feat-name">Avaliação de consenso pode ser aprovada, ao final, pelo colaborador</div><span class="feat-tag">Confiável</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td></tr>
+            <tr><td><div class="feat-name">Competências específicas e exclusivas (líder, não líder, cargo, área ou outros)</div><span class="feat-tag">Flexível</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td></tr>
+            <tr><td><div class="feat-name">Avaliação de experiência com envios automáticos</div><span class="feat-tag">Fácil</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-check icon-yes"></i></td></tr>
+            <tr><td><div class="feat-name">Gestores podem acompanhar o status das respostas de suas equipes</div><span class="feat-tag">Liderança</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td></tr>
+            <tr><td><div class="feat-name">Envio de avaliações por SMS e WhatsApp</div><span class="feat-tag">Fácil</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td></tr>
+            <tr><td><div class="feat-name">Cálculo do resultado individual</div><span class="feat-tag">Confiável</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td></tr>
+            <tr><td><div class="feat-name">Alinhamento de metas e objetivos</div><span class="feat-tag">Liderança</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td></tr>
+            <tr><td><div class="feat-name">Permite construir modelos de metas predefinidos</div><span class="feat-tag">Fácil</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td></tr>
+            <tr><td><div class="feat-name">Gráfico de evolução</div><span class="feat-tag">Confiável</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td></tr>
+            <tr><td><div class="feat-name">Fluxo de aprovação de metas e de progresso de metas</div><span class="feat-tag">Confiável</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td></tr>
+            <tr><td><div class="feat-name">Equipe de implementação com psicólogos organizacionais</div><span class="feat-tag">Atendimento consultivo</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td></tr>
+            <tr><td><div class="feat-name">Treinamento para gestores</div><span class="feat-tag">Atendimento consultivo</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-check icon-yes"></i></td></tr>
+            <tr><td><div class="feat-name">Atendimento e suporte para o usuário final</div><span class="feat-tag">Atendimento consultivo</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td></tr>
+            <tr><td><div class="feat-name">Contratação modular, conforme necessidade</div><span class="feat-tag">Flexível</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-check icon-yes"></i></td></tr>
+            <tr><td><div class="feat-name">Acesso sem e-mail corporativo</div><span class="feat-tag">Fácil</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-check icon-yes"></i></td></tr>
+          </tbody>
         </table>
       </div>
     </section>
@@ -747,13 +777,316 @@
     <section class="tab-panel" id="tab-5">
       <h1 class="section-title">Aprovação e plano de ação</h1>
       <p class="section-sub">Objetivos de negócio da Ottimizza, o caminho para chegar lá e o estado futuro com a impulseup</p>
-      <div class="empty-state" id="tab5EmptyState">
+      <div class="empty-state" id="tab5EmptyState" style="display:none;">
         <i class="fa-regular fa-clipboard"></i>
         <h3>Aba liberada após a reunião de Diagnóstico</h3>
         <p>Assim que os desafios forem mapeados, esta aba mostra os objetivos de negócio e RH por trás do projeto, o plano de ação com cronograma para chegar lá, e o estado futuro do negócio com a impulseup — pronta para embasar a apresentação à diretoria.</p>
       </div>
-      <div id="tab5PlanoWrap" style="display:none;">
-        <!--OBJETIVOS-->
+      <div id="tab5PlanoWrap" style="display:block;">
+        <div class="objetivo-card">
+          <div class="objetivo-header">
+            <span class="objetivo-num">01</span>
+            <div>
+              <h3>Estruturar avaliação de desempenho com critério documentado</h3>
+              <p>Sair do julgamento individual da liderança para um processo de avaliação com critério registrado e histórico por ciclo.</p>
+            </div>
+          </div>
+          <div class="objetivo-body">
+            <div class="objetivo-compare-col">
+              <div class="objetivo-compare-box atual">
+                <span class="objetivo-compare-label">Situação atual</span>
+                <p>Promoções e mérito são decididos pelo "feeling" da liderança (tempo de casa, destaque, aderência cultural), sem registro formal. Uma tentativa anterior em outra plataforma rodou apenas um feedback 360 comportamental, sem meta nem resultado de negócio vinculados.</p>
+              </div>
+              <div class="objetivo-compare-box meta">
+                <span class="objetivo-compare-label">Meta</span>
+                <p>Primeiro ciclo de avaliação de desempenho estruturado da Ottimizza, com critério de consenso documentado e histórico registrado, previsto para meados de 2027 (jun/jul).</p>
+              </div>
+              <div class="objetivo-indicador">
+                <i class="fa-solid fa-chart-line"></i>
+                <div>
+                  <span class="objetivo-indicador-label">Indicador de sucesso</span>
+                  <p>Primeiro ciclo de avaliação de desempenho concluído com 100% dos colaboradores avaliados por critério documentado, até meados de 2027.</p>
+                </div>
+              </div>
+            </div>
+            <div class="objetivo-plan-col">
+              <div class="objetivo-etapas-title">Plano de ação</div>
+              <div class="objetivo-etapas">
+              <div class="objetivo-etapa">
+                <span class="objetivo-etapa-dot">1</span>
+                <div class="objetivo-etapa-line"></div>
+                <div class="objetivo-etapa-content">
+                  <span class="objetivo-etapa-period">Mês 1–2</span>
+                  <h4>Parametrização do modelo</h4>
+                  <p>Desenho do modelo de avaliação (formatos, competências, escalas) junto com Alinne e Lucas.</p>
+                  <span class="objetivo-etapa-resp">Responsável: impulseup</span>
+                </div>
+              </div>
+              <div class="objetivo-etapa">
+                <span class="objetivo-etapa-dot">2</span>
+                <div class="objetivo-etapa-line"></div>
+                <div class="objetivo-etapa-content">
+                  <span class="objetivo-etapa-period">Mês 3</span>
+                  <h4>Piloto</h4>
+                  <p>Piloto com um time reduzido para validar fluxo e usabilidade antes do rollout geral.</p>
+                  <span class="objetivo-etapa-resp">Responsável: conjunta</span>
+                </div>
+              </div>
+              <div class="objetivo-etapa">
+                <span class="objetivo-etapa-dot">3</span>
+                <div class="objetivo-etapa-line"></div>
+                <div class="objetivo-etapa-content">
+                  <span class="objetivo-etapa-period">Mês 4 em diante</span>
+                  <h4>Rollout e acompanhamento</h4>
+                  <p>Consultoria de gestão de desempenho acompanhando o primeiro ciclo completo.</p>
+                  <span class="objetivo-etapa-resp">Responsável: impulseup</span>
+                </div>
+              </div>
+              </div>
+            </div>
+          </div>
+          <div class="approval-outcome">
+            <div class="approval-outcome-title"><i class="fa-solid fa-flag-checkered"></i>Estado futuro</div>
+            <div class="approval-outcome-grid">
+              <div class="approval-stage futuro">
+                <span class="approval-stage-label">RH / DHO</span>
+                <p>Alinne e Lucas passam a ter critério documentado e histórico por ciclo para embasar decisões de carreira e promoção, sem depender só da percepção individual do gestor.</p>
+              </div>
+              <div class="approval-stage negocio">
+                <span class="approval-stage-label">Negócio</span>
+                <p>Decisões de carreira mais justas e defensáveis, reduzindo o risco de perder talento por falta de critério claro de reconhecimento.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="objetivo-card">
+          <div class="objetivo-header">
+            <span class="objetivo-num">02</span>
+            <div>
+              <h3>Implantar metas individuais</h3>
+              <p>Sair de metas de time para metas individuais formalizadas e conectadas ao ciclo de avaliação.</p>
+            </div>
+          </div>
+          <div class="objetivo-body">
+            <div class="objetivo-compare-col">
+              <div class="objetivo-compare-box atual">
+                <span class="objetivo-compare-label">Situação atual</span>
+                <p>Metas hoje são só de time; as pessoas seguem uma descrição de cargo, sem meta individual formalizada.</p>
+              </div>
+              <div class="objetivo-compare-box meta">
+                <span class="objetivo-compare-label">Meta</span>
+                <p>Cadastro de metas individuais implementado até dezembro, alinhado aos objetivos da empresa, com ciclos semestrais a partir de então.</p>
+              </div>
+              <div class="objetivo-indicador">
+                <i class="fa-solid fa-chart-line"></i>
+                <div>
+                  <span class="objetivo-indicador-label">Indicador de sucesso</span>
+                  <p>100% dos colaboradores com meta individual cadastrada até dezembro.</p>
+                </div>
+              </div>
+            </div>
+            <div class="objetivo-plan-col">
+              <div class="objetivo-etapas-title">Plano de ação</div>
+              <div class="objetivo-etapas">
+              <div class="objetivo-etapa">
+                <span class="objetivo-etapa-dot">1</span>
+                <div class="objetivo-etapa-line"></div>
+                <div class="objetivo-etapa-content">
+                  <span class="objetivo-etapa-period">Mês 1</span>
+                  <h4>Configuração do módulo de Metas</h4>
+                  <p>Parametrização do portal de metas e definição do fluxo de cadastro.</p>
+                  <span class="objetivo-etapa-resp">Responsável: impulseup</span>
+                </div>
+              </div>
+              <div class="objetivo-etapa">
+                <span class="objetivo-etapa-dot">2</span>
+                <div class="objetivo-etapa-line"></div>
+                <div class="objetivo-etapa-content">
+                  <span class="objetivo-etapa-period">Mês 1–2</span>
+                  <h4>Definição das metas por área</h4>
+                  <p>Alinne e Lucas trabalham com as lideranças para desenhar as metas individuais de cada time.</p>
+                  <span class="objetivo-etapa-resp">Responsável: Ottimizza</span>
+                </div>
+              </div>
+              <div class="objetivo-etapa">
+                <span class="objetivo-etapa-dot">3</span>
+                <div class="objetivo-etapa-line"></div>
+                <div class="objetivo-etapa-content">
+                  <span class="objetivo-etapa-period">Mês 2</span>
+                  <h4>Lançamento e comunicação</h4>
+                  <p>Lançamento do primeiro ciclo de metas para toda a empresa, com apoio de letramento do time.</p>
+                  <span class="objetivo-etapa-resp">Responsável: conjunta</span>
+                </div>
+              </div>
+              </div>
+            </div>
+          </div>
+          <div class="approval-outcome">
+            <div class="approval-outcome-title"><i class="fa-solid fa-flag-checkered"></i>Estado futuro</div>
+            <div class="approval-outcome-grid">
+              <div class="approval-stage futuro">
+                <span class="approval-stage-label">RH / DHO</span>
+                <p>Cada colaborador passa a ter uma meta individual clara e visível, conectada à autoavaliação e à avaliação do líder.</p>
+              </div>
+              <div class="approval-stage negocio">
+                <span class="approval-stage-label">Negócio</span>
+                <p>Alinhamento direto entre as atividades do dia a dia e os objetivos da empresa, dando à liderança um critério objetivo de acompanhamento de performance.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="objetivo-card">
+          <div class="objetivo-header">
+            <span class="objetivo-num">03</span>
+            <div>
+              <h3>Reduzir turnover no período de experiência</h3>
+              <p>Formalizar a avaliação de experiência para agir sobre o risco de saída antes que ele se concretize.</p>
+            </div>
+          </div>
+          <div class="objetivo-body">
+            <div class="objetivo-compare-col">
+              <div class="objetivo-compare-box atual">
+                <span class="objetivo-compare-label">Situação atual</span>
+                <p>Turnover de 2,5% a 3% ao mês, concentrado nos primeiros 90 dias — a maior parte das saídas ocorre no período de experiência.</p>
+              </div>
+              <div class="objetivo-compare-box meta">
+                <span class="objetivo-compare-label">Meta</span>
+                <p>Ciclo de avaliação de experiência (30/60/90) formalizado, com dados estruturados para agir antes do desligamento.</p>
+              </div>
+              <div class="objetivo-indicador">
+                <i class="fa-solid fa-chart-line"></i>
+                <div>
+                  <span class="objetivo-indicador-label">Indicador de sucesso</span>
+                  <p>Redução mensurável no turnover dos primeiros 90 dias, comparando ciclos antes e depois da implementação.</p>
+                </div>
+              </div>
+            </div>
+            <div class="objetivo-plan-col">
+              <div class="objetivo-etapas-title">Plano de ação</div>
+              <div class="objetivo-etapas">
+              <div class="objetivo-etapa">
+                <span class="objetivo-etapa-dot">1</span>
+                <div class="objetivo-etapa-line"></div>
+                <div class="objetivo-etapa-content">
+                  <span class="objetivo-etapa-period">Mês 1</span>
+                  <h4>Configuração do ciclo de experiência</h4>
+                  <p>Parametrização das avaliações de 30, 60 e 90 dias com envio automático.</p>
+                  <span class="objetivo-etapa-resp">Responsável: impulseup</span>
+                </div>
+              </div>
+              <div class="objetivo-etapa">
+                <span class="objetivo-etapa-dot">2</span>
+                <div class="objetivo-etapa-line"></div>
+                <div class="objetivo-etapa-content">
+                  <span class="objetivo-etapa-period">Mês 2</span>
+                  <h4>Treinamento de gestores</h4>
+                  <p>Capacitação das lideranças para conduzir a avaliação de experiência e agir sobre os resultados.</p>
+                  <span class="objetivo-etapa-resp">Responsável: impulseup</span>
+                </div>
+              </div>
+              <div class="objetivo-etapa">
+                <span class="objetivo-etapa-dot">3</span>
+                <div class="objetivo-etapa-line"></div>
+                <div class="objetivo-etapa-content">
+                  <span class="objetivo-etapa-period">Mês 3 em diante</span>
+                  <h4>Acompanhamento contínuo</h4>
+                  <p>Leitura periódica dos dados de experiência para identificar riscos de desligamento antes que aconteçam.</p>
+                  <span class="objetivo-etapa-resp">Responsável: conjunta</span>
+                </div>
+              </div>
+              </div>
+            </div>
+          </div>
+          <div class="approval-outcome">
+            <div class="approval-outcome-title"><i class="fa-solid fa-flag-checkered"></i>Estado futuro</div>
+            <div class="approval-outcome-grid">
+              <div class="approval-stage futuro">
+                <span class="approval-stage-label">RH / DHO</span>
+                <p>RH passa a enxergar, com dados, onde o risco de desligamento no período de experiência está concentrado, antes que a saída aconteça.</p>
+              </div>
+              <div class="approval-stage negocio">
+                <span class="approval-stage-label">Negócio</span>
+                <p>Potencial de redução do turnover de 2,5% a 3% ao mês concentrado nos 90 dias, com economia direta em custo de reposição e ramp-up de novas contratações.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="objetivo-card">
+          <div class="objetivo-header">
+            <span class="objetivo-num">04</span>
+            <div>
+              <h3>Garantir adoção por um time majoritariamente júnior</h3>
+              <p>Fazer com que um time sem nenhuma experiência prévia com avaliação de desempenho adote o processo com autonomia.</p>
+            </div>
+          </div>
+          <div class="objetivo-body">
+            <div class="objetivo-compare-col">
+              <div class="objetivo-compare-box atual">
+                <span class="objetivo-compare-label">Situação atual</span>
+                <p>Boa parte do time nunca passou por um processo de performance estruturado — muitos estão no primeiro emprego.</p>
+              </div>
+              <div class="objetivo-compare-box meta">
+                <span class="objetivo-compare-label">Meta</span>
+                <p>Interface simples e fluida, com engajamento real de colaboradores e gestores já no primeiro ciclo.</p>
+              </div>
+              <div class="objetivo-indicador">
+                <i class="fa-solid fa-chart-line"></i>
+                <div>
+                  <span class="objetivo-indicador-label">Indicador de sucesso</span>
+                  <p>Taxa de resposta e engajamento no primeiro ciclo acima da média esperada para um time nunca antes exposto ao processo.</p>
+                </div>
+              </div>
+            </div>
+            <div class="objetivo-plan-col">
+              <div class="objetivo-etapas-title">Plano de ação</div>
+              <div class="objetivo-etapas">
+              <div class="objetivo-etapa">
+                <span class="objetivo-etapa-dot">1</span>
+                <div class="objetivo-etapa-line"></div>
+                <div class="objetivo-etapa-content">
+                  <span class="objetivo-etapa-period">Mês 1</span>
+                  <h4>Letramento e comunicação interna</h4>
+                  <p>Alinne e Lucas conduzem o treinamento inicial explicando o que é meta, como configurar e como avaliar com base em resultado.</p>
+                  <span class="objetivo-etapa-resp">Responsável: Ottimizza</span>
+                </div>
+              </div>
+              <div class="objetivo-etapa">
+                <span class="objetivo-etapa-dot">2</span>
+                <div class="objetivo-etapa-line"></div>
+                <div class="objetivo-etapa-content">
+                  <span class="objetivo-etapa-period">Mês 2</span>
+                  <h4>Ativação de pesquisas via WhatsApp</h4>
+                  <p>Disparo de pesquisas e lembretes por WhatsApp para aumentar a taxa de resposta do time júnior.</p>
+                  <span class="objetivo-etapa-resp">Responsável: impulseup</span>
+                </div>
+              </div>
+              <div class="objetivo-etapa">
+                <span class="objetivo-etapa-dot">3</span>
+                <div class="objetivo-etapa-line"></div>
+                <div class="objetivo-etapa-content">
+                  <span class="objetivo-etapa-period">Mês 2 em diante</span>
+                  <h4>Suporte consultivo contínuo</h4>
+                  <p>Equipe de implementação com psicólogos organizacionais acompanha dúvidas do dia a dia.</p>
+                  <span class="objetivo-etapa-resp">Responsável: impulseup</span>
+                </div>
+              </div>
+              </div>
+            </div>
+          </div>
+          <div class="approval-outcome">
+            <div class="approval-outcome-title"><i class="fa-solid fa-flag-checkered"></i>Estado futuro</div>
+            <div class="approval-outcome-grid">
+              <div class="approval-stage futuro">
+                <span class="approval-stage-label">RH / DHO</span>
+                <p>Colaboradores júnior conseguem navegar e responder ao processo com autonomia, sem depender de explicação constante do RH.</p>
+              </div>
+              <div class="approval-stage negocio">
+                <span class="approval-stage-label">Negócio</span>
+                <p>Maior taxa de adesão ao processo de gestão de desempenho, tornando os dados coletados confiáveis para decisões futuras de carreira e remuneração.</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -862,12 +1195,25 @@
     {"titulo": "Turnover concentrado nos 90 dias", "numero": "2,5% a 3% ao mês"},
     {"titulo": "Time júnior, primeiro contato com avaliação estruturada"}
   ],
-  "objetivos": [],
+  "objetivos": [
+    {"titulo": "Um critério documentado para decisões de carreira, não mais o feeling da liderança", "estadoFuturoResumido": "Histórico de avaliação registrado por ciclo, embasando promoções e mérito"},
+    {"titulo": "Metas individuais visíveis para cada colaborador, alinhadas à empresa", "estadoFuturoResumido": "100% do time com meta individual cadastrada até dezembro"},
+    {"titulo": "Turnover do período de experiência sob controle, com dados antes da saída", "estadoFuturoResumido": "Ciclo de experiência (30/60/90) formalizado para agir antes do desligamento"},
+    {"titulo": "Um time júnior engajado desde o primeiro ciclo, sem depender do RH para navegar", "estadoFuturoResumido": "Pesquisas via WhatsApp e suporte consultivo elevando a taxa de resposta"}
+  ],
   "pilaresDestaque": [
     {"titulo": "O processo nasce do jeito que a empresa precisa, não de um modelo herdado", "tag": "Flexível"},
     {"titulo": "O RH não precisa chegar com todas as respostas prontas", "tag": "Atendimento consultivo"}
   ],
-  "comparativo": null,
+  "comparativo": {
+    "concorrentes": ["Sólides"],
+    "criterios": [
+      {"nome": "Avaliação de consenso", "tag": "Confiável", "impulseup": true, "porConcorrente": [false]},
+      {"nome": "Cálculo do resultado individual de metas", "tag": "Confiável", "impulseup": true, "porConcorrente": [false]},
+      {"nome": "Equipe de implementação com psicólogos organizacionais", "tag": "Atendimento consultivo", "impulseup": true, "porConcorrente": [false]},
+      {"nome": "Contratação modular, conforme necessidade", "tag": "Flexível", "impulseup": true, "porConcorrente": [true]}
+    ]
+  },
   "investimento": null,
   "cronogramaMacro": [
     {"data": "24 set", "titulo": "Demonstração personalizada"}
