@@ -735,16 +735,28 @@
     <section class="tab-panel" id="tab-4">
       <h1 class="section-title">Diferenciais impulseup</h1>
       <p class="section-sub">Comparativo com base nos critérios mais importantes para este projeto</p>
-      <div class="empty-state" id="tab4EmptyState">
+      <div class="empty-state" id="tab4EmptyState" style="display:none;">
         <i class="fa-regular fa-list-check"></i>
         <h3>Aba liberada após a reunião de Diagnóstico</h3>
         <p>Assim que o closer finalizar o diagnóstico, esta aba mostra o comparativo entre a impulseup e os concorrentes identificados na conversa. Se nenhum concorrente específico for mencionado, o comparativo é feito contra "Outras soluções", com resultado mediano.</p>
       </div>
-      <div id="tab4TableWrap" style="margin-top:24px;overflow-x:auto;display:none;">
+      <div id="tab4TableWrap" style="margin-top:24px;overflow-x:auto;display:block;">
         <table class="rfp-table" id="tab4Table">
-          <!-- Preenchido pela skill site-cliente-impulseup a partir da transcrição da reunião de Diagnóstico e de references/rfp-criterios.json.
-               Cada critério exibe sua tag (campo "tags" do JSON) junto ao nome, ex:
-               <tr><td><div class="feat-name">Formatos de avaliação diferentes (90/180/360)</div><span class="feat-tag">Flexível</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td>...</tr> -->
+          <thead>
+            <tr><th>Critério</th><th class="iup-col">impulseup</th><th>Sólides</th><th>Gupy</th></tr>
+          </thead>
+          <tbody>
+              <tr><td><div class="feat-name">Formatos de avaliação diferentes (90/180/360)</div><span class="feat-tag">Flexível</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-check icon-yes"></i></td></tr>
+              <tr><td><div class="feat-name">Pesos diferentes por tipo de avaliador, por competência</div><span class="feat-tag">Flexível</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td><td class="check-cell"><i class="fa-solid fa-check icon-yes"></i></td></tr>
+              <tr><td><div class="feat-name">Competências específicas e exclusivas (líder, não líder, cargo, área)</div><span class="feat-tag">Flexível</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td><td class="check-cell"><i class="fa-solid fa-check icon-yes"></i></td></tr>
+              <tr><td><div class="feat-name">Gestores acompanham o status das respostas de suas equipes</div><span class="feat-tag">Liderança</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td></tr>
+              <tr><td><div class="feat-name">Perfil 360° (todas as informações do colaborador em uma página)</div><span class="feat-tag">Fácil</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td></tr>
+              <tr><td><div class="feat-name">Comparação de performance e desenvolvimento ao longo do tempo</div><span class="feat-tag">Confiável</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td></tr>
+              <tr><td><div class="feat-name">Ajuda de IA para escrever feedbacks</div><span class="feat-tag">Inteligente</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td></tr>
+              <tr><td><div class="feat-name">Construção de PDI com biblioteca e IA</div><span class="feat-tag">Inteligente</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td></tr>
+              <tr><td><div class="feat-name">Treinamento para gestores</div><span class="feat-tag">Atendimento consultivo</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-check icon-yes"></i></td></tr>
+              <tr><td><div class="feat-name">Acesso sem e-mail corporativo</div><span class="feat-tag">Fácil</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-check icon-yes"></i></td></tr>
+          </tbody>
         </table>
       </div>
     </section>
@@ -753,13 +765,264 @@
     <section class="tab-panel" id="tab-5">
       <h1 class="section-title">Aprovação e plano de ação</h1>
       <p class="section-sub">Objetivos de negócio da Siner, o caminho para chegar lá e o estado futuro com a impulseup</p>
-      <div class="empty-state" id="tab5EmptyState">
+      <div class="empty-state" id="tab5EmptyState" style="display:none;">
         <i class="fa-regular fa-clipboard"></i>
         <h3>Aba liberada após a reunião de Diagnóstico</h3>
-        <p>Assim que os desafios forem mapeados, esta aba mostra os objetivos de negócio e RH por trás do projeto, o plano de ação com cronograma para chegar lá, e o estado futuro do negócio com a impulseup — pronta para embasar a apresentação à diretoria.</p>
+        <p>Assim que os desafios forem mapeados, esta aba mostra os objetivos de negócio e RH por trás do projeto, o plano de ação com cronograma para chegar lá, e o estado futuro do negócio com a impulseup, pronta para embasar a apresentação à diretoria.</p>
       </div>
-      <div id="tab5PlanoWrap" style="display:none;">
-        <!--OBJETIVOS-->
+      <div id="tab5PlanoWrap" style="display:block;">
+        <div class="objetivo-card">
+          <div class="objetivo-header">
+            <span class="objetivo-num">01</span>
+            <div><h3>Sair da planilha e consolidar o primeiro ciclo 360° até dezembro</h3><p>A Siner nunca rodou uma avaliação 360° e precisa entregar um retrato completo do desempenho dos 160 colaboradores para a nova diretoria, com prazo apertado.</p></div>
+          </div>
+          <div class="objetivo-body">
+            <div class="objetivo-compare-col">
+              <div class="objetivo-compare-box atual">
+                <span class="objetivo-compare-label">Situação atual</span>
+                <p>Ciclos anteriores feitos em planilha de Excel nunca chegaram à etapa de feedback. A empresa nunca rodou uma 360° e precisa iniciar em outubro, com resultado consolidado até dezembro, quando a diretoria toma decisões de cargo.</p>
+              </div>
+              <div class="objetivo-compare-box meta">
+                <span class="objetivo-compare-label">Meta</span>
+                <p>Primeiro ciclo 360° completo, digital e sustentável, com resultado 100% tabulado a tempo da decisão da diretoria em dezembro.</p>
+              </div>
+              <div class="objetivo-indicador">
+                <i class="fa-solid fa-bullseye"></i>
+                <div>
+                  <span class="objetivo-indicador-label">Indicador de sucesso</span>
+                  <p>Ciclo 360° 100% tabulado e relatórios liberados até dezembro, como definido pela diretoria.</p>
+                </div>
+              </div>
+            </div>
+            <div class="objetivo-plan-col">
+              <div class="objetivo-etapas-title">Plano de ação</div>
+              <div class="objetivo-etapas">
+            <div class="objetivo-etapa">
+              <span class="objetivo-etapa-dot">01</span>
+              <span class="objetivo-etapa-line"></span>
+              <div class="objetivo-etapa-content">
+                <span class="objetivo-etapa-period">Mês 1 (out)</span>
+                <h4>Configuração do ciclo e sensibilização dos gestores</h4>
+                <p>Parametrização da avaliação e alinhamento com os gestores para reduzir viés de nota.</p>
+                <span class="objetivo-etapa-resp">Responsável: impulseup</span>
+              </div>
+            </div>
+            <div class="objetivo-etapa">
+              <span class="objetivo-etapa-dot">02</span>
+              <span class="objetivo-etapa-line"></span>
+              <div class="objetivo-etapa-content">
+                <span class="objetivo-etapa-period">Mês 1–2 (out–nov)</span>
+                <h4>Aplicação da avaliação 360°</h4>
+                <p>Autoavaliação, avaliação do gestor e dos pares, com histórico de respostas.</p>
+                <span class="objetivo-etapa-resp">Responsável: conjunta</span>
+              </div>
+            </div>
+            <div class="objetivo-etapa">
+              <span class="objetivo-etapa-dot">03</span>
+              <span class="objetivo-etapa-line"></span>
+              <div class="objetivo-etapa-content">
+                <span class="objetivo-etapa-period">Mês 3 (dez)</span>
+                <h4>Consolidação e liberação de resultados</h4>
+                <p>Relatórios liberados para a diretoria com o panorama completo dos 160 colaboradores.</p>
+                <span class="objetivo-etapa-resp">Responsável: Siner</span>
+              </div>
+            </div>
+              </div>
+            </div>
+          </div>
+          <div class="approval-outcome">
+            <div class="approval-outcome-title"><i class="fa-solid fa-arrow-trend-up"></i>Estado futuro</div>
+            <div class="approval-outcome-grid">
+              <div class="approval-stage futuro">
+                <span class="approval-stage-label">RH / DHO</span>
+                <p>RH deixa de depender de tabulação manual em Excel e passa a ter um ciclo 360° digital, com histórico de respostas e comentário obrigatório nos extremos da escala.</p>
+              </div>
+              <div class="approval-stage negocio">
+                <span class="approval-stage-label">Negócio</span>
+                <p>A diretoria recém-reestruturada ganha, já em dezembro, uma visão consolidada do desempenho dos 160 colaboradores para embasar decisões de cargo e carreira.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="objetivo-card">
+          <div class="objetivo-header">
+            <span class="objetivo-num">02</span>
+            <div><h3>Padronizar a avaliação por cargo com peso definido por avaliador</h3><p>Hoje a Siner decide promoção e desligamento por mérito, antiguidade e percepção do gestor, sem peso formal entre os avaliadores.</p></div>
+          </div>
+          <div class="objetivo-body">
+            <div class="objetivo-compare-col">
+              <div class="objetivo-compare-box atual">
+                <span class="objetivo-compare-label">Situação atual</span>
+                <p>Decisões de promoção e desligamento se baseiam em mérito, antiguidade e na percepção do gestor, sem peso definido entre autoavaliação, gestor e pares.</p>
+              </div>
+              <div class="objetivo-compare-box meta">
+                <span class="objetivo-compare-label">Meta</span>
+                <p>Nota de referência por cargo, com peso por tipo de avaliador definido antes do início do ciclo (gestor com maior peso, pares e autoavaliação complementando).</p>
+              </div>
+              <div class="objetivo-indicador">
+                <i class="fa-solid fa-bullseye"></i>
+                <div>
+                  <span class="objetivo-indicador-label">Indicador de sucesso</span>
+                  <p>Pesos por avaliador configurados e aplicados já no primeiro ciclo, com nota de referência disponível por cargo.</p>
+                </div>
+              </div>
+            </div>
+            <div class="objetivo-plan-col">
+              <div class="objetivo-etapas-title">Plano de ação</div>
+              <div class="objetivo-etapas">
+            <div class="objetivo-etapa">
+              <span class="objetivo-etapa-dot">01</span>
+              <span class="objetivo-etapa-line"></span>
+              <div class="objetivo-etapa-content">
+                <span class="objetivo-etapa-period">Mês 1 (out)</span>
+                <h4>Definição dos pesos por avaliador</h4>
+                <p>Alinhamento do peso entre autoavaliação, gestor e pares junto ao RH.</p>
+                <span class="objetivo-etapa-resp">Responsável: conjunta</span>
+              </div>
+            </div>
+            <div class="objetivo-etapa">
+              <span class="objetivo-etapa-dot">02</span>
+              <span class="objetivo-etapa-line"></span>
+              <div class="objetivo-etapa-content">
+                <span class="objetivo-etapa-period">Mês 1 (out)</span>
+                <h4>Sensibilização para reduzir viés de nota</h4>
+                <p>Orientação aos gestores para evitar nota uniformemente alta por insegurança na primeira avaliação.</p>
+                <span class="objetivo-etapa-resp">Responsável: impulseup</span>
+              </div>
+            </div>
+              </div>
+            </div>
+          </div>
+          <div class="approval-outcome">
+            <div class="approval-outcome-title"><i class="fa-solid fa-arrow-trend-up"></i>Estado futuro</div>
+            <div class="approval-outcome-grid">
+              <div class="approval-stage futuro">
+                <span class="approval-stage-label">RH / DHO</span>
+                <p>RH passa a comparar avaliações com um critério objetivo por cargo, com competências específicas por área, em vez de depender só da percepção individual de cada gestor.</p>
+              </div>
+              <div class="approval-stage negocio">
+                <span class="approval-stage-label">Negócio</span>
+                <p>Decisões de carreira ganham base documentada, reduzindo o risco de a diretoria perder credibilidade com promoções sem coerência entre avaliação e resultado, como já aconteceu antes.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="objetivo-card">
+          <div class="objetivo-header">
+            <span class="objetivo-num">03</span>
+            <div><h3>Incluir a liderança PJ no mesmo ciclo 360°</h3><p>Parte da liderança da Siner atua como PJ, e a empresa ainda precisa decidir como avaliar esse público sem deixar essa liderança de fora do retrato de desempenho.</p></div>
+          </div>
+          <div class="objetivo-body">
+            <div class="objetivo-compare-col">
+              <div class="objetivo-compare-box atual">
+                <span class="objetivo-compare-label">Situação atual</span>
+                <p>Parte da liderança atua como PJ, e a Siner ainda está decidindo se aplica os mesmos critérios usados para CLT ou adapta o texto da avaliação.</p>
+              </div>
+              <div class="objetivo-compare-box meta">
+                <span class="objetivo-compare-label">Meta</span>
+                <p>Modelo de avaliação adaptado para PJ, com acesso via link e sem exigir e-mail corporativo, sem excluir esse público do ciclo 360°.</p>
+              </div>
+              <div class="objetivo-indicador">
+                <i class="fa-solid fa-bullseye"></i>
+                <div>
+                  <span class="objetivo-indicador-label">Indicador de sucesso</span>
+                  <p>Colaboradores PJ elegíveis participando do ciclo 360°, com avaliação adequada ao vínculo.</p>
+                </div>
+              </div>
+            </div>
+            <div class="objetivo-plan-col">
+              <div class="objetivo-etapas-title">Plano de ação</div>
+              <div class="objetivo-etapas">
+            <div class="objetivo-etapa">
+              <span class="objetivo-etapa-dot">01</span>
+              <span class="objetivo-etapa-line"></span>
+              <div class="objetivo-etapa-content">
+                <span class="objetivo-etapa-period">Mês 1 (out)</span>
+                <h4>Ajuste do texto da avaliação para PJ</h4>
+                <p>Adequação da pergunta e validação com o jurídico da Siner antes do disparo.</p>
+                <span class="objetivo-etapa-resp">Responsável: Siner</span>
+              </div>
+            </div>
+              </div>
+            </div>
+          </div>
+          <div class="approval-outcome">
+            <div class="approval-outcome-title"><i class="fa-solid fa-arrow-trend-up"></i>Estado futuro</div>
+            <div class="approval-outcome-grid">
+              <div class="approval-stage futuro">
+                <span class="approval-stage-label">RH / DHO</span>
+                <p>RH consegue incluir os colaboradores PJ no mesmo ciclo 360°, com acesso direto por link, sem ficar sem dado justamente na liderança que atua nesse vínculo.</p>
+              </div>
+              <div class="approval-stage negocio">
+                <span class="approval-stage-label">Negócio</span>
+                <p>A empresa evita um ponto cego de desempenho na liderança PJ, área historicamente mais exposta à falta de avaliação formal na Siner.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="objetivo-card">
+          <div class="objetivo-header">
+            <span class="objetivo-num">04</span>
+            <div><h3>Construir cultura de feedback e retorno confiável para os colaboradores</h3><p>A liderança da Siner tem pouca prática em avaliar e dar retorno, e os colaboradores esperam clareza logo após a construção da nova tabela salarial.</p></div>
+          </div>
+          <div class="objetivo-body">
+            <div class="objetivo-compare-col">
+              <div class="objetivo-compare-box atual">
+                <span class="objetivo-compare-label">Situação atual</span>
+                <p>A liderança tem pouca prática em avaliar e dar retorno às equipes, e os colaboradores esperam retorno das avaliações logo depois da nova tabela salarial.</p>
+              </div>
+              <div class="objetivo-compare-box meta">
+                <span class="objetivo-compare-label">Meta</span>
+                <p>Gestores dando devolutiva estruturada, com apoio de IA, e colaboradores com clareza sobre o resultado e o plano de desenvolvimento.</p>
+              </div>
+              <div class="objetivo-indicador">
+                <i class="fa-solid fa-bullseye"></i>
+                <div>
+                  <span class="objetivo-indicador-label">Indicador de sucesso</span>
+                  <p>Devolutivas registradas para 100% dos colaboradores avaliados, com PDI vinculado à competência trabalhada.</p>
+                </div>
+              </div>
+            </div>
+            <div class="objetivo-plan-col">
+              <div class="objetivo-etapas-title">Plano de ação</div>
+              <div class="objetivo-etapas">
+            <div class="objetivo-etapa">
+              <span class="objetivo-etapa-dot">01</span>
+              <span class="objetivo-etapa-line"></span>
+              <div class="objetivo-etapa-content">
+                <span class="objetivo-etapa-period">Mês 1 (out)</span>
+                <h4>Treinamento dos gestores para devolutiva</h4>
+                <p>Capacitação para leitura do relatório e construção da devolutiva com apoio de IA.</p>
+                <span class="objetivo-etapa-resp">Responsável: impulseup</span>
+              </div>
+            </div>
+            <div class="objetivo-etapa">
+              <span class="objetivo-etapa-dot">02</span>
+              <span class="objetivo-etapa-line"></span>
+              <div class="objetivo-etapa-content">
+                <span class="objetivo-etapa-period">Mês 3 (dez)</span>
+                <h4>Liberação de relatórios com PDI sugerido</h4>
+                <p>Biblioteca de ações de PDI pré-configurada por competência, para o gestor selecionar na devolutiva.</p>
+                <span class="objetivo-etapa-resp">Responsável: conjunta</span>
+              </div>
+            </div>
+              </div>
+            </div>
+          </div>
+          <div class="approval-outcome">
+            <div class="approval-outcome-title"><i class="fa-solid fa-arrow-trend-up"></i>Estado futuro</div>
+            <div class="approval-outcome-grid">
+              <div class="approval-stage futuro">
+                <span class="approval-stage-label">RH / DHO</span>
+                <p>O gestor analisa o relatório e monta a devolutiva com apoio de inteligência artificial, com biblioteca de PDI pronta por competência.</p>
+              </div>
+              <div class="approval-stage negocio">
+                <span class="approval-stage-label">Negócio</span>
+                <p>Colaboradores ganham confiança no processo logo depois da mudança salarial, reduzindo o risco de o novo ciclo ser visto como só mais uma imposição do RH.</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
