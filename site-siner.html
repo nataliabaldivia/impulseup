@@ -655,15 +655,17 @@
     <section class="tab-panel" id="tab-3">
       <h1 class="section-title">Demonstração</h1>
       <p class="section-sub">Vídeos da plataforma, orientados aos desafios da Siner</p>
-      <div class="empty-state" id="tab3EmptyState">
+      <div class="empty-state" id="tab3EmptyState" style="display:none;">
         <i class="fa-regular fa-circle-play"></i>
         <h3>Aba liberada após a reunião de Demo</h3>
         <p>O closer vai incluir aqui vídeos curtos mostrando a solução aplicada aos desafios mapeados no Diagnóstico.</p>
       </div>
-      <div id="tab3Content" style="display:none;">
+      <div id="tab3Content" style="display:block;">
         <div class="stat-grid" id="tab3ImpactoGrid">
-          <!-- Preenchido pela skill a partir de "impacto" (estrutura-abas.md, Aba 3). Ex:
-               <div class="stat-card"><div class="num">32%</div><div class="label">redução no tempo de ciclo de avaliação</div></div> -->
+          <div class="stat-card"><div class="num">160</div><div class="label">colaboradores (PJ e CLT) no primeiro ciclo de avaliação 360°</div></div>
+          <div class="stat-card"><div class="num">1,5%</div><div class="label">turnover ao ano, mas decisões de carreira ainda sem dado formal</div></div>
+          <div class="stat-card"><div class="num">+5 anos</div><div class="label">tempo médio de casa, cultura já forte que a avaliação passa a mensurar</div></div>
+          <div class="stat-card"><div class="num">Dez/26</div><div class="label">prazo da nova diretoria para o ciclo 360° com resultado 100% tabulado</div></div>
         </div>
         <div style="overflow-x:auto;margin-bottom:40px;">
           <table class="rfp-table" id="tab3ComparativoTable">
@@ -671,12 +673,26 @@
               <tr><th>Situação atual</th><th>Módulo impulseup</th><th>Como fica</th></tr>
             </thead>
             <tbody>
-              <!-- Preenchido pela skill a partir de "comparativo" (máx. 4 linhas). Ex:
-                   <tr><td>Avaliação só em planilha</td><td class="feat-name">Ciclos de avaliação</td><td>Fluxo 100% digital com lembretes automáticos</td></tr> -->
+              <tr><td>Avaliações feitas em planilha de Excel, sem histórico nem padrão entre gestores</td><td class="feat-name">Avaliação de Desempenho 360°</td><td>Ciclo estruturado com peso por avaliador, histórico de respostas e comentário obrigatório nos extremos da escala</td></tr>
+              <tr><td>Promoções e desligamentos decididos por antiguidade e "feeling" do gestor, sem dado objetivo</td><td class="feat-name">Relatório com Inteligência Artificial (IAP)</td><td>Gestor analisa o relatório e monta a devolutiva com apoio de IA, com base em dado, não em impressão</td></tr>
+              <tr><td>Nova diretoria sem uma visão consolidada do desempenho dos 160 colaboradores</td><td class="feat-name">Visão 360° do colaborador e do gestor</td><td>Painel único por pessoa e por equipe, com resultado, histórico de ciclos e comparação</td></tr>
+              <tr><td>Nenhuma cultura de PDI ou feedback estruturado até hoje</td><td class="feat-name">PDI e Feedback</td><td>Biblioteca de ações de PDI pré-configurada por competência, para o gestor só selecionar na devolutiva</td></tr>
             </tbody>
           </table>
         </div>
         <div class="video-grid" id="tab3VideoGrid">
+          <div class="video-card">
+            <h4>Demonstração da Avaliação de Desempenho 360°</h4>
+            <p>Configuração aplicada aos desafios da Siner: pesos por avaliador, relatório com IA e biblioteca de PDI.</p>
+            <div class="video-embed-wrap video-embed-empty" data-video-idx="0">
+              <label class="video-paste-label">
+                <i class="fa-regular fa-circle-play"></i>
+                <span>Cole aqui o link do vídeo (YouTube ou Drive)</span>
+              </label>
+              <input type="text" class="video-url-input" data-video-idx="0" placeholder="https://...">
+            </div>
+          </div>
+        
           <!-- Preenchido pela skill a partir de "videos" (estrutura-abas.md, Aba 3), um .video-card por vídeo.
                Ver scripts/gerar_video_embed.py::gerar_bloco_video() para a lógica de geração.
 
@@ -822,7 +838,7 @@
       <p class="section-sub">Jornada de compra da Siner</p>
       <div class="timeline">
         <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">23 set</span><div><span class="tl-desc">Reunião de Diagnóstico</span><div class="tl-meta">Entender contexto e desafios · Débora e Natália</div></div></div>
-        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">A definir</span><div><span class="tl-desc">Demonstração personalizada</span><div class="tl-meta">Mostrar a solução aplicada aos desafios mapeados</div></div></div>
+        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">25 set</span><div><span class="tl-desc">Demonstração personalizada</span><div class="tl-meta">Mostrar a solução aplicada aos desafios mapeados</div></div></div>
         <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">A definir</span><div><span class="tl-desc">Construção de projeto e proposta</span><div class="tl-meta">Definir escopo e cenários de investimento</div></div></div>
         <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">A definir</span><div><span class="tl-desc">Apresentação para diretoria</span><div class="tl-meta">Débora apresenta o projeto internamente</div></div></div>
         <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">A definir</span><div><span class="tl-desc">Aprovação da proposta</span></div></div>
