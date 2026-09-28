@@ -718,16 +718,43 @@
     <section class="tab-panel" id="tab-4">
       <h1 class="section-title">Diferenciais impulseup</h1>
       <p class="section-sub">Comparativo com base nos critérios mais importantes para este projeto</p>
-      <div class="empty-state" id="tab4EmptyState">
+      <div class="empty-state" id="tab4EmptyState" style="display:none;">
         <i class="fa-regular fa-list-check"></i>
         <h3>Aba liberada após a reunião de Diagnóstico</h3>
         <p>Assim que o closer finalizar o diagnóstico, esta aba mostra o comparativo entre a impulseup e os concorrentes identificados na conversa. Se nenhum concorrente específico for mencionado, o comparativo é feito contra "Outras soluções", com resultado mediano.</p>
       </div>
-      <div id="tab4TableWrap" style="margin-top:24px;overflow-x:auto;display:none;">
+      <div id="tab4TableWrap" style="margin-top:24px;overflow-x:auto;display:block;">
         <table class="rfp-table" id="tab4Table">
-          <!-- Preenchido pela skill site-cliente-impulseup a partir da transcrição da reunião de Diagnóstico e de references/rfp-criterios.json.
-               Cada critério exibe sua tag (campo "tags" do JSON) junto ao nome, ex:
-               <tr><td><div class="feat-name">Formatos de avaliação diferentes (90/180/360)</div><span class="feat-tag">Flexível</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td>...</tr> -->
+          <thead>
+            <tr><th>Critério</th><th class="iup-col">impulseup</th><th>Qulture.Rocks</th><th>Sólides</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><div class="feat-name">Formatos de avaliação diferentes (90/180/360)</div><span class="feat-tag">Flexível</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-check icon-yes"></i></td></tr>
+            <tr><td><div class="feat-name">Competências específicas e exclusivas (líder, não líder, cargo, área ou outros)</div><span class="feat-tag">Flexível</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td></tr>
+            <tr><td><div class="feat-name">Criação de campos customizados para análises e filtros</div><span class="feat-tag">Flexível</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td></tr>
+            <tr><td><div class="feat-name">Pesos diferentes por tipo de avaliador, por competência</div><span class="feat-tag">Flexível</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td></tr>
+            <tr><td><div class="feat-name">Gestores podem acompanhar o status das respostas de suas equipes</div><span class="feat-tag">Liderança</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td></tr>
+            <tr><td><div class="feat-name">Avaliação de experiência com envios automáticos</div><span class="feat-tag">Fácil</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-check icon-yes"></i></td></tr>
+            <tr><td><div class="feat-name">Envio de avaliações por SMS e WhatsApp</div><span class="feat-tag">Fácil</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td></tr>
+            <tr><td><div class="feat-name">Permite construir qualquer formato de matriz (2x2, 3x3, 4x1 etc.)</div><span class="feat-tag">Flexível</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td></tr>
+            <tr><td><div class="feat-name">Calibração de resultados (por quadrante, seção ou competência)</div><span class="feat-tag">Confiável</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td></tr>
+            <tr><td><div class="feat-name">Customização dos quadrantes (nomes, cores, notas, quantidade)</div><span class="feat-tag">Flexível</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td></tr>
+            <tr><td><div class="feat-name">Planejamento de carreira e sucessão</div><span class="feat-tag">Liderança</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td></tr>
+            <tr><td><div class="feat-name">Inteligência Artificial para insights automáticos</div><span class="feat-tag">Inteligente</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td></tr>
+            <tr><td><div class="feat-name">Perfil 360 (todas as informações do colaborador em uma única página)</div><span class="feat-tag">Fácil</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td><td class="check-cell"><i class="fa-solid fa-check icon-yes"></i></td></tr>
+            <tr><td><div class="feat-name">Análises avançadas com filtros customizados</div><span class="feat-tag">Flexível</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td></tr>
+            <tr><td><div class="feat-name">Comparação de performance e desenvolvimento ao longo do tempo</div><span class="feat-tag">Confiável</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td><td class="check-cell"><i class="fa-solid fa-check icon-yes"></i></td></tr>
+            <tr><td><div class="feat-name">Biblioteca de ações de desenvolvimento personalizada</div><span class="feat-tag">Flexível</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td></tr>
+            <tr><td><div class="feat-name">Construção de PDI com biblioteca e IA</div><span class="feat-tag">Inteligente</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td></tr>
+            <tr><td><div class="feat-name">Envio de relatório periódico para gestores sobre execução dos PDIs</div><span class="feat-tag">Liderança</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td></tr>
+            <tr><td><div class="feat-name">Registro de feedbacks (categorizados, compartilhados)</div><span class="feat-tag">Confiável</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td></tr>
+            <tr><td><div class="feat-name">Permite compartilhar no mural da empresa e/ou LinkedIn</div><span class="feat-tag">Fácil</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td></tr>
+            <tr><td><div class="feat-name">Permite criar múltiplos desafios</div><span class="feat-tag">Flexível</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td></tr>
+            <tr><td><div class="feat-name">Permite criar metas de pontuação</div><span class="feat-tag">Flexível</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td></tr>
+            <tr><td><div class="feat-name">Acesso sem e-mail corporativo</div><span class="feat-tag">Fácil</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-check icon-yes"></i></td></tr>
+            <tr><td><div class="feat-name">Contratação modular, conforme necessidade</div><span class="feat-tag">Flexível</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-check icon-yes"></i></td></tr>
+            <tr><td><div class="feat-name">Treinamento para gestores</div><span class="feat-tag">Atendimento consultivo</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td><td class="check-cell"><i class="fa-solid fa-check icon-yes"></i></td></tr>
+          </tbody>
         </table>
       </div>
     </section>
@@ -736,13 +763,141 @@
     <section class="tab-panel" id="tab-5">
       <h1 class="section-title">Aprovação e plano de ação</h1>
       <p class="section-sub">Objetivos de negócio da RLX Fluidos Refrigerantes, o caminho para chegar lá e o estado futuro com a impulseup</p>
-      <div class="empty-state" id="tab5EmptyState">
+      <div class="empty-state" id="tab5EmptyState" style="display:none;">
         <i class="fa-regular fa-clipboard"></i>
         <h3>Aba liberada após a reunião de Diagnóstico</h3>
         <p>Assim que os desafios forem mapeados, esta aba mostra os objetivos de negócio e RH por trás do projeto, o plano de ação com cronograma para chegar lá, e o estado futuro do negócio com a impulseup — pronta para embasar a apresentação à diretoria.</p>
       </div>
-      <div id="tab5PlanoWrap" style="display:none;">
+      <div id="tab5PlanoWrap" style="display:block;">
         <!--OBJETIVOS-->
+        <div class="objetivo-card">
+          <div class="objetivo-header">
+            <span class="objetivo-num">01</span>
+            <div>
+              <h3>Padronizar um único processo de avaliação entre Manaus e o Sul</h3>
+              <p>Sair de duas unidades sem processo comum de avaliação para um único ciclo, com os mesmos critérios, rodando nas duas operações ao mesmo tempo.</p>
+            </div>
+          </div>
+          <div class="objetivo-body">
+            <div class="objetivo-compare-col">
+              <div class="objetivo-compare-box atual"><span class="objetivo-compare-label">Situação atual</span><p>Operação industrial em Manaus e escritório administrativo no Sul funcionam com ritmos diferentes, sem nunca terem rodado um ciclo formal de avaliação de desempenho juntas.</p></div>
+              <div class="objetivo-compare-box meta"><span class="objetivo-compare-label">Meta</span><p>Rodar o primeiro ciclo de avaliação de desempenho, no formato 180 graus, simultaneamente nas duas unidades, já no início de 2027.</p></div>
+              <div class="objetivo-indicador"><i class="fa-solid fa-bullseye"></i><div><span class="objetivo-indicador-label">Indicador de sucesso</span><p>Primeiro ciclo de avaliação de desempenho concluído nas duas unidades, dentro do mesmo período.</p></div></div>
+            </div>
+            <div class="objetivo-plan-col">
+              <div class="objetivo-etapas-title">Plano de ação</div>
+              <div class="objetivo-etapas">
+                <div class="objetivo-etapa"><span class="objetivo-etapa-dot">1</span><span class="objetivo-etapa-line"></span><div class="objetivo-etapa-content"><span class="objetivo-etapa-period">Out/Nov 2026</span><h4>Construção de projeto e proposta</h4><p>Fechamento do escopo e aprovação do investimento pelo comitê de diretoria.</p><span class="objetivo-etapa-resp">Conjunta</span></div></div>
+                <div class="objetivo-etapa"><span class="objetivo-etapa-dot">2</span><span class="objetivo-etapa-line"></span><div class="objetivo-etapa-content"><span class="objetivo-etapa-period">Dez 2026</span><h4>Parametrização</h4><p>Configuração do formulário de competências, escala e regras de visibilidade por unidade e cargo.</p><span class="objetivo-etapa-resp">impulseup</span></div></div>
+                <div class="objetivo-etapa"><span class="objetivo-etapa-dot">3</span><span class="objetivo-etapa-line"></span><div class="objetivo-etapa-content"><span class="objetivo-etapa-period">Jan 2027</span><h4>Testes e sensibilização</h4><p>Ambiente de teste validado com o RH e comunicação interna para as duas unidades sobre o novo ciclo.</p><span class="objetivo-etapa-resp">Conjunta</span></div></div>
+                <div class="objetivo-etapa"><span class="objetivo-etapa-dot">4</span><div class="objetivo-etapa-content"><span class="objetivo-etapa-period">Fev 2027 em diante</span><h4>Primeiro ciclo</h4><p>Rodada de avaliação com autoavaliação e avaliação do gestor, rodando ao mesmo tempo em Manaus e no Sul.</p><span class="objetivo-etapa-resp">RLX Fluidos Refrigerantes</span></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="approval-outcome">
+            <div class="approval-outcome-title"><i class="fa-solid fa-flag-checkered"></i>Estado futuro</div>
+            <div class="approval-outcome-grid">
+              <div class="approval-stage futuro"><span class="approval-stage-label">RH</span><p>O RH tem, pela primeira vez, um único processo de avaliação de desempenho rodando ao mesmo tempo nas duas unidades, com os mesmos critérios e o mesmo histórico entre ciclos.</p></div>
+              <div class="approval-stage negocio"><span class="approval-stage-label">Negócio</span><p>A liderança passa a enxergar Manaus e o Sul como uma única operação de gestão de pessoas, o que facilita decisões de expansão à medida que a RLX cresce rumo a 2031.</p></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="objetivo-card">
+          <div class="objetivo-header">
+            <span class="objetivo-num">02</span>
+            <div>
+              <h3>Dar autonomia ao gestor e aliviar o time de RH enxuto</h3>
+              <p>Tirar do RH a tarefa de cobrar manualmente cada colaborador e devolver essa responsabilidade para o próprio gestor da equipe.</p>
+            </div>
+          </div>
+          <div class="objetivo-body">
+            <div class="objetivo-compare-col">
+              <div class="objetivo-compare-box atual"><span class="objetivo-compare-label">Situação atual</span><p>O time de DHO tem 6 pessoas, divididas entre Sul e Manaus, para tocar um processo de avaliação que ainda não existe formalmente.</p></div>
+              <div class="objetivo-compare-box meta"><span class="objetivo-compare-label">Meta</span><p>Gestores acompanham o progresso das próprias equipes e recebem notificação de quem ainda não respondeu, sem depender do RH para cobrar cada pessoa.</p></div>
+              <div class="objetivo-indicador"><i class="fa-solid fa-bullseye"></i><div><span class="objetivo-indicador-label">Indicador de sucesso</span><p>Percentual de avaliações concluídas no prazo sem intervenção manual do RH.</p></div></div>
+            </div>
+            <div class="objetivo-plan-col">
+              <div class="objetivo-etapas-title">Plano de ação</div>
+              <div class="objetivo-etapas">
+                <div class="objetivo-etapa"><span class="objetivo-etapa-dot">1</span><span class="objetivo-etapa-line"></span><div class="objetivo-etapa-content"><span class="objetivo-etapa-period">Dez 2026</span><h4>Configuração da visão do gestor</h4><p>Habilitar o acompanhamento de equipe e as notificações automáticas de prazo para cada gestor.</p><span class="objetivo-etapa-resp">impulseup</span></div></div>
+                <div class="objetivo-etapa"><span class="objetivo-etapa-dot">2</span><span class="objetivo-etapa-line"></span><div class="objetivo-etapa-content"><span class="objetivo-etapa-period">Jan 2027</span><h4>Treinamento de gestores</h4><p>Orientar os gestores de Manaus e do Sul sobre como cobrar a própria equipe dentro da plataforma.</p><span class="objetivo-etapa-resp">impulseup</span></div></div>
+                <div class="objetivo-etapa"><span class="objetivo-etapa-dot">3</span><div class="objetivo-etapa-content"><span class="objetivo-etapa-period">Fev 2027 em diante</span><h4>Acompanhamento contínuo</h4><p>RH monitora só as exceções, os gestores tocam o dia a dia do ciclo.</p><span class="objetivo-etapa-resp">RLX Fluidos Refrigerantes</span></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="approval-outcome">
+            <div class="approval-outcome-title"><i class="fa-solid fa-flag-checkered"></i>Estado futuro</div>
+            <div class="approval-outcome-grid">
+              <div class="approval-stage futuro"><span class="approval-stage-label">RH</span><p>O RH deixa de cobrar cada colaborador individualmente. Isso passa para o gestor, que acompanha a própria equipe e recebe notificação de quem está atrasado.</p></div>
+              <div class="approval-stage negocio"><span class="approval-stage-label">Negócio</span><p>O time enxuto de DHO ganha tempo para estruturar outras frentes prioritárias, como o processo seletivo, em vez de ficar preso à cobrança operacional do primeiro ciclo.</p></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="objetivo-card">
+          <div class="objetivo-header">
+            <span class="objetivo-num">03</span>
+            <div>
+              <h3>Crescer sem trocar de ferramenta pelo caminho</h3>
+              <p>Começar com um projeto simples e enxuto e ganhar complexidade no mesmo ritmo do crescimento de faturamento e de quadro que a RLX projeta até 2031.</p>
+            </div>
+          </div>
+          <div class="objetivo-body">
+            <div class="objetivo-compare-col">
+              <div class="objetivo-compare-box atual"><span class="objetivo-compare-label">Situação atual</span><p>A RLX cresceu bastante nos últimos quatro anos e projeta um salto de faturamento até 2031, mas ainda não tem estrutura de processos de gestão de desempenho para sustentar essa expansão.</p></div>
+              <div class="objetivo-compare-box meta"><span class="objetivo-compare-label">Meta</span><p>Manter só o módulo de Avaliação de Desempenho ativo no primeiro momento, com a opção de contratar novos módulos (Pesquisa, Metas, Learning) só quando fizer sentido, sem precisar reimplantar a ferramenta.</p></div>
+              <div class="objetivo-indicador"><i class="fa-solid fa-bullseye"></i><div><span class="objetivo-indicador-label">Indicador de sucesso</span><p>Adoção consolidada do módulo de Avaliação de Desempenho nas duas unidades antes de qualquer decisão sobre novo módulo.</p></div></div>
+            </div>
+            <div class="objetivo-plan-col">
+              <div class="objetivo-etapas-title">Plano de ação</div>
+              <div class="objetivo-etapas">
+                <div class="objetivo-etapa"><span class="objetivo-etapa-dot">1</span><span class="objetivo-etapa-line"></span><div class="objetivo-etapa-content"><span class="objetivo-etapa-period">Início de 2027</span><h4>Consolidação do primeiro ciclo</h4><p>Rodar e estabilizar o ciclo de avaliação de desempenho antes de considerar qualquer módulo novo.</p><span class="objetivo-etapa-resp">RLX Fluidos Refrigerantes</span></div></div>
+                <div class="objetivo-etapa"><span class="objetivo-etapa-dot">2</span><div class="objetivo-etapa-content"><span class="objetivo-etapa-period">A definir</span><h4>Avaliação de novos módulos</h4><p>RLX decide, conforme a maturidade do RH avançar, se e quando ativar Pesquisa, Metas ou Learning.</p><span class="objetivo-etapa-resp">RLX Fluidos Refrigerantes</span></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="approval-outcome">
+            <div class="approval-outcome-title"><i class="fa-solid fa-flag-checkered"></i>Estado futuro</div>
+            <div class="approval-outcome-grid">
+              <div class="approval-stage futuro"><span class="approval-stage-label">RH</span><p>Processo de avaliação de desempenho sólido e consolidado antes de qualquer expansão de escopo, com opção de ativar módulos adicionais sem trocar de plataforma.</p></div>
+              <div class="approval-stage negocio"><span class="approval-stage-label">Negócio</span><p>O investimento em gestão de pessoas cresce no ritmo real da adoção da RLX, sem gasto antecipado em módulos que ainda não serão usados.</p></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="objetivo-card">
+          <div class="objetivo-header">
+            <span class="objetivo-num">04</span>
+            <div>
+              <h3>Levar a decisão ao comitê de diretoria dentro do prazo</h3>
+              <p>Sair de um comparativo de fornecedores em andamento para uma decisão formal do comitê de diretoria, com o apoio da Jeane.</p>
+            </div>
+          </div>
+          <div class="objetivo-body">
+            <div class="objetivo-compare-col">
+              <div class="objetivo-compare-box atual"><span class="objetivo-compare-label">Situação atual</span><p>O comparativo de fornecedores precisa fechar até o fim de setembro, e a aprovação final depende de um comitê de diretoria, com decisão prevista para outubro ou novembro.</p></div>
+              <div class="objetivo-compare-box meta"><span class="objetivo-compare-label">Meta</span><p>Apresentar o projeto ao comitê de diretoria com material consolidado, dentro da janela de outubro a novembro, com o apoio de Sabrina e da Jeane.</p></div>
+              <div class="objetivo-indicador"><i class="fa-solid fa-bullseye"></i><div><span class="objetivo-indicador-label">Indicador de sucesso</span><p>Aprovação do comitê de diretoria dentro da janela de outubro a novembro.</p></div></div>
+            </div>
+            <div class="objetivo-plan-col">
+              <div class="objetivo-etapas-title">Plano de ação</div>
+              <div class="objetivo-etapas">
+                <div class="objetivo-etapa"><span class="objetivo-etapa-dot">1</span><span class="objetivo-etapa-line"></span><div class="objetivo-etapa-content"><span class="objetivo-etapa-period">Set/Out 2026</span><h4>Fechamento do comparativo</h4><p>Sabrina finaliza a comparação entre fornecedores e valida com a Jeane os diferenciais que pesam na decisão.</p><span class="objetivo-etapa-resp">RLX Fluidos Refrigerantes</span></div></div>
+                <div class="objetivo-etapa"><span class="objetivo-etapa-dot">2</span><span class="objetivo-etapa-line"></span><div class="objetivo-etapa-content"><span class="objetivo-etapa-period">Out 2026</span><h4>Construção do material de apresentação</h4><p>impulseup apoia na montagem do material consolidado para a apresentação ao comitê.</p><span class="objetivo-etapa-resp">Conjunta</span></div></div>
+                <div class="objetivo-etapa"><span class="objetivo-etapa-dot">3</span><div class="objetivo-etapa-content"><span class="objetivo-etapa-period">Out/Nov 2026</span><h4>Apresentação e aprovação</h4><p>Sabrina e Jeane apresentam o projeto ao comitê de diretoria.</p><span class="objetivo-etapa-resp">RLX Fluidos Refrigerantes</span></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="approval-outcome">
+            <div class="approval-outcome-title"><i class="fa-solid fa-flag-checkered"></i>Estado futuro</div>
+            <div class="approval-outcome-grid">
+              <div class="approval-stage futuro"><span class="approval-stage-label">RH</span><p>Sabrina e Jeane chegam ao comitê com um material pronto, construído com apoio consultivo da impulseup, em vez de montarem a defesa do projeto sozinhas.</p></div>
+              <div class="approval-stage negocio"><span class="approval-stage-label">Negócio</span><p>Decisão do comitê tomada dentro do prazo, sem atrasar o início do projeto previsto para o começo de 2027.</p></div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -850,13 +1005,27 @@
     {"titulo": "Nunca fizeram avaliação formal"},
     {"titulo": "Time de RH enxuto", "numero": "6 pessoas"}
   ],
-  "objetivos": [],
+  "objetivos": [
+    {"titulo": "Um único processo de avaliação entre Manaus e o Sul", "estadoFuturoResumido": "Mesmo ciclo, mesmos critérios, rodando ao mesmo tempo nas duas unidades."},
+    {"titulo": "Gestores donos do acompanhamento, RH livre da cobrança manual", "estadoFuturoResumido": "O gestor acompanha a própria equipe e o RH monitora só as exceções."},
+    {"titulo": "Crescimento sem trocar de ferramenta pelo caminho", "estadoFuturoResumido": "Processo consolidado antes de qualquer módulo novo, crescendo no ritmo real da adoção."},
+    {"titulo": "Decisão do comitê dentro do prazo", "estadoFuturoResumido": "Material consolidado, com apoio da impulseup, para aprovação entre outubro e novembro."}
+  ],
   "pilaresDestaque": [
     {"titulo": "Comece simples e evolua no seu ritmo", "tag": "Flexível"},
     {"titulo": "Uma visão única, mesmo com duas operações", "tag": "Confiável"},
     {"titulo": "O mesmo cuidado humano, agora estruturado", "tag": "Atendimento consultivo"}
   ],
-  "comparativo": null,
+  "comparativo": {
+    "concorrentes": ["Qulture.Rocks", "Sólides"],
+    "criterios": [
+      {"nome": "Envio de avaliações por SMS e WhatsApp", "tag": "Fácil", "impulseup": true, "porConcorrente": [false, false]},
+      {"nome": "Pesos diferentes por tipo de avaliador", "tag": "Flexível", "impulseup": true, "porConcorrente": [false, false]},
+      {"nome": "Gestor acompanha o status das respostas da equipe", "tag": "Liderança", "impulseup": true, "porConcorrente": [false, false]},
+      {"nome": "Inteligência artificial para insights automáticos", "tag": "Inteligente", "impulseup": true, "porConcorrente": [true, false]},
+      {"nome": "Registro de feedbacks categorizados", "tag": "Confiável", "impulseup": true, "porConcorrente": [true, false]}
+    ]
+  },
   "investimento": null,
   "cronogramaMacro": [
     {"data": "Setembro", "titulo": "Reunião de conexão e comparativo de fornecedores"},
