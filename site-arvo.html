@@ -639,11 +639,11 @@
 
       <div class="block-title"><i class="fa-regular fa-flag"></i>Desafios mapeados</div>
       <div class="challenges">
-        <div class="challenge-card"><span class="ch-num">01</span><h4>Pouca automação nos processos</h4><p>A ferramenta atual tem baixa maturidade e dificulta automatizar as rotinas do RH.</p></div>
-        <div class="challenge-card"><span class="ch-num">02</span><h4>Informação dispersa para decidir</h4><p>Falta um compilado com dados do colaborador, histórico de notas e senioridade para apoiar a liderança.</p></div>
-        <div class="challenge-card"><span class="ch-num">03</span><h4>Pouca análise depois dos ciclos</h4><p>Faltam gráficos, insights e people analytics a partir das avaliações e pesquisas de clima.</p></div>
+        <div class="challenge-card"><span class="ch-num">01</span><h4>Pouca automação nos processos</h4><p>A base de colaboradores vai por planilha toda semana. Na calibração, os relatórios são baixados um a um.</p></div>
+        <div class="challenge-card"><span class="ch-num">02</span><h4>Informação dispersa para decidir</h4><p>Para fechar a avaliação semestral, o líder busca nota por nota, pulso a pulso. Falta um compilado com histórico, senioridade e faixa salarial.</p></div>
+        <div class="challenge-card"><span class="ch-num">03</span><h4>Pouca análise depois dos ciclos</h4><p>Ao fechar o Talent Review e o Comp Cycle, não há análise consolidada do ciclo. Faltam gráficos, insights e people analytics.</p></div>
         <div class="centered-row">
-          <div class="challenge-card"><span class="ch-num">04</span><h4>Ritmo intenso de ciclos</h4><p>Pesquisas de clima a cada dois meses, touch points de performance e avaliação completa com calibração a cada semestre.</p></div>
+          <div class="challenge-card"><span class="ch-num">04</span><h4>Ritmo intenso de ciclos</h4><p>NPS e touch point de performance a cada dois meses, mais avaliação completa com calibração a cada semestre.</p></div>
           <div class="challenge-card"><span class="ch-num">05</span><h4>Prazo curto</h4><p>Decisão em até duas semanas e implantação até dezembro, para o ciclo de final de ano.</p></div>
         </div>
       </div>
@@ -654,21 +654,21 @@
           <label class="person-photo" data-initials="GR"><span>GR</span><input type="file" accept="image/*" class="personPhotoInput"></label>
           <div>
             <h4 contenteditable="true" class="person-name">Giulia Romero</h4>
-            <p contenteditable="true" class="person-role">Cargo a confirmar na reunião</p>
+            <p contenteditable="true" class="person-role">Coordenadora de people</p>
           </div>
         </div>
         <div class="person-card">
-          <label class="person-photo" data-initials="??"><span>??</span><input type="file" accept="image/*" class="personPhotoInput"></label>
+          <label class="person-photo" data-initials="FA"><span>FA</span><input type="file" accept="image/*" class="personPhotoInput"></label>
           <div>
-            <h4 contenteditable="true" class="person-name">Nome a preencher</h4>
-            <p contenteditable="true" class="person-role">Gerente de RH</p>
+            <h4 contenteditable="true" class="person-name">Fabrício</h4>
+            <p contenteditable="true" class="person-role">CEO, aprova a proposta</p>
           </div>
         </div>
         <div class="person-card">
-          <label class="person-photo" data-initials="??"><span>??</span><input type="file" accept="image/*" class="personPhotoInput"></label>
+          <label class="person-photo" data-initials="HI"><span>HI</span><input type="file" accept="image/*" class="personPhotoInput"></label>
           <div>
-            <h4 contenteditable="true" class="person-name">Nome a preencher</h4>
-            <p contenteditable="true" class="person-role">Diretor(a) de RH</p>
+            <h4 contenteditable="true" class="person-name">Hinae</h4>
+            <p contenteditable="true" class="person-role">People, reporta à Giulia</p>
           </div>
         </div>
       </div>
@@ -676,7 +676,7 @@
 
       <div class="block-title"><i class="fa-regular fa-calendar"></i>Cronograma preliminar</div>
       <div class="timeline">
-        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">Outubro</span><span class="tl-desc">Diagnóstico e demonstração personalizada da plataforma</span></div>
+        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">Outubro</span><span class="tl-desc">Diagnóstico em 5 out. Demonstração personalizada e valores em 8 out</span></div>
         <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">Outubro</span><span class="tl-desc">Decisão e aprovação da proposta (meta da Arvo: até duas semanas)</span></div>
         <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">Até dezembro</span><span class="tl-desc">Implantação da plataforma</span></div>
         <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">Dezembro</span><span class="tl-desc">Ciclo de final de ano na plataforma</span></div>
@@ -751,16 +751,32 @@
     <section class="tab-panel" id="tab-4">
       <h1 class="section-title">Diferenciais impulseup</h1>
       <p class="section-sub">Comparativo com base nos critérios mais importantes para este projeto</p>
-      <div class="empty-state" id="tab4EmptyState">
+      <div class="empty-state" id="tab4EmptyState" style="display:none;">
         <i class="fa-regular fa-list-check"></i>
         <h3>Aba liberada após a reunião de Diagnóstico</h3>
         <p>Assim que o closer finalizar o diagnóstico, esta aba mostra o comparativo entre a impulseup e os concorrentes identificados na conversa. Se nenhum concorrente específico for mencionado, o comparativo é feito contra "Outras soluções", com resultado mediano.</p>
       </div>
-      <div id="tab4TableWrap" style="margin-top:24px;overflow-x:auto;display:none;">
+      <div id="tab4TableWrap" style="margin-top:24px;overflow-x:auto;">
         <table class="rfp-table" id="tab4Table">
-          <!-- Preenchido pela skill site-cliente-impulseup a partir da transcrição da reunião de Diagnóstico e de references/rfp-criterios.json.
-               Cada critério exibe sua tag (campo "tags" do JSON) junto ao nome, ex:
-               <tr><td><div class="feat-name">Formatos de avaliação diferentes (90/180/360)</div><span class="feat-tag">Flexível</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td>...</tr> -->
+          <thead><tr><th>Critério</th><th class="iup-col">impulseup</th><th>Team Guide</th></tr></thead>
+          <tbody>
+          <tr><td><div class="feat-name">Perfil 360 (todas as informações do colaborador em uma única página)</div><span class="feat-tag">Fácil</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-check icon-yes"></i></td></tr>
+          <tr><td><div class="feat-name">Comparação de performance e desenvolvimento ao longo do tempo</div><span class="feat-tag">Confiável</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td></tr>
+          <tr><td><div class="feat-name">Calibração de resultados (por quadrante, seção ou competência)</div><span class="feat-tag">Confiável</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td></tr>
+          <tr><td><div class="feat-name">Inserção de comentários, com controle de visibilidade</div><span class="feat-tag">Flexível</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-check icon-yes"></i></td></tr>
+          <tr><td><div class="feat-name">Inteligência Artificial para insights automáticos</div><span class="feat-tag">Inteligente</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-check icon-yes"></i></td></tr>
+          <tr><td><div class="feat-name">Comparação de resultados por cargo, área, diretoria, etc.</div><span class="feat-tag">Inteligente</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td></tr>
+          <tr><td><div class="feat-name">Análises avançadas com filtros customizados</div><span class="feat-tag">Flexível</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td></tr>
+          <tr><td><div class="feat-name">Material consolidado de resultados para diretoria</div><span class="feat-tag">Atendimento consultivo</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td></tr>
+          <tr><td><div class="feat-name">Diversos formatos de pesquisa (pulso, clima, NPS, etc.)</div><span class="feat-tag">Flexível</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-check icon-yes"></i></td></tr>
+          <tr><td><div class="feat-name">Realização de Pesquisas simultâneas</div><span class="feat-tag">Flexível</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-check icon-yes"></i></td></tr>
+          <tr><td><div class="feat-name">Comparativo histórico de resultados de pesquisas</div><span class="feat-tag">Confiável</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td></tr>
+          <tr><td><div class="feat-name">Gestores podem acompanhar o status das respostas de suas equipes</div><span class="feat-tag">Liderança</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td></tr>
+          <tr><td><div class="feat-name">Envio de notificações por SMS e WhatsApp</div><span class="feat-tag">Fácil</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td></tr>
+          <tr><td><div class="feat-name">Solicitação de feedbacks</div><span class="feat-tag">Fácil</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td></tr>
+          <tr><td><div class="feat-name">Envio de campanhas para atualização de dados no sistema</div><span class="feat-tag">Atendimento consultivo</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td></tr>
+          <tr><td><div class="feat-name">Contratação modular, conforme necessidade</div><span class="feat-tag">Flexível</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td></tr>
+          </tbody>
         </table>
       </div>
     </section>
@@ -769,13 +785,116 @@
     <section class="tab-panel" id="tab-5">
       <h1 class="section-title">Aprovação e plano de ação</h1>
       <p class="section-sub">Objetivos de negócio da Arvo, o caminho para chegar lá e o estado futuro com a impulseup</p>
-      <div class="empty-state" id="tab5EmptyState">
+      <div class="empty-state" id="tab5EmptyState" style="display:none;">
         <i class="fa-regular fa-clipboard"></i>
         <h3>Aba liberada após a reunião de Diagnóstico</h3>
-        <p>Assim que os desafios forem mapeados, esta aba mostra os objetivos de negócio e RH por trás do projeto, o plano de ação com cronograma para chegar lá, e o estado futuro do negócio com a impulseup — pronta para embasar a apresentação à diretoria.</p>
+        <p>Assim que os desafios forem mapeados, esta aba mostra os objetivos de negócio e RH por trás do projeto, o plano de ação com cronograma para chegar lá, e o estado futuro do negócio com a impulseup, pronta para embasar a apresentação à diretoria.</p>
       </div>
-      <div id="tab5PlanoWrap" style="display:none;">
-        <!--OBJETIVOS-->
+      <div id="tab5PlanoWrap">
+        <div class="objetivo-card">
+          <div class="objetivo-header"><span class="objetivo-num">01</span><div><h3>Decisões de carreira com o histórico completo na tela do líder</h3><p>Líderes definem mérito, promoção ou nenhuma ação olhando o semestre inteiro, e não só o último pulso.</p></div></div>
+          <div class="objetivo-body">
+            <div class="objetivo-compare-col">
+              <div class="objetivo-compare-box atual"><span class="objetivo-compare-label">Situação atual</span><p>Para fechar a avaliação semestral, o líder busca nota por nota, pulso a pulso. Não há um histórico único com senioridade e faixa salarial.</p></div>
+              <div class="objetivo-compare-box meta"><span class="objetivo-compare-label">Meta</span><p>O líder abre uma única página do colaborador, com notas anteriores, senioridade, tempo de casa e demais dados, antes de decidir.</p></div>
+              <div class="objetivo-indicador"><i class="fa-solid fa-bullseye"></i><div><span class="objetivo-indicador-label">Indicador de sucesso</span><p>No ciclo de dezembro, os líderes consultam o histórico direto na plataforma, sem buscar pulso por pulso.</p></div></div>
+            </div>
+            <div class="objetivo-plan-col">
+              <div class="objetivo-etapas-title">Plano de ação</div>
+              <div class="objetivo-etapas">
+<div class="objetivo-etapa"><div><span class="objetivo-etapa-dot">1</span><span class="objetivo-etapa-line"></span></div><div class="objetivo-etapa-content"><span class="objetivo-etapa-period">Semanas 1 a 2</span><h4>Kickoff e parametrização</h4><p>Configuramos a página 360 com os campos da Arvo: senioridade, tempo de casa, líder direto e faixa salarial.</p><span class="objetivo-etapa-resp">Responsável: impulseup</span></div></div>
+<div class="objetivo-etapa"><div><span class="objetivo-etapa-dot">2</span><span class="objetivo-etapa-line"></span></div><div class="objetivo-etapa-content"><span class="objetivo-etapa-period">Semanas 2 a 4</span><h4>Migração do histórico</h4><p>A Arvo preenche o formulário de TI e a impulseup transpõe as notas dos ciclos anteriores para o modelo da plataforma.</p><span class="objetivo-etapa-resp">Responsável: impulseup e Arvo</span></div></div>
+<div class="objetivo-etapa"><div><span class="objetivo-etapa-dot">3</span><span class="objetivo-etapa-line"></span></div><div class="objetivo-etapa-content"><span class="objetivo-etapa-period">Semanas 4 a 6</span><h4>Formulários e pilares do ciclo</h4><p>Reproduzimos o formulário do pulso bimestral e os três pilares do ciclo semestral: impacto na entrega, cultura potencial e maturidade técnica.</p><span class="objetivo-etapa-resp">Responsável: impulseup</span></div></div>
+<div class="objetivo-etapa"><div><span class="objetivo-etapa-dot">4</span><span class="objetivo-etapa-line"></span></div><div class="objetivo-etapa-content"><span class="objetivo-etapa-period">Dezembro</span><h4>Ciclo semestral na plataforma</h4><p>Os líderes avaliam e recomendam mérito ou promoção com o histórico na tela.</p><span class="objetivo-etapa-resp">Responsável: Arvo</span></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="approval-outcome">
+            <div class="approval-outcome-title"><i class="fa-solid fa-flag-checkered"></i>Estado futuro</div>
+            <div class="approval-outcome-grid">
+              <div class="approval-stage futuro"><span class="approval-stage-label">Para o RH</span><p>Cada líder consulta, numa única página do colaborador, o perfil completo e a evolução das avaliações ao longo do tempo.</p></div>
+              <div class="approval-stage negocio"><span class="approval-stage-label">Para o negócio</span><p>Decisões de mérito e promoção passam a se apoiar em dados reunidos, e não em consultas avulsas a cada pulso.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="objetivo-card">
+          <div class="objetivo-header"><span class="objetivo-num">02</span><div><h3>Ciclos de people sem trabalho manual</h3><p>O time de people usa o ciclo para decidir e conversar com lideranças, e não para baixar, enviar e conferir arquivos.</p></div></div>
+          <div class="objetivo-body">
+            <div class="objetivo-compare-col">
+              <div class="objetivo-compare-box atual"><span class="objetivo-compare-label">Situação atual</span><p>Toda semana a base de colaboradores vai por planilha. Na calibração, os relatórios são baixados um a um e o aviso do ciclo sai por mensagem avulsa no Slack.</p></div>
+              <div class="objetivo-compare-box meta"><span class="objetivo-compare-label">Meta</span><p>Base, avisos de ciclo e calibração rodam dentro da plataforma, e o time de people acompanha as respostas sem montar arquivos.</p></div>
+              <div class="objetivo-indicador"><i class="fa-solid fa-bullseye"></i><div><span class="objetivo-indicador-label">Indicador de sucesso</span><p>A calibração de dezembro é preparada sem planilha de base e sem download de relatório individual.</p></div></div>
+            </div>
+            <div class="objetivo-plan-col">
+              <div class="objetivo-etapas-title">Plano de ação</div>
+              <div class="objetivo-etapas">
+<div class="objetivo-etapa"><div><span class="objetivo-etapa-dot">1</span><span class="objetivo-etapa-line"></span></div><div class="objetivo-etapa-content"><span class="objetivo-etapa-period">Semanas 1 a 2</span><h4>Base de colaboradores e organograma</h4><p>Subimos a base e o organograma da Arvo para a plataforma.</p><span class="objetivo-etapa-resp">Responsável: impulseup e Arvo</span></div></div>
+<div class="objetivo-etapa"><div><span class="objetivo-etapa-dot">2</span><span class="objetivo-etapa-line"></span></div><div class="objetivo-etapa-content"><span class="objetivo-etapa-period">Semanas 3 a 5</span><h4>Avisos e acompanhamento</h4><p>Configuramos os avisos por e-mail, SMS e WhatsApp e o acompanhamento de respostas pelos gestores.</p><span class="objetivo-etapa-resp">Responsável: impulseup</span></div></div>
+<div class="objetivo-etapa"><div><span class="objetivo-etapa-dot">3</span><span class="objetivo-etapa-line"></span></div><div class="objetivo-etapa-content"><span class="objetivo-etapa-period">Semanas 5 a 7</span><h4>Visão de calibração</h4><p>Montamos a visão com as colunas que a Arvo usa hoje: senioridade, tempo de casa, líder direto e último mérito.</p><span class="objetivo-etapa-resp">Responsável: impulseup</span></div></div>
+<div class="objetivo-etapa"><div><span class="objetivo-etapa-dot">4</span><span class="objetivo-etapa-line"></span></div><div class="objetivo-etapa-content"><span class="objetivo-etapa-period">Dezembro</span><h4>Primeira calibração na plataforma</h4><p>Os grupos de calibração se reúnem com os dados na tela e os comentários registrados ali mesmo.</p><span class="objetivo-etapa-resp">Responsável: Arvo</span></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="approval-outcome">
+            <div class="approval-outcome-title"><i class="fa-solid fa-flag-checkered"></i>Estado futuro</div>
+            <div class="approval-outcome-grid">
+              <div class="approval-stage futuro"><span class="approval-stage-label">Para o RH</span><p>O time de people calibra resultados, registra comentários e acompanha o status das respostas dos gestores dentro da plataforma.</p></div>
+              <div class="approval-stage negocio"><span class="approval-stage-label">Para o negócio</span><p>O tempo do time de people vai para análise e conversa com as lideranças, e não para operar planilhas e arquivos.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="objetivo-card">
+          <div class="objetivo-header"><span class="objetivo-num">03</span><div><h3>Análise e people analytics ao fechar cada ciclo</h3><p>Cada ciclo termina com uma leitura consolidada, pronta para a liderança e para a diretoria.</p></div></div>
+          <div class="objetivo-body">
+            <div class="objetivo-compare-col">
+              <div class="objetivo-compare-box atual"><span class="objetivo-compare-label">Situação atual</span><p>Ao fechar o Talent Review e o Comp Cycle, não existe uma análise consolidada de como foi o ciclo. Faltam gráficos, insights e people analytics.</p></div>
+              <div class="objetivo-compare-box meta"><span class="objetivo-compare-label">Meta</span><p>O time de people monta a leitura do ciclo com gráficos, filtros e apoio de IA, direto na plataforma, e compara com ciclos anteriores.</p></div>
+              <div class="objetivo-indicador"><i class="fa-solid fa-bullseye"></i><div><span class="objetivo-indicador-label">Indicador de sucesso</span><p>A leitura consolidada do ciclo de dezembro é entregue à diretoria sem montagem manual de análise.</p></div></div>
+            </div>
+            <div class="objetivo-plan-col">
+              <div class="objetivo-etapas-title">Plano de ação</div>
+              <div class="objetivo-etapas">
+<div class="objetivo-etapa"><div><span class="objetivo-etapa-dot">1</span><span class="objetivo-etapa-line"></span></div><div class="objetivo-etapa-content"><span class="objetivo-etapa-period">Semanas 3 a 5</span><h4>Cortes de análise</h4><p>Definimos com a Arvo os filtros do Analytics, como senioridade, chapter e líder direto.</p><span class="objetivo-etapa-resp">Responsável: impulseup e Arvo</span></div></div>
+<div class="objetivo-etapa"><div><span class="objetivo-etapa-dot">2</span><span class="objetivo-etapa-line"></span></div><div class="objetivo-etapa-content"><span class="objetivo-etapa-period">Semanas 6 a 8</span><h4>Treinamento do time de people</h4><p>Treinamos o time no Analytics e na IA, com os dados migrados dos ciclos anteriores.</p><span class="objetivo-etapa-resp">Responsável: impulseup</span></div></div>
+<div class="objetivo-etapa"><div><span class="objetivo-etapa-dot">3</span><span class="objetivo-etapa-line"></span></div><div class="objetivo-etapa-content"><span class="objetivo-etapa-period">Dezembro</span><h4>Leitura do primeiro ciclo</h4><p>Ao fechar o ciclo, o time de people gera a leitura consolidada para a liderança.</p><span class="objetivo-etapa-resp">Responsável: Arvo</span></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="approval-outcome">
+            <div class="approval-outcome-title"><i class="fa-solid fa-flag-checkered"></i>Estado futuro</div>
+            <div class="approval-outcome-grid">
+              <div class="approval-stage futuro"><span class="approval-stage-label">Para o RH</span><p>Resultados do ciclo e do NPS bimestral são comparados ao longo do tempo, com insights gerados por IA e cortes por cargo, área e diretoria.</p></div>
+              <div class="approval-stage negocio"><span class="approval-stage-label">Para o negócio</span><p>A diretoria recebe um material consolidado de cada ciclo, com base em dados, para decidir sobre pessoas.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="objetivo-card">
+          <div class="objetivo-header"><span class="objetivo-num">04</span><div><h3>Migração e implantação a tempo do ciclo de dezembro</h3><p>Chegar a dezembro com o histórico migrado, o processo atual reproduzido e a equipe pronta para rodar o ciclo semestral.</p></div></div>
+          <div class="objetivo-body">
+            <div class="objetivo-compare-col">
+              <div class="objetivo-compare-box atual"><span class="objetivo-compare-label">Situação atual</span><p>A Arvo quer decidir em até duas semanas e implantar até dezembro. Hoje roda em outra plataforma, em uso há mais de um ano.</p></div>
+              <div class="objetivo-compare-box meta"><span class="objetivo-compare-label">Meta</span><p>O histórico dos ciclos anteriores migrado e o ciclo de fim de ano rodando na impulseup, com o time e os líderes treinados.</p></div>
+              <div class="objetivo-indicador"><i class="fa-solid fa-bullseye"></i><div><span class="objetivo-indicador-label">Indicador de sucesso</span><p>O ciclo de dezembro roda na impulseup, com o histórico dos ciclos anteriores migrado.</p></div></div>
+            </div>
+            <div class="objetivo-plan-col">
+              <div class="objetivo-etapas-title">Plano de ação</div>
+              <div class="objetivo-etapas">
+<div class="objetivo-etapa"><div><span class="objetivo-etapa-dot">1</span><span class="objetivo-etapa-line"></span></div><div class="objetivo-etapa-content"><span class="objetivo-etapa-period">Semanas 1 a 2</span><h4>Decisão e kickoff</h4><p>Alinhamos escopo, responsáveis e calendário até o ciclo de dezembro.</p><span class="objetivo-etapa-resp">Responsável: impulseup e Arvo</span></div></div>
+<div class="objetivo-etapa"><div><span class="objetivo-etapa-dot">2</span><span class="objetivo-etapa-line"></span></div><div class="objetivo-etapa-content"><span class="objetivo-etapa-period">Semanas 2 a 4</span><h4>Análise dos relatórios anteriores</h4><p>A impulseup analisa o formato dos relatórios de avaliação e pesquisa da Arvo e transpõe para o modelo da plataforma.</p><span class="objetivo-etapa-resp">Responsável: impulseup</span></div></div>
+<div class="objetivo-etapa"><div><span class="objetivo-etapa-dot">3</span><span class="objetivo-etapa-line"></span></div><div class="objetivo-etapa-content"><span class="objetivo-etapa-period">Semanas 4 a 6</span><h4>Reprodução do pulso bimestral</h4><p>Reproduzimos o formulário do pulso e da pesquisa de NPS no formato que a Arvo usa hoje.</p><span class="objetivo-etapa-resp">Responsável: impulseup</span></div></div>
+<div class="objetivo-etapa"><div><span class="objetivo-etapa-dot">4</span><span class="objetivo-etapa-line"></span></div><div class="objetivo-etapa-content"><span class="objetivo-etapa-period">Semanas 6 a 8</span><h4>Treinamento de gestores e suporte</h4><p>Treinamos os gestores e deixamos o suporte ao usuário final pronto para o ciclo.</p><span class="objetivo-etapa-resp">Responsável: impulseup</span></div></div>
+<div class="objetivo-etapa"><div><span class="objetivo-etapa-dot">5</span><span class="objetivo-etapa-line"></span></div><div class="objetivo-etapa-content"><span class="objetivo-etapa-period">Dezembro</span><h4>Ciclo semestral na impulseup</h4><p>A Arvo roda o ciclo de final de ano na plataforma, com acompanhamento de perto.</p><span class="objetivo-etapa-resp">Responsável: impulseup e Arvo</span></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="approval-outcome">
+            <div class="approval-outcome-title"><i class="fa-solid fa-flag-checkered"></i>Estado futuro</div>
+            <div class="approval-outcome-grid">
+              <div class="approval-stage futuro"><span class="approval-stage-label">Para o RH</span><p>O time de people e os gestores chegam ao primeiro ciclo treinados, com o histórico migrado e suporte disponível ao usuário final.</p></div>
+              <div class="approval-stage negocio"><span class="approval-stage-label">Para o negócio</span><p>A Arvo mantém o ritmo de avaliações e pesquisas dos próximos ciclos, com o time e os líderes já treinados.</p></div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -854,8 +973,8 @@
       <p class="section-sub">Jornada de compra da Arvo</p>
       <div class="timeline">
         <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">5 out</span><div><span class="tl-desc">Reunião de Diagnóstico</span><div class="tl-meta">Entender contexto e desafios · Giulia Romero</div></div></div>
-        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">A definir</span><div><span class="tl-desc">Demonstração personalizada</span><div class="tl-meta">Mostrar solução aplicada aos desafios mapeados</div></div></div>
-        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">A definir</span><div><span class="tl-desc">Construção de projeto e proposta</span><div class="tl-meta">Definir escopo e cenários de investimento</div></div></div>
+        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">8 out</span><div><span class="tl-desc">Demonstração personalizada</span><div class="tl-meta">Visão de administrador, Analytics e calibração com o pulso da Arvo · Giulia Romero</div></div></div>
+        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">A definir</span><div><span class="tl-desc">Construção de projeto e proposta</span><div class="tl-meta">Valores já na reunião de 8 out, pelo prazo curto da Arvo</div></div></div>
         <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">A definir</span><div><span class="tl-desc">Apresentação para diretoria</span></div></div>
         <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">A definir</span><div><span class="tl-desc">Aprovação da proposta</span></div></div>
         <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">A definir</span><div><span class="tl-desc">Revisão jurídica</span></div></div>
@@ -880,7 +999,8 @@
   "contexto": "A Arvo quer trocar a ferramenta de avaliação e clima por uma plataforma com mais automação e dados para a liderança, e implantar até dezembro.",
   "desafiosCentrais": [
     {
-      "titulo": "Pouca automação nos processos"
+      "titulo": "Pouca automação nos processos",
+      "numero": "1 planilha por semana"
     },
     {
       "titulo": "Informação dispersa para decidir"
@@ -889,10 +1009,28 @@
       "titulo": "Pouca análise depois dos ciclos"
     },
     {
-      "titulo": "Prazo curto para o ciclo de final de ano"
+      "titulo": "Prazo curto para o ciclo de final de ano",
+      "numero": "2 semanas para decidir"
     }
   ],
-  "objetivos": [],
+  "objetivos": [
+    {
+      "titulo": "Líderes decidem com o semestre inteiro na tela",
+      "estadoFuturoResumido": "Perfil 360 e histórico de avaliações reunidos numa única página do colaborador."
+    },
+    {
+      "titulo": "Ciclos que rodam sem planilha e sem download",
+      "estadoFuturoResumido": "Base, avisos e calibração dentro da plataforma, com o time de people focado em decidir."
+    },
+    {
+      "titulo": "Cada ciclo fecha com análise pronta",
+      "estadoFuturoResumido": "Insights por IA e cortes por cargo, área e diretoria, sem montagem manual."
+    },
+    {
+      "titulo": "Dezembro com tudo rodando na impulseup",
+      "estadoFuturoResumido": "Histórico migrado e equipe treinada para o ciclo semestral de fim de ano."
+    }
+  ],
   "pilaresDestaque": [
     {
       "titulo": "Líderes decidem com a pessoa inteira na tela",
@@ -907,12 +1045,94 @@
       "tag": "Flexível"
     }
   ],
-  "comparativo": null,
+  "comparativo": {
+    "concorrentes": [
+      "Team Guide"
+    ],
+    "criterios": [
+      {
+        "nome": "Perfil 360 do colaborador",
+        "tag": "Fácil",
+        "impulseup": true,
+        "porConcorrente": [
+          true
+        ]
+      },
+      {
+        "nome": "Histórico de performance ao longo do tempo",
+        "tag": "Confiável",
+        "impulseup": true,
+        "porConcorrente": [
+          false
+        ]
+      },
+      {
+        "nome": "Calibração de resultados",
+        "tag": "Confiável",
+        "impulseup": true,
+        "porConcorrente": [
+          false
+        ]
+      },
+      {
+        "nome": "IA para insights automáticos",
+        "tag": "Inteligente",
+        "impulseup": true,
+        "porConcorrente": [
+          true
+        ]
+      },
+      {
+        "nome": "Comparação por cargo, área e diretoria",
+        "tag": "Inteligente",
+        "impulseup": true,
+        "porConcorrente": [
+          false
+        ]
+      },
+      {
+        "nome": "Gestor acompanha respostas do time",
+        "tag": "Liderança",
+        "impulseup": true,
+        "porConcorrente": [
+          false
+        ]
+      },
+      {
+        "nome": "Notificações por SMS e WhatsApp",
+        "tag": "Fácil",
+        "impulseup": true,
+        "porConcorrente": [
+          false
+        ]
+      },
+      {
+        "nome": "Comparativo histórico de pesquisas",
+        "tag": "Confiável",
+        "impulseup": true,
+        "porConcorrente": [
+          false
+        ]
+      },
+      {
+        "nome": "Solicitação de feedbacks",
+        "tag": "Fácil",
+        "impulseup": true,
+        "porConcorrente": [
+          false
+        ]
+      }
+    ]
+  },
   "investimento": null,
   "cronogramaMacro": [
     {
       "data": "5 out",
       "titulo": "Reunião de Diagnóstico"
+    },
+    {
+      "data": "8 out",
+      "titulo": "Demonstração e valores"
     },
     {
       "data": "A definir",
