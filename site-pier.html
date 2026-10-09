@@ -466,7 +466,10 @@
       <div class="divider-v"></div>
       <div>
         <span class="for-label">Para</span>
-        <img class="client-logo" id="clientLogoImg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHYAAAA+CAYAAAD+rO8QAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAOESURBVHhe7Zpbb0xRGIYf54ZookWNak0d6pxGiCASh6RIXLkRLvAL/AbxC9xIJO4qbiTiGEKDTIOIYzOIUIeUoi1tHdo6ldTF0szsz54xZXfv7fM9ycpkvXtl75V5Zp12Zlh/f38/hjqGy8DQgYlViolViolViolViolViolViolViolViolViolViolViolViolViolViolViolViolViolViolViolViolVyrBQ/n6656BMvIwcAcVjXZk5FRKl7tOPunPQ3O7NVtfAmppMPZWGhnR2i8JIlsHODZm637Mk44pcvxOlUDEZ5lZA0WjZKnTiMWK/fYeubvclXmiEQ+fh2GV42y1bxo/ez9DaBbcfwYkrUFcPD1pkq9CJh1g/7jyF+lsyjT9tXXD0ErS8kVdCJb5iAR48h8bHMo0/fd/g7HWZhkp0a+zO9d56zye3LnZ88OYzErC9NlP3W/cKWWNlm0LI9axkmTe7eh+aXngzgC1rYF6lTEMhuhGbnOItC6tg03LZCp62OulxQvZ92zqYNkm2guY2mYRGdGL9SE6BsgkyhXc9MokfiRKZQJeYfUIkXmIBPn+VCYwZJZPB86zNTa35yt/wyaffowPo9x8SL7GpNLzvlSkUj5PJ4Gluz1/+htZO/zV2wniZhEZ0YlPpTDlzDQ6c/nXDA7CoKpgRGyQD/T5/Gw6nXN+/9slWsGC6TEIjOrENP3euDWm48dD96v1YVCWTaMnu95V77kjmx6qF7m1URER33CmE9UthxXxvlusIEtZxp1B275BJqEQ3YvMxp8Kdc6XUf4El1fmlvn4Hfd9lGjjRiU2WZcrMqbB4thtVuzbD1rXu6BNHVtdkyqxyeTX30exhi5sB9p+EvUfg1NUhfRce3VSc71edD7/pUU6zuabiQsi+z++e1fkB9h33XifHEnKxES7d9WablsPSam8WENGN2LDJ3vTkK4OhtBhql8gU6m/Cyw5vln7irQM8eSWTwPh/xA4VKxdA5WSZOrnZlE/01gFKhu6ca2KDYOMymcDz1+6cO8CMRPbV3FlAhLPGpnymuMEePQbwuxfifrnaFEIh9/Hre662iRK3y//4xb2danrhNozlE/1HcUCEI9YIHZuKlWJilWJilWJilWJilWJilWJilWJilWJilWJilWJilWJilWJilWJilWJilWJilWJilWJilWJilfIDe3YmjZ/nwT4AAAAASUVORK5CYII=" alt="Logo Pier">
+        <label class="logo-upload-slot" id="clientLogoSlot">
+          <span id="clientLogoText">logo do cliente</span>
+          <input type="file" accept="image/*" id="clientLogoInput">
+        </label>
       </div>
     </div>
   </div>
@@ -583,12 +586,13 @@
         </div>
       </div>
 
-      <div class="block-title"><i class="fa-regular fa-star"></i>Por que empresas do setor financeiro e de seguros escolhem a impulseup</div>
+      <div class="block-title"><i class="fa-regular fa-star"></i>Por que empresas com ciclo de performance maduro escolhem a impulseup</div>
       <div class="pillars">
-        <!-- Cada pillar-card carrega a tag do critério correspondente em rfp-criterios.json -->
-        <div class="pillar-card"><span class="pillar-num">01</span><span class="feat-tag">Inteligente</span><h4>Líderes passam a ler o clima por recorte, e não só pela média</h4><p>Resultados comparados por cargo, área e diretoria mostram ao RH e à liderança onde agir, em vez de decidir sobre um número geral que esconde as diferenças entre os times.</p></div>
-        <div class="pillar-card"><span class="pillar-num">02</span><span class="feat-tag">Confiável</span><h4>Aprendizagem deixa de ser repositório e passa a ser medida</h4><p>Com acompanhamento de progresso e engajamento nos cursos, a empresa enxerga se o investimento em desenvolvimento está sendo consumido, e não apenas armazenado.</p></div>
-        <div class="pillar-card"><span class="pillar-num">03</span><span class="feat-tag">Atendimento consultivo</span><h4>A troca de plataforma é conduzida por quem entende de pessoas</h4><p>Uma equipe de implementação com psicólogos organizacionais acompanha o projeto, reduzindo o risco de a mudança de ferramenta virar um problema de adoção para o RH e para os líderes.</p></div>
+        <!-- Cada pillar-card carrega a tag do critério correspondente em rfp-criterios.json
+             (mesmo padrão da .feat-tag da Aba 4) — ver estrutura-abas.md, Aba 1. -->
+        <div class="pillar-card"><span class="pillar-num">01</span><span class="feat-tag">Liderança</span><h4>O ciclo anda porque cada gestor acompanha o próprio time</h4><p>O gestor enxerga quem já respondeu e quem falta no seu time e cobra direto. O RH deixa de correr atrás de resposta pessoa por pessoa e ganha tempo para analisar resultado.</p></div>
+        <div class="pillar-card"><span class="pillar-num">02</span><span class="feat-tag">Confiável</span><h4>RH e liderança decidem olhando o mesmo resultado</h4><p>A calibração por quadrante, seção ou competência acontece dentro da plataforma. Na hora de decidir sobre desempenho e talento, o líder tem um resultado em que pode confiar.</p></div>
+        <div class="pillar-card"><span class="pillar-num">03</span><span class="feat-tag">Inteligente</span><h4>Líderes agem onde está o problema, não só na média geral</h4><p>Os resultados são comparados por cargo, área e diretoria. Cada liderança enxerga onde agir, e a decisão deixa de depender de um número geral.</p></div>
       </div>
 
       <!-- SEÇÃO CATEGORIA 5 (opcional) — incluir apenas quando o cliente já possui uma solução e
@@ -623,28 +627,29 @@
 
     <!-- ABA 2 — DIAGNÓSTICO -->
     <section class="tab-panel" id="tab-2">
+
       <h1 class="section-title">Diagnóstico: Pier</h1>
       <p class="section-sub">Reunião de conexão</p>
 
       <div class="top-grid">
         <div class="card">
           <div class="card-label">Perfil</div>
-          <p>Seguradora digital com foco em seguro de celular e de auto, fundada em 2018 e sediada em São Paulo. Cerca de 200 colaboradores.</p>
+          <p>Empresa com sede em São Paulo, modelo de trabalho híbrido e cerca de 220 colaboradores. O time de People tem três pessoas e cuida de ciclo de performance, clima, engajamento, recrutamento, treinamento, cultura e employer branding.</p>
         </div>
         <div class="card dark">
           <div class="card-label">Momento atual</div>
-          <p>Avaliam novos fornecedores para ciclo de performance, LMS, clima e engajamento. A análise de plataformas vai até dezembro, o contrato atual vai até fevereiro e o orçamento de 2027 está em definição.</p>
+          <p>Construindo o orçamento de 2027 e avaliando o mercado de plataformas de performance, clima e learning. Hoje usam Qulture.Rocks para avaliação e learning e Gupy para pesquisa de clima. Querem consolidar em um ou dois sistemas, se o custo da mudança fizer sentido.</p>
         </div>
       </div>
 
       <div class="block-title"><i class="fa-regular fa-flag"></i>Desafios mapeados</div>
       <div class="challenges">
-        <div class="challenge-card"><span class="ch-num">01</span><h4>Visão de clima para os líderes</h4><p>Querem que cada líder veja seus times, diretos e indiretos, com dados que possam extrair e analisar.</p></div>
-        <div class="challenge-card"><span class="ch-num">02</span><h4>Learning sem estrutura</h4><p>Hoje há apenas um repositório em plano gratuito, com quantidade limitada. Querem um LMS de verdade.</p></div>
-        <div class="challenge-card"><span class="ch-num">03</span><h4>Benchmark em performance</h4><p>Estão na plataforma atual há muitos anos e querem conhecer o mercado e possíveis diferenciais.</p></div>
+        <div class="challenge-card"><span class="ch-num">01</span><h4>Devolutiva sem etapa amarrada ao ciclo</h4><p>O ciclo encerra sem garantir que a devolutiva e o alinhamento de expectativas aconteçam. Hoje a devolutiva é criada à mão na funcionalidade de feedback.</p></div>
+        <div class="challenge-card"><span class="ch-num">02</span><h4>Ciclo manual que não escala</h4><p>Prazo único para o ciclo inteiro, tags criadas por ciclo e retirada manual de quem não respondeu. Com 140 a 160 elegíveis ainda é sustentável, mas não cresce junto.</p></div>
+        <div class="challenge-card"><span class="ch-num">03</span><h4>Escalas e Nine Box descasadas</h4><p>A nota 1,66 fica dentro na avaliação e abaixo na Nine Box. A avaliação 180 não entra no peso, e o líder recebe duas visões do mesmo resultado.</p></div>
         <div class="centered-row">
-          <div class="challenge-card"><span class="ch-num">04</span><h4>Migração entre ciclos</h4><p>Contrato atual até fevereiro e ciclos a partir de março ou abril. A complexidade da troca define o momento.</p></div>
-          <div class="challenge-card"><span class="ch-num">05</span><h4>Sucessão e cargos-chave</h4><p>O Nine Box existe, mas não há sucessão estruturada. Mapear cargos-chave e sucessores é interesse futuro.</p></div>
+          <div class="challenge-card"><span class="ch-num">04</span><h4>Clima sem visão para os líderes</h4><p>Os líderes não acompanham a evolução entre ciclos. O time monta planilhas, calcula o NPS por fora e lida com escala decimal que dificulta a leitura.</p></div>
+          <div class="challenge-card"><span class="ch-num">05</span><h4>Learning e sucessão sem estrutura</h4><p>O learning é um repositório em plano gratuito e limitado. A sucessão está contratada, mas sem uso estruturado.</p></div>
         </div>
       </div>
 
@@ -654,21 +659,21 @@
           <label class="person-photo" data-initials="BA"><span>BA</span><input type="file" accept="image/*" class="personPhotoInput"></label>
           <div>
             <h4 contenteditable="true" class="person-name">Beatriz Abreu</h4>
-            <p contenteditable="true" class="person-role">Clima e Performance</p>
+            <p contenteditable="true" class="person-role">Analista sênior de People</p>
           </div>
         </div>
         <div class="person-card">
           <label class="person-photo" data-initials="ML"><span>ML</span><input type="file" accept="image/*" class="personPhotoInput"></label>
           <div>
             <h4 contenteditable="true" class="person-name">Melanie Lauro</h4>
-            <p contenteditable="true" class="person-role">Coordenadora</p>
+            <p contenteditable="true" class="person-role">Coordenadora de People</p>
           </div>
         </div>
         <div class="person-card">
           <label class="person-photo" data-initials="??"><span>??</span><input type="file" accept="image/*" class="personPhotoInput"></label>
           <div>
             <h4 contenteditable="true" class="person-name">Nome a preencher</h4>
-            <p contenteditable="true" class="person-role">Responsável por Learning</p>
+            <p contenteditable="true" class="person-role">Decisor do investimento</p>
           </div>
         </div>
       </div>
@@ -676,11 +681,12 @@
 
       <div class="block-title"><i class="fa-regular fa-calendar"></i>Cronograma preliminar</div>
       <div class="timeline">
-        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">Outubro</span><span class="tl-desc">Conexão e demonstração da plataforma</span></div>
-        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">Dezembro</span><span class="tl-desc">Decisão de plataforma e definição do orçamento de 2027</span></div>
-        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">Janeiro e fevereiro</span><span class="tl-desc">Assinatura e implantação (previsão)</span></div>
-        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">Março ou abril</span><span class="tl-desc">Primeiro ciclo na nova plataforma, conforme a complexidade da migração</span></div>
+        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">Outubro</span><span class="tl-desc">Reunião de conexão e demonstração da plataforma</span></div>
+        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">Por volta de 20/10</span><span class="tl-desc">Fechamento do orçamento de 2027 da Pier</span></div>
+        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">A definir</span><span class="tl-desc">Decisão sobre a troca de plataforma, após o fechamento do orçamento</span></div>
+        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">Fevereiro de 2027</span><span class="tl-desc">Fim do contrato atual de avaliação e learning (data a confirmar)</span></div>
       </div>
+    
     </section>
 
     <!-- ABA 3 — DEMONSTRAÇÃO -->
@@ -751,16 +757,37 @@
     <section class="tab-panel" id="tab-4">
       <h1 class="section-title">Diferenciais impulseup</h1>
       <p class="section-sub">Comparativo com base nos critérios mais importantes para este projeto</p>
-      <div class="empty-state" id="tab4EmptyState">
+      <div class="empty-state" id="tab4EmptyState" style="display:none;">
         <i class="fa-regular fa-list-check"></i>
         <h3>Aba liberada após a reunião de Diagnóstico</h3>
         <p>Assim que o closer finalizar o diagnóstico, esta aba mostra o comparativo entre a impulseup e os concorrentes identificados na conversa. Se nenhum concorrente específico for mencionado, o comparativo é feito contra "Outras soluções", com resultado mediano.</p>
       </div>
-      <div id="tab4TableWrap" style="margin-top:24px;overflow-x:auto;display:none;">
+      <div id="tab4TableWrap" style="margin-top:24px;overflow-x:auto;">
         <table class="rfp-table" id="tab4Table">
-          <!-- Preenchido pela skill site-cliente-impulseup a partir da transcrição da reunião de Diagnóstico e de references/rfp-criterios.json.
-               Cada critério exibe sua tag (campo "tags" do JSON) junto ao nome, ex:
-               <tr><td><div class="feat-name">Formatos de avaliação diferentes (90/180/360)</div><span class="feat-tag">Flexível</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td>...</tr> -->
+<thead><tr><th>Critério</th><th class="iup-col">impulseup</th><th>Qulture.Rocks</th><th>Gupy</th></tr></thead>
+<tbody>
+<tr><td><div class="feat-name">Personalização da escala de resposta (tamanho, valores, nomes), por competência ou grupo</div><span class="feat-tag">Flexível</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-check icon-yes"></i></td></tr>
+<tr><td><div class="feat-name">Competências específicas e exclusivas (líder, não líder, cargo, área ou outros)</div><span class="feat-tag">Flexível</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-check icon-yes"></i></td></tr>
+<tr><td><div class="feat-name">Pesos diferentes por tipo de avaliador, por competência</div><span class="feat-tag">Flexível</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td><td class="check-cell"><i class="fa-solid fa-check icon-yes"></i></td></tr>
+<tr><td><div class="feat-name">Criação de campos customizados para análises e filtros</div><span class="feat-tag">Flexível</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-check icon-yes"></i></td></tr>
+<tr><td><div class="feat-name">Gestores podem acompanhar o status das respostas de suas equipes</div><span class="feat-tag">Liderança</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td></tr>
+<tr><td><div class="feat-name">Notifica os usuários sobre aprovações pendentes de avaliadores indicados</div><span class="feat-tag">Fácil</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td></tr>
+<tr><td><div class="feat-name">Envio de notificações por SMS e WhatsApp</div><span class="feat-tag">Fácil</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td></tr>
+<tr><td><div class="feat-name">Calibração de resultados (por quadrante, seção ou competência)</div><span class="feat-tag">Confiável</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-check icon-yes"></i></td></tr>
+<tr><td><div class="feat-name">Customização dos eixos da matriz n-Box (flexibilidade total de dimensões)</div><span class="feat-tag">Flexível</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-check icon-yes"></i></td></tr>
+<tr><td><div class="feat-name">Customização dos quadrantes (nomes, cores, notas, quantidade)</div><span class="feat-tag">Flexível</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td></tr>
+<tr><td><div class="feat-name">Planejamento de carreira e sucessão</div><span class="feat-tag">Liderança</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td></tr>
+<tr><td><div class="feat-name">Perfil 360 (todas as informações do colaborador em uma única página)</div><span class="feat-tag">Fácil</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td></tr>
+<tr><td><div class="feat-name">Conexão de gaps da avaliação com PDI e cursos de desenvolvimento</div><span class="feat-tag">Inteligente</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-check icon-yes"></i></td></tr>
+<tr><td><div class="feat-name">Comparativo histórico de resultados de pesquisas</div><span class="feat-tag">Confiável</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td><td class="check-cell"><i class="fa-solid fa-check icon-yes"></i></td></tr>
+<tr><td><div class="feat-name">Escala de resposta variável na mesma pesquisa</div><span class="feat-tag">Flexível</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-check icon-yes"></i></td></tr>
+<tr><td><div class="feat-name">Diversos formatos de pesquisa (pulso, clima, NPS, etc.)</div><span class="feat-tag">Flexível</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-check icon-yes"></i></td></tr>
+<tr><td><div class="feat-name">Comparação de resultados por cargo, área, diretoria, etc.</div><span class="feat-tag">Inteligente</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td><td class="check-cell"><i class="fa-solid fa-check icon-yes"></i></td></tr>
+<tr><td><div class="feat-name">IA para análise de comentários e questões abertas</div><span class="feat-tag">Inteligente</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td></tr>
+<tr><td><div class="feat-name">Acompanhamento de progresso e engajamento nos cursos</div><span class="feat-tag">Confiável</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-check icon-yes"></i></td></tr>
+<tr><td><div class="feat-name">Equipe de implementação com psicólogos organizacionais</div><span class="feat-tag">Atendimento consultivo</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td></tr>
+<tr><td><div class="feat-name">Contratação modular, conforme necessidade</div><span class="feat-tag">Flexível</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-check icon-yes"></i></td></tr>
+</tbody>
         </table>
       </div>
     </section>
@@ -769,13 +796,143 @@
     <section class="tab-panel" id="tab-5">
       <h1 class="section-title">Aprovação e plano de ação</h1>
       <p class="section-sub">Objetivos de negócio da Pier, o caminho para chegar lá e o estado futuro com a impulseup</p>
-      <div class="empty-state" id="tab5EmptyState">
+      <div class="empty-state" id="tab5EmptyState" style="display:none;">
         <i class="fa-regular fa-clipboard"></i>
         <h3>Aba liberada após a reunião de Diagnóstico</h3>
         <p>Assim que os desafios forem mapeados, esta aba mostra os objetivos de negócio e RH por trás do projeto, o plano de ação com cronograma para chegar lá, e o estado futuro do negócio com a impulseup — pronta para embasar a apresentação à diretoria.</p>
       </div>
-      <div id="tab5PlanoWrap" style="display:none;">
-        <!--OBJETIVOS-->
+      <div id="tab5PlanoWrap">
+        <p class="section-sub" style="margin-bottom:18px;">Os períodos são uma estimativa padrão de implantação (cerca de 90 dias) e serão confirmados com o time de implantação.</p>
+        <div class="objetivo-card">
+          <div class="objetivo-header"><div class="objetivo-num">1</div><div><h3>Garantir devolutiva e alinhamento de expectativas ao fim de cada ciclo</h3><p>Fechar o ciclo de performance com a conversa entre líder e colaborador, e não só com o encerramento do formulário.</p></div></div>
+          <div class="objetivo-body">
+            <div class="objetivo-compare-col">
+              <div class="objetivo-compare-box atual"><span class="objetivo-compare-label">Situação atual</span><p>O ciclo semestral encerra sem uma etapa de devolutiva amarrada. Hoje ela é criada à mão dentro da funcionalidade de feedback.</p></div>
+              <div class="objetivo-compare-box meta"><span class="objetivo-compare-label">Meta</span><p>Devolutiva e alinhamento de expectativas registrados no mesmo lugar do relatório, com confirmação do colaborador.</p></div>
+              <div class="objetivo-indicador"><i class="fa-solid fa-bullseye"></i><div><span class="objetivo-indicador-label">Indicador de sucesso</span><p>Percentual de devolutivas registradas e confirmadas por ciclo. Hoje o ciclo encerra sem essa garantia.</p></div></div>
+            </div>
+            <div class="objetivo-plan-col">
+              <div class="objetivo-etapas-title">Plano de ação</div>
+              <div class="objetivo-etapas">
+<div class="objetivo-etapa"><div class="objetivo-etapa-dot">1</div><div class="objetivo-etapa-line"></div><div class="objetivo-etapa-content"><span class="objetivo-etapa-period">Mês 1</span><h4>Desenho do ciclo</h4><p>Definir etapas, nomes e responsáveis, incluindo devolutiva e alinhamento de expectativas.</p><span class="objetivo-etapa-resp">Responsável: Conjunta</span></div></div>
+<div class="objetivo-etapa"><div class="objetivo-etapa-dot">2</div><div class="objetivo-etapa-line"></div><div class="objetivo-etapa-content"><span class="objetivo-etapa-period">Mês 1 a 2</span><h4>Parametrização</h4><p>Configurar o formulário por competências, os públicos de líder e não líder e a etapa de devolutiva.</p><span class="objetivo-etapa-resp">Responsável: impulseup</span></div></div>
+<div class="objetivo-etapa"><div class="objetivo-etapa-dot">3</div><div class="objetivo-etapa-line"></div><div class="objetivo-etapa-content"><span class="objetivo-etapa-period">Mês 2 a 3</span><h4>Treinamento de gestores</h4><p>Preparar os líderes para conduzir a devolutiva a partir do relatório e do PDI.</p><span class="objetivo-etapa-resp">Responsável: impulseup</span></div></div>
+<div class="objetivo-etapa"><div class="objetivo-etapa-dot">4</div><div class="objetivo-etapa-line"></div><div class="objetivo-etapa-content"><span class="objetivo-etapa-period">Mês 3 em diante</span><h4>Primeiro ciclo na plataforma</h4><p>Rodar o ciclo e acompanhar quais devolutivas já aconteceram.</p><span class="objetivo-etapa-resp">Responsável: Conjunta</span></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="approval-outcome">
+            <div class="approval-outcome-title"><i class="fa-solid fa-flag-checkered"></i>Estado futuro</div>
+            <div class="approval-outcome-grid">
+              <div class="approval-stage futuro"><span class="approval-stage-label">Para o RH</span><p>A devolutiva fica vinculada ao relatório e ao PDI do colaborador, e o RH acompanha quais conversas já aconteceram.</p></div>
+              <div class="approval-stage negocio"><span class="approval-stage-label">Para o negócio</span><p>Decisões de carreira e desenvolvimento passam a nascer de uma conversa registrada, o que aumenta a confiança dos líderes no processo.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="objetivo-card">
+          <div class="objetivo-header"><div class="objetivo-num">2</div><div><h3>Tornar o ciclo de performance escalável e sem retrabalho manual</h3><p>Liberar o time de People de ajustes de base e de cobrança individual a cada ciclo.</p></div></div>
+          <div class="objetivo-body">
+            <div class="objetivo-compare-col">
+              <div class="objetivo-compare-box atual"><span class="objetivo-compare-label">Situação atual</span><p>Prazo único por ciclo, tags criadas e atualizadas por ciclo e retirada manual de quem não respondeu. Com 140 a 160 elegíveis é sustentável, mas não escala.</p></div>
+              <div class="objetivo-compare-box meta"><span class="objetivo-compare-label">Meta</span><p>Acompanhar adesão e cobrar respostas pela própria plataforma, sem ajustes manuais na base a cada ciclo.</p></div>
+              <div class="objetivo-indicador"><i class="fa-solid fa-bullseye"></i><div><span class="objetivo-indicador-label">Indicador de sucesso</span><p>Horas do time de People gastas por ciclo em ajustes manuais, com a linha de base levantada no kickoff.</p></div></div>
+            </div>
+            <div class="objetivo-plan-col">
+              <div class="objetivo-etapas-title">Plano de ação</div>
+              <div class="objetivo-etapas">
+<div class="objetivo-etapa"><div class="objetivo-etapa-dot">1</div><div class="objetivo-etapa-line"></div><div class="objetivo-etapa-content"><span class="objetivo-etapa-period">Mês 1</span><h4>Mapeamento do processo</h4><p>Levantar etapas, prazos internos, públicos elegíveis e campos usados nas análises.</p><span class="objetivo-etapa-resp">Responsável: Conjunta</span></div></div>
+<div class="objetivo-etapa"><div class="objetivo-etapa-dot">2</div><div class="objetivo-etapa-line"></div><div class="objetivo-etapa-content"><span class="objetivo-etapa-period">Mês 1 a 2</span><h4>Parametrização e notificações</h4><p>Criar campos customizados e configurar os avisos para quem ainda não respondeu.</p><span class="objetivo-etapa-resp">Responsável: impulseup</span></div></div>
+<div class="objetivo-etapa"><div class="objetivo-etapa-dot">3</div><div class="objetivo-etapa-line"></div><div class="objetivo-etapa-content"><span class="objetivo-etapa-period">Mês 2 a 3</span><h4>Acompanhamento pelos gestores</h4><p>Treinar os gestores para acompanhar o status de resposta do próprio time.</p><span class="objetivo-etapa-resp">Responsável: impulseup</span></div></div>
+<div class="objetivo-etapa"><div class="objetivo-etapa-dot">4</div><div class="objetivo-etapa-line"></div><div class="objetivo-etapa-content"><span class="objetivo-etapa-period">Mês 3 em diante</span><h4>Primeiro ciclo na plataforma</h4><p>Rodar o ciclo medindo o tempo gasto pelo time de People.</p><span class="objetivo-etapa-resp">Responsável: Conjunta</span></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="approval-outcome">
+            <div class="approval-outcome-title"><i class="fa-solid fa-flag-checkered"></i>Estado futuro</div>
+            <div class="approval-outcome-grid">
+              <div class="approval-stage futuro"><span class="approval-stage-label">Para o RH</span><p>O time de People acompanha a adesão e aciona quem falta direto na plataforma, com campos customizados no lugar das tags por ciclo.</p></div>
+              <div class="approval-stage negocio"><span class="approval-stage-label">Para o negócio</span><p>O ciclo acompanha o crescimento da empresa, e o tempo do time de People vai para análise e conversa com lideranças, não para ajuste de base.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="objetivo-card">
+          <div class="objetivo-header"><div class="objetivo-num">3</div><div><h3>Ter uma única leitura de resultado entre avaliação, calibração e Nine Box</h3><p>Garantir que líder e RH olhem o mesmo resultado, em qualquer tela e em qualquer etapa do ciclo.</p></div></div>
+          <div class="objetivo-body">
+            <div class="objetivo-compare-col">
+              <div class="objetivo-compare-box atual"><span class="objetivo-compare-label">Situação atual</span><p>A nota 1,66 fica dentro na avaliação e abaixo na Nine Box, e a avaliação 180 não entra no peso do resultado.</p></div>
+              <div class="objetivo-compare-box meta"><span class="objetivo-compare-label">Meta</span><p>Escalas, pesos e quadrantes alinhados, com calibração feita dentro da plataforma.</p></div>
+              <div class="objetivo-indicador"><i class="fa-solid fa-bullseye"></i><div><span class="objetivo-indicador-label">Indicador de sucesso</span><p>Número de ajustes de escala necessários na calibração por ciclo. Hoje eles são feitos manualmente.</p></div></div>
+            </div>
+            <div class="objetivo-plan-col">
+              <div class="objetivo-etapas-title">Plano de ação</div>
+              <div class="objetivo-etapas">
+<div class="objetivo-etapa"><div class="objetivo-etapa-dot">1</div><div class="objetivo-etapa-line"></div><div class="objetivo-etapa-content"><span class="objetivo-etapa-period">Mês 1</span><h4>Mapeamento de escalas e pesos</h4><p>Levantar escalas, pesos por avaliador e quadrantes usados hoje na Nine Box.</p><span class="objetivo-etapa-resp">Responsável: Conjunta</span></div></div>
+<div class="objetivo-etapa"><div class="objetivo-etapa-dot">2</div><div class="objetivo-etapa-line"></div><div class="objetivo-etapa-content"><span class="objetivo-etapa-period">Mês 1 a 2</span><h4>Parametrização</h4><p>Configurar escalas, pesos e eixos e quadrantes da Nine Box.</p><span class="objetivo-etapa-resp">Responsável: impulseup</span></div></div>
+<div class="objetivo-etapa"><div class="objetivo-etapa-dot">3</div><div class="objetivo-etapa-line"></div><div class="objetivo-etapa-content"><span class="objetivo-etapa-period">Mês 2 a 3</span><h4>Simulação de calibração</h4><p>Testar a calibração com dados reais antes do primeiro ciclo.</p><span class="objetivo-etapa-resp">Responsável: Conjunta</span></div></div>
+<div class="objetivo-etapa"><div class="objetivo-etapa-dot">4</div><div class="objetivo-etapa-line"></div><div class="objetivo-etapa-content"><span class="objetivo-etapa-period">Mês 3 em diante</span><h4>Calibração no ciclo</h4><p>Calibrar por quadrante, seção ou competência e acompanhar os resultados.</p><span class="objetivo-etapa-resp">Responsável: Conjunta</span></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="approval-outcome">
+            <div class="approval-outcome-title"><i class="fa-solid fa-flag-checkered"></i>Estado futuro</div>
+            <div class="approval-outcome-grid">
+              <div class="approval-stage futuro"><span class="approval-stage-label">Para o RH</span><p>Escalas, pesos por avaliador e quadrantes parametrizados pelo próprio RH, com calibração por quadrante, seção ou competência.</p></div>
+              <div class="approval-stage negocio"><span class="approval-stage-label">Para o negócio</span><p>Os líderes confiam no resultado que recebem, e as decisões de desempenho e talento deixam de ser questionadas por divergência de nota.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="objetivo-card">
+          <div class="objetivo-header"><div class="objetivo-num">4</div><div><h3>Dar aos líderes visão de clima com evolução e recortes</h3><p>Transformar a pesquisa de clima em ferramenta de decisão para cada liderança, e não só em relatório do RH.</p></div></div>
+          <div class="objetivo-body">
+            <div class="objetivo-compare-col">
+              <div class="objetivo-compare-box atual"><span class="objetivo-compare-label">Situação atual</span><p>A pesquisa roda três vezes ao ano na Gupy. Os líderes não acompanham a evolução entre ciclos, e o NPS é calculado por fora.</p></div>
+              <div class="objetivo-compare-box meta"><span class="objetivo-compare-label">Meta</span><p>Líderes enxergam o clima do time por recorte e a evolução ciclo a ciclo, dentro da plataforma.</p></div>
+              <div class="objetivo-indicador"><i class="fa-solid fa-bullseye"></i><div><span class="objetivo-indicador-label">Indicador de sucesso</span><p>Líderes com acesso ao resultado do time e à evolução entre ciclos, sem planilha montada pelo time de People.</p></div></div>
+            </div>
+            <div class="objetivo-plan-col">
+              <div class="objetivo-etapas-title">Plano de ação</div>
+              <div class="objetivo-etapas">
+<div class="objetivo-etapa"><div class="objetivo-etapa-dot">1</div><div class="objetivo-etapa-line"></div><div class="objetivo-etapa-content"><span class="objetivo-etapa-period">Mês 1</span><h4>Desenho da pesquisa</h4><p>Definir escalas, pergunta de NPS e campos para cruzamento, como tempo de casa e área.</p><span class="objetivo-etapa-resp">Responsável: Conjunta</span></div></div>
+<div class="objetivo-etapa"><div class="objetivo-etapa-dot">2</div><div class="objetivo-etapa-line"></div><div class="objetivo-etapa-content"><span class="objetivo-etapa-period">Mês 1 a 2</span><h4>Configuração</h4><p>Parametrizar a pesquisa, as regras de visibilidade e o anonimato.</p><span class="objetivo-etapa-resp">Responsável: impulseup</span></div></div>
+<div class="objetivo-etapa"><div class="objetivo-etapa-dot">3</div><div class="objetivo-etapa-line"></div><div class="objetivo-etapa-content"><span class="objetivo-etapa-period">Mês 2 a 3</span><h4>Treinamento de líderes</h4><p>Ensinar os líderes a ler resultados e criar planos de ação.</p><span class="objetivo-etapa-resp">Responsável: impulseup</span></div></div>
+<div class="objetivo-etapa"><div class="objetivo-etapa-dot">4</div><div class="objetivo-etapa-line"></div><div class="objetivo-etapa-content"><span class="objetivo-etapa-period">Mês 3 em diante</span><h4>Primeira pesquisa</h4><p>Rodar a pesquisa e comparar com os ciclos seguintes.</p><span class="objetivo-etapa-resp">Responsável: Conjunta</span></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="approval-outcome">
+            <div class="approval-outcome-title"><i class="fa-solid fa-flag-checkered"></i>Estado futuro</div>
+            <div class="approval-outcome-grid">
+              <div class="approval-stage futuro"><span class="approval-stage-label">Para o RH</span><p>Pesquisas com escala e NPS na mesma plataforma, comparativo histórico e filtros por cargo, área e diretoria.</p></div>
+              <div class="approval-stage negocio"><span class="approval-stage-label">Para o negócio</span><p>As lideranças agem onde o clima pede atenção, em vez de reagir a uma média geral.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="objetivo-card">
+          <div class="objetivo-header"><div class="objetivo-num">5</div><div><h3>Estruturar learning e sucessão e reduzir o número de fornecedores</h3><p>Desenvolver pessoas e preparar sucessores em uma operação mais enxuta de sistemas.</p></div></div>
+          <div class="objetivo-body">
+            <div class="objetivo-compare-col">
+              <div class="objetivo-compare-box atual"><span class="objetivo-compare-label">Situação atual</span><p>O learning é um repositório em plano gratuito e limitado, e a sucessão está contratada, mas sem uso estruturado.</p></div>
+              <div class="objetivo-compare-box meta"><span class="objetivo-compare-label">Meta</span><p>Operar em um ou dois sistemas, com learning acompanhado e sucessão conectada à Nine Box.</p></div>
+              <div class="objetivo-indicador"><i class="fa-solid fa-bullseye"></i><div><span class="objetivo-indicador-label">Indicador de sucesso</span><p>Progresso e engajamento nos cursos acompanhados na plataforma e número de fornecedores de performance, clima e learning.</p></div></div>
+            </div>
+            <div class="objetivo-plan-col">
+              <div class="objetivo-etapas-title">Plano de ação</div>
+              <div class="objetivo-etapas">
+<div class="objetivo-etapa"><div class="objetivo-etapa-dot">1</div><div class="objetivo-etapa-line"></div><div class="objetivo-etapa-content"><span class="objetivo-etapa-period">Mês 1</span><h4>Mapeamento de conteúdos</h4><p>Levantar cursos, trilhas e conteúdos próprios que já existem.</p><span class="objetivo-etapa-resp">Responsável: Pier</span></div></div>
+<div class="objetivo-etapa"><div class="objetivo-etapa-dot">2</div><div class="objetivo-etapa-line"></div><div class="objetivo-etapa-content"><span class="objetivo-etapa-period">Mês 1 a 2</span><h4>Configuração do learning</h4><p>Organizar cursos em categorias e trilhas, com acompanhamento de progresso.</p><span class="objetivo-etapa-resp">Responsável: impulseup</span></div></div>
+<div class="objetivo-etapa"><div class="objetivo-etapa-dot">3</div><div class="objetivo-etapa-line"></div><div class="objetivo-etapa-content"><span class="objetivo-etapa-period">Mês 2 a 3</span><h4>Sucessão</h4><p>Estruturar a sucessão de cargos-chave a partir da Nine Box.</p><span class="objetivo-etapa-resp">Responsável: impulseup</span></div></div>
+<div class="objetivo-etapa"><div class="objetivo-etapa-dot">4</div><div class="objetivo-etapa-line"></div><div class="objetivo-etapa-content"><span class="objetivo-etapa-period">Mês 3 em diante</span><h4>Acompanhamento</h4><p>Acompanhar engajamento nos cursos e evolução da sucessão.</p><span class="objetivo-etapa-resp">Responsável: Conjunta</span></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="approval-outcome">
+            <div class="approval-outcome-title"><i class="fa-solid fa-flag-checkered"></i>Estado futuro</div>
+            <div class="approval-outcome-grid">
+              <div class="approval-stage futuro"><span class="approval-stage-label">Para o RH</span><p>Cursos organizados em trilhas, com progresso e engajamento acompanhados, e sucessão estruturada a partir da Nine Box.</p></div>
+              <div class="approval-stage negocio"><span class="approval-stage-label">Para o negócio</span><p>A empresa enxerga se o investimento em desenvolvimento está sendo consumido e sabe quem pode assumir posições-chave.</p></div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -850,17 +1007,19 @@
 
     <!-- ABA 8 — PRÓXIMOS PASSOS -->
     <section class="tab-panel" id="tab-8">
+
       <h1 class="section-title">Próximos passos</h1>
       <p class="section-sub">Jornada de compra da Pier</p>
       <div class="timeline">
-        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">09 out</span><div><span class="tl-desc">Reunião de Diagnóstico</span><div class="tl-meta">Entender contexto e desafios · Beatriz Abreu</div></div></div>
-        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">A definir</span><div><span class="tl-desc">Demonstração personalizada</span><div class="tl-meta">Mostrar solução aplicada aos desafios mapeados</div></div></div>
+        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">09 out</span><div><span class="tl-desc">Reunião de conexão</span><div class="tl-meta">Entender contexto e desafios · Beatriz e Melanie</div></div></div>
+        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">14 out (a confirmar)</span><div><span class="tl-desc">Demonstração personalizada</span><div class="tl-meta">Mostrar a solução aplicada aos desafios mapeados</div></div></div>
         <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">A definir</span><div><span class="tl-desc">Construção de projeto e proposta</span><div class="tl-meta">Definir escopo e cenários de investimento</div></div></div>
-        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">A definir</span><div><span class="tl-desc">Apresentação para diretoria</span><div class="tl-meta">Beatriz apresenta o projeto internamente</div></div></div>
+        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">A definir</span><div><span class="tl-desc">Apresentação para diretoria</span><div class="tl-meta">Apresentação interna do projeto</div></div></div>
         <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">A definir</span><div><span class="tl-desc">Aprovação da proposta</span></div></div>
         <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">A definir</span><div><span class="tl-desc">Revisão jurídica</span></div></div>
         <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">A definir</span><div><span class="tl-desc">Assinatura e kickoff</span></div></div>
       </div>
+    
     </section>
 
     </main>
@@ -877,42 +1036,168 @@
 {
   "nomeEmpresa": "Pier",
   "slugEmpresa": "pier",
-  "contexto": "Avaliam novos fornecedores para performance, LMS, clima e engajamento, com decisão de plataforma até dezembro e contrato atual até fevereiro.",
+  "contexto": "Orçamento de 2027 em construção e avaliação do mercado. Hoje Qulture.Rocks e Gupy atendem, mas com pontos de melhoria no ciclo, na Nine Box, no clima e no learning.",
   "desafiosCentrais": [
     {
-      "titulo": "Visão de clima para os líderes"
+      "titulo": "Devolutiva sem etapa amarrada ao ciclo"
     },
     {
-      "titulo": "Learning sem estrutura"
+      "titulo": "Ciclo manual que não escala",
+      "numero": "220 colaboradores"
     },
     {
-      "titulo": "Migração entre ciclos"
+      "titulo": "Escalas e Nine Box descasadas"
     },
     {
-      "titulo": "Benchmark em performance"
+      "titulo": "Clima sem visão para os líderes"
+    },
+    {
+      "titulo": "Learning e sucessão sem estrutura"
     }
   ],
-  "objetivos": [],
-  "pilaresDestaque": [
+  "objetivos": [
     {
-      "titulo": "Líderes leem o clima por recorte, não pela média",
-      "tag": "Inteligente"
+      "titulo": "Devolutiva garantida em todo ciclo",
+      "estadoFuturoResumido": "A conversa entre líder e colaborador fica registrada junto ao relatório e ao PDI."
     },
     {
-      "titulo": "Aprendizagem medida, não apenas armazenada",
+      "titulo": "Ciclo que cresce sem retrabalho",
+      "estadoFuturoResumido": "O time de People acompanha a adesão e aciona quem falta pela plataforma."
+    },
+    {
+      "titulo": "Uma só leitura de resultado",
+      "estadoFuturoResumido": "Escalas, pesos e Nine Box alinhados, com calibração dentro da plataforma."
+    },
+    {
+      "titulo": "Líderes com visão de clima",
+      "estadoFuturoResumido": "Resultados por cargo, área e diretoria, com evolução entre ciclos."
+    }
+  ],
+  "pilaresDestaque": [
+    {
+      "titulo": "Cada gestor conduz o ciclo do próprio time",
+      "tag": "Liderança"
+    },
+    {
+      "titulo": "RH e liderança decidem sobre o mesmo resultado",
       "tag": "Confiável"
     },
     {
-      "titulo": "Migração conduzida por especialistas em pessoas",
-      "tag": "Atendimento consultivo"
+      "titulo": "Líderes agem onde está o problema",
+      "tag": "Inteligente"
     }
   ],
-  "comparativo": null,
+  "comparativo": {
+    "concorrentes": [
+      "Qulture.Rocks",
+      "Gupy"
+    ],
+    "criterios": [
+      {
+        "nome": "Pesos por tipo de avaliador",
+        "tag": "Flexível",
+        "impulseup": true,
+        "porConcorrente": [
+          false,
+          true
+        ]
+      },
+      {
+        "nome": "Gestor acompanha respostas do time",
+        "tag": "Liderança",
+        "impulseup": true,
+        "porConcorrente": [
+          false,
+          false
+        ]
+      },
+      {
+        "nome": "Campos customizados para análises",
+        "tag": "Flexível",
+        "impulseup": true,
+        "porConcorrente": [
+          true,
+          true
+        ]
+      },
+      {
+        "nome": "Calibração de resultados",
+        "tag": "Confiável",
+        "impulseup": true,
+        "porConcorrente": [
+          true,
+          true
+        ]
+      },
+      {
+        "nome": "Perfil 360 do colaborador",
+        "tag": "Fácil",
+        "impulseup": true,
+        "porConcorrente": [
+          false,
+          false
+        ]
+      },
+      {
+        "nome": "Gaps da avaliação ligados ao PDI",
+        "tag": "Inteligente",
+        "impulseup": true,
+        "porConcorrente": [
+          true,
+          true
+        ]
+      },
+      {
+        "nome": "Comparativo histórico de pesquisas",
+        "tag": "Confiável",
+        "impulseup": true,
+        "porConcorrente": [
+          false,
+          true
+        ]
+      },
+      {
+        "nome": "Escalas variáveis na mesma pesquisa",
+        "tag": "Flexível",
+        "impulseup": true,
+        "porConcorrente": [
+          true,
+          true
+        ]
+      },
+      {
+        "nome": "Resultados por cargo, área e diretoria",
+        "tag": "Inteligente",
+        "impulseup": true,
+        "porConcorrente": [
+          false,
+          true
+        ]
+      },
+      {
+        "nome": "Implantação com psicólogos organizacionais",
+        "tag": "Atendimento consultivo",
+        "impulseup": true,
+        "porConcorrente": [
+          false,
+          false
+        ]
+      }
+    ]
+  },
   "investimento": null,
   "cronogramaMacro": [
     {
       "data": "09 out",
-      "titulo": "Reunião de Diagnóstico"
+      "titulo": "Reunião de conexão"
+    },
+    {
+      "data": "14 out",
+      "titulo": "Demonstração personalizada (a confirmar)"
+    },
+    {
+      "data": "A definir",
+      "titulo": "Construção de projeto e proposta"
     },
     {
       "data": "A definir",
