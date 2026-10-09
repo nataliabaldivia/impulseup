@@ -654,15 +654,16 @@
     <section class="tab-panel" id="tab-3">
       <h1 class="section-title">Demonstração</h1>
       <p class="section-sub">Vídeos da plataforma, orientados aos desafios da Acesso Saúde</p>
-      <div class="empty-state" id="tab3EmptyState">
+      <div class="empty-state" id="tab3EmptyState" style="display:none;">
         <i class="fa-regular fa-circle-play"></i>
         <h3>Aba liberada após a reunião de Demo</h3>
         <p>O closer vai incluir aqui vídeos curtos mostrando a solução aplicada aos desafios mapeados no Diagnóstico.</p>
       </div>
-      <div id="tab3Content" style="display:none;">
+      <div id="tab3Content">
         <div class="stat-grid" id="tab3ImpactoGrid">
-          <!-- Preenchido pela skill a partir de "impacto" (estrutura-abas.md, Aba 3). Ex:
-               <div class="stat-card"><div class="num">32%</div><div class="label">redução no tempo de ciclo de avaliação</div></div> -->
+          <div class="stat-card"><div class="num">115</div><div class="label">colaboradores no escopo do projeto</div></div>
+          <div class="stat-card"><div class="num">Papel</div><div class="label">formato atual das avaliações de experiência e dos feedbacks semanais</div></div>
+          <div class="stat-card"><div class="num">1 só lugar</div><div class="label">para registrar avaliações, feedbacks e PDI, o objetivo da Acesso Saúde</div></div>
         </div>
         <div style="overflow-x:auto;margin-bottom:40px;">
           <table class="rfp-table" id="tab3ComparativoTable">
@@ -670,8 +671,10 @@
               <tr><th>Situação atual</th><th>Módulo impulseup</th><th>Como fica</th></tr>
             </thead>
             <tbody>
-              <!-- Preenchido pela skill a partir de "comparativo" (máx. 4 linhas). Ex:
-                   <tr><td>Avaliação só em planilha</td><td class="feat-name">Ciclos de avaliação</td><td>Fluxo 100% digital com lembretes automáticos</td></tr> -->
+              <tr><td>Feedbacks semanais feitos em papel, sem como acompanhar se o que foi combinado foi cumprido</td><td class="feat-name">Feedback e Reuniões</td><td>Feedbacks e atas de one a one registrados na plataforma, com ações que o gestor acompanha até a conclusão e histórico de cada colaborador na tela 360</td></tr>
+              <tr><td>Avaliação de experiência por formulário em papel, respondido pelo gestor e devolvido ao RH</td><td class="feat-name">Avaliação de Experiência</td><td>Disparo automático a partir da data de admissão (por exemplo, 45 e 90 dias), por e-mail, SMS ou WhatsApp, com o RH acompanhando as respostas</td></tr>
+              <tr><td>Pontos de desenvolvimento levantados nos feedbacks dependem de planilha para serem acompanhados</td><td class="feat-name">PDI</td><td>Gaps da avaliação viram PDI, com biblioteca de ações da própria empresa e sugestões da IA, e o gestor acompanha o andamento de cada um</td></tr>
+              <tr><td>Ainda sem pesquisas estruturadas, mas com interesse em começar</td><td class="feat-name">Pesquisa</td><td>Pesquisas de clima e de pulso com modelos prontos ou montadas do jeito da Acesso Saúde, com comparativo histórico dos resultados</td></tr>
             </tbody>
           </table>
         </div>
@@ -712,6 +715,7 @@
                </div> -->
         </div>
       </div>
+    
     </section>
 
     <!-- ABA 4 — DIFERENCIAIS IMPULSEUP -->
@@ -821,7 +825,7 @@
       <p class="section-sub">Jornada de compra da Acesso Saúde</p>
       <div class="timeline">
         <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">6 out</span><div><span class="tl-desc">Reunião de Diagnóstico</span><div class="tl-meta">Entender contexto e desafios · Marcela</div></div></div>
-        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">A definir</span><div><span class="tl-desc">Demonstração personalizada</span><div class="tl-meta">Mostrar solução aplicada aos desafios mapeados</div></div></div>
+        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">A definir</span><div><span class="tl-desc">Demonstração personalizada</span><div class="tl-meta">Mostrar a solução aplicada aos desafios mapeados, com a visão do administrador e a configuração</div></div></div>
         <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">A definir</span><div><span class="tl-desc">Construção de projeto e proposta</span><div class="tl-meta">Definir escopo e cenários de investimento</div></div></div>
         <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">A definir</span><div><span class="tl-desc">Apresentação para diretoria</span><div class="tl-meta">Marcela apresenta o projeto internamente</div></div></div>
         <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">A definir</span><div><span class="tl-desc">Aprovação da proposta</span></div></div>
@@ -829,6 +833,7 @@
         <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">A definir</span><div><span class="tl-desc">Assinatura e kickoff</span></div></div>
       </div>
 
+    
     </section>
 
     </main>
