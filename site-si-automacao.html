@@ -661,15 +661,16 @@
     <section class="tab-panel" id="tab-3">
       <h1 class="section-title">Demonstração</h1>
       <p class="section-sub">Vídeos da plataforma, orientados aos desafios da S&amp;I Automação</p>
-      <div class="empty-state" id="tab3EmptyState">
+      <div class="empty-state" id="tab3EmptyState" style="display:none;">
         <i class="fa-regular fa-circle-play"></i>
         <h3>Aba liberada após a reunião de Demo</h3>
         <p>O closer vai incluir aqui vídeos curtos mostrando a solução aplicada aos desafios mapeados no Diagnóstico.</p>
       </div>
-      <div id="tab3Content" style="display:none;">
+      <div id="tab3Content" style="display:block;">
         <div class="stat-grid" id="tab3ImpactoGrid">
-          <!-- Preenchido pela skill a partir de "impacto" (estrutura-abas.md, Aba 3). Ex:
-               <div class="stat-card"><div class="num">32%</div><div class="label">redução no tempo de ciclo de avaliação</div></div> -->
+          <div class="stat-card"><div class="num">124</div><div class="label">colaboradores nas áreas técnica, comercial e administrativa</div></div>
+          <div class="stat-card"><div class="num">8</div><div class="label">desligamentos em agosto, contra 4 contratações no mês</div></div>
+          <div class="stat-card"><div class="num">0</div><div class="label">ciclos formais de avaliação de desempenho concluídos até hoje</div></div>
         </div>
         <div style="overflow-x:auto;margin-bottom:40px;">
           <table class="rfp-table" id="tab3ComparativoTable">
@@ -677,8 +678,10 @@
               <tr><th>Situação atual</th><th>Módulo impulseup</th><th>Como fica</th></tr>
             </thead>
             <tbody>
-              <!-- Preenchido pela skill a partir de "comparativo" (máx. 4 linhas). Ex:
-                   <tr><td>Avaliação só em planilha</td><td class="feat-name">Ciclos de avaliação</td><td>Fluxo 100% digital com lembretes automáticos</td></tr> -->
+              <tr><td>Nunca rodou uma avaliação formal e as decisões sobre pessoas são tomadas na conversa com a liderança</td><td class="feat-name">Avaliação de desempenho</td><td>Ciclo semestral com formatos 90/180/360 e competências exclusivas por cargo e área, com comparação de performance e desenvolvimento ao longo do tempo para sustentar decisões com dados</td></tr>
+              <tr><td>Sem processo formal de PDI e de feedbacks</td><td class="feat-name">PDI e Feedback</td><td>Os gaps da avaliação viram PDI conectado a cursos de desenvolvimento, e os feedbacks ficam registrados, categorizados e podem ser compartilhados no mural da empresa</td></tr>
+              <tr><td>Técnicos em campo por Minas Gerais, sem condição de participar de programas presenciais</td><td class="feat-name">Learning</td><td>Cursos e trilhas com conteúdo próprio da S&amp;I (vídeos, PDFs e links), que o técnico acessa mesmo em viagem, com gestão de cursos presenciais, quiz e certificado</td></tr>
+              <tr><td>Sem avaliação da experiência dos novos colaboradores aos 45 e 90 dias</td><td class="feat-name">Avaliação de experiência</td><td>Avaliação de experiência com envios automáticos, para o RH acompanhar a adaptação de quem acabou de entrar sem depender de planilha</td></tr>
             </tbody>
           </table>
         </div>
@@ -719,6 +722,7 @@
                </div> -->
         </div>
       </div>
+    
     </section>
 
     <!-- ABA 4 — DIFERENCIAIS IMPULSEUP -->
