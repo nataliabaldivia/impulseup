@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Guia de DHO para escritórios de advocacia | impulseup para QLA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --color-bg:#FFFFFF; --color-bg-alt:#F4F2EF; --color-fg:#0C0C0C; --color-fg-muted:#5C5C5C;
+    --color-border:#E0E0E0; --color-primary:#CC0088; --color-primary-hover:#A3006D; --color-primary-soft:#FBE6F3;
+    --color-dark:#0C0C0C; --color-on-dark:#FFFFFF; --color-on-dark-muted:#BDBDBD;
+    --color-logo-bg:transparent;
+    --font-family:'Poppins',system-ui,-apple-system,'Segoe UI',Arial,sans-serif;
+    box-sizing:border-box;
+    padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --color-bg:#0C0C0C; --color-bg-alt:#1A1A1A; --color-fg:#FFFFFF; --color-fg-muted:#B5B5B5;
+      --color-border:#333333; --color-primary:#E01FA0; --color-primary-hover:#FF4DB8; --color-primary-soft:#2A0A20;
+      --color-dark:#1A1A1A; --color-logo-bg:#FFFFFF;
+    }
+  }
+  :root[data-theme="dark"]{
+    --color-bg:#0C0C0C; --color-bg-alt:#1A1A1A; --color-fg:#FFFFFF; --color-fg-muted:#B5B5B5;
+    --color-border:#333333; --color-primary:#E01FA0; --color-primary-hover:#FF4DB8; --color-primary-soft:#2A0A20;
+    --color-dark:#1A1A1A; --color-logo-bg:#FFFFFF;
+  }
+  *,*::before,*::after{box-sizing:border-box;}
+  html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 76px);}
+  body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:var(--font-family);font-size:16px;line-height:1.75;-webkit-font-smoothing:antialiased;}
+  img{max-width:100%;}
+  a{color:var(--color-primary);}
+  h1,h2,h3,h4{line-height:1.2;margin:0;}
+  p{margin:0 0 14px;}
+  .layout>*{min-width:0;}
+  .layout{display:grid;grid-template-columns:260px minmax(0,1fr);gap:48px;max-width:1280px;margin:0 auto;padding:0 28px;}
+  /* NAV */
+  .side{position:sticky;top:0;align-self:start;height:100vh;padding:28px 0;overflow-y:auto;}
+  .brand{display:flex;align-items:center;gap:10px;margin-bottom:26px;}
+  .logo-chip{background:var(--color-logo-bg);border-radius:8px;padding:2px 6px;display:inline-flex;}
+  .logo-chip img{height:30px;width:auto;display:block;}
+  .brand small{font-size:11px;font-weight:500;color:var(--color-fg-muted);letter-spacing:.06em;text-transform:uppercase;line-height:1.3;}
+  .toc{display:flex;flex-direction:column;gap:2px;}
+  .toc a{display:flex;gap:10px;align-items:baseline;padding:9px 12px;border-radius:8px;text-decoration:none;color:var(--color-fg-muted);font-size:13.5px;font-weight:500;line-height:1.4;border-left:3px solid transparent;transition:background 150ms ease-out,color 150ms ease-out;min-height:44px;align-items:center;}
+  .toc a .n{font-size:11px;font-weight:700;color:var(--color-primary);min-width:18px;}
+  .toc a:hover{background:var(--color-bg-alt);color:var(--color-fg);}
+  .toc a.active{background:var(--color-bg-alt);color:var(--color-fg);border-left-color:var(--color-primary);font-weight:600;}
+  .theme-btn{margin-top:18px;background:transparent;border:1px solid var(--color-border);color:var(--color-fg-muted);font-family:inherit;font-size:12px;font-weight:600;border-radius:8px;padding:10px 14px;cursor:pointer;min-height:44px;width:100%;transition:border-color 150ms ease-out,color 150ms ease-out;}
+  .theme-btn:hover{border-color:var(--color-primary);color:var(--color-primary);}
+  :focus-visible{outline:3px solid var(--color-primary);outline-offset:2px;}
+  /* MAIN */
+  main{padding:28px 0 80px;min-width:0;}
+  section{padding:56px 0 8px;}
+  .eyebrow{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--color-primary);margin-bottom:10px;}
+  h2{font-size:clamp(26px,3.2vw,36px);font-weight:700;letter-spacing:-.01em;margin-bottom:14px;}
+  h3{font-size:19px;font-weight:600;margin:30px 0 10px;}
+  .lead{font-size:18px;font-weight:400;color:var(--color-fg-muted);max-width:720px;}
+  .hero{background:var(--color-dark);color:var(--color-on-dark);border-radius:20px;padding:56px 48px;position:relative;overflow:hidden;}
+  .hero::after{content:"";position:absolute;right:-80px;top:-80px;width:300px;height:300px;border-radius:50%;background:var(--color-primary);opacity:.9;}
+  .hero::before{content:"";position:absolute;right:120px;bottom:-60px;width:140px;height:140px;border-radius:50%;border:2px solid var(--color-primary);opacity:.7;}
+  .hero>*{position:relative;z-index:1;}
+  .hero .eyebrow{color:#FF7CCB;}
+  .hero h1{font-size:clamp(30px,4.6vw,50px);font-weight:800;letter-spacing:-.02em;max-width:640px;margin-bottom:18px;}
+  .hero p{color:var(--color-on-dark-muted);max-width:560px;font-size:17px;}
+  .hero .meta{margin-top:26px;font-size:13px;color:var(--color-on-dark-muted);}
+  .hero .meta strong{color:var(--color-on-dark);font-weight:600;}
+  .note{background:var(--color-primary-soft);border-left:4px solid var(--color-primary);border-radius:10px;padding:18px 22px;margin:22px 0;}
+  .note p:last-child{margin:0;}
+  .note b{color:var(--color-primary);}
+  .grid{display:grid;gap:16px;margin:18px 0;}
+  .g2{grid-template-columns:repeat(2,minmax(0,1fr));} .g3{grid-template-columns:repeat(3,minmax(0,1fr));}
+  .card{background:var(--color-bg-alt);border:1px solid var(--color-border);border-radius:12px;padding:22px;transition:border-color 200ms ease,box-shadow 200ms ease;}
+  .card:hover{border-color:var(--color-primary);box-shadow:0 0 10px rgba(204,0,136,.16);}
+  .card h4{font-size:16px;font-weight:600;margin-bottom:8px;}
+  .card p{font-size:14.5px;color:var(--color-fg-muted);margin:0;}
+  .card .tag{display:inline-block;font-size:11px;font-weight:700;color:var(--color-primary);letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px;}
+  ul.clean{margin:10px 0 16px;padding-left:20px;} ul.clean li{margin-bottom:6px;}
+  ol.clean{margin:10px 0 16px;padding-left:22px;} ol.clean li{margin-bottom:6px;}
+  .cycle{display:flex;flex-wrap:wrap;gap:10px;margin:20px 0;counter-reset:c;}
+  .cycle div{flex:1 1 150px;background:var(--color-bg-alt);border:1px solid var(--color-border);border-radius:12px;padding:16px;font-size:14px;font-weight:600;position:relative;counter-increment:c;}
+  .cycle div::before{content:counter(c);display:block;width:28px;height:28px;border-radius:50%;background:var(--color-primary);color:#fff;font-size:13px;font-weight:700;text-align:center;line-height:28px;margin-bottom:10px;}
+  .cycle div span{display:block;font-weight:400;font-size:13px;color:var(--color-fg-muted);margin-top:4px;}
+  .tbl-wrap{overflow-x:auto;margin:18px 0;border:1px solid var(--color-border);border-radius:12px;}
+  table{border-collapse:collapse;width:100%;font-size:14px;min-width:560px;}
+  th,td{padding:12px 14px;text-align:left;vertical-align:top;border-bottom:1px solid var(--color-border);}
+  th{background:var(--color-bg-alt);font-weight:600;font-size:12.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--color-fg-muted);}
+  tr:last-child td{border-bottom:none;}
+  td.c{text-align:center;white-space:nowrap;}
+  .dot{display:inline-block;width:14px;height:14px;border-radius:50%;border:2px solid var(--color-primary);vertical-align:middle;}
+  .dot.l3{background:var(--color-primary);} .dot.l2{background:linear-gradient(90deg,var(--color-primary) 50%,transparent 50%);} .dot.l0{border-color:transparent;}
+  .legend{display:flex;gap:18px;flex-wrap:wrap;font-size:13px;color:var(--color-fg-muted);margin:6px 0 0;align-items:center;}
+  .legend span{display:inline-flex;gap:6px;align-items:center;}
+  .quote{border-left:4px solid var(--color-primary);padding:6px 0 6px 20px;margin:20px 0;font-size:17px;font-weight:500;}
+  .quote small{display:block;font-weight:400;font-size:13px;color:var(--color-fg-muted);margin-top:6px;}
+  .sbi{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:16px 0;}
+  .sbi div{border:1px solid var(--color-border);border-radius:12px;padding:18px;background:var(--color-bg);}
+  .sbi b{display:block;color:var(--color-primary);font-size:12px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px;}
+  .sbi p{font-size:14px;margin:0;color:var(--color-fg-muted);}
+  details{border:1px solid var(--color-border);border-radius:12px;margin:10px 0;background:var(--color-bg);}
+  details summary{cursor:pointer;padding:16px 20px;font-weight:600;font-size:15.5px;list-style:none;min-height:44px;display:flex;justify-content:space-between;gap:12px;align-items:center;}
+  details summary::-webkit-details-marker{display:none;}
+  details summary::after{content:"+";font-size:22px;color:var(--color-primary);font-weight:500;}
+  details[open] summary::after{content:"\2212";}
+  details .body{padding:0 20px 18px;color:var(--color-fg-muted);font-size:15px;}
+  details .body p:last-child{margin:0;}
+  .phases{position:relative;margin:22px 0;padding-left:30px;}
+  .phases::before{content:"";position:absolute;left:11px;top:6px;bottom:6px;width:2px;background:var(--color-border);}
+  .phase{position:relative;margin-bottom:22px;}
+  .phase::before{content:"";position:absolute;left:-26px;top:7px;width:14px;height:14px;border-radius:50%;background:var(--color-primary);box-shadow:0 0 0 4px var(--color-primary-soft);}
+  .phase h4{font-size:16px;font-weight:600;margin-bottom:4px;}
+  .phase .out{font-size:13px;font-weight:600;color:var(--color-primary);margin-top:6px;}
+  .phase p{font-size:14.5px;color:var(--color-fg-muted);margin:0;}
+  /* tools */
+  .tool{background:var(--color-bg-alt);border:1px solid var(--color-border);border-radius:16px;padding:28px;margin:20px 0;}
+  .tool h3{margin-top:0;}
+  .chk{display:flex;gap:12px;align-items:flex-start;padding:10px 4px;border-bottom:1px solid var(--color-border);cursor:pointer;min-height:44px;}
+  .chk:last-of-type{border-bottom:none;}
+  .chk input{margin-top:5px;width:20px;height:20px;accent-color:var(--color-primary);flex:none;}
+  .meter{height:12px;border-radius:99px;background:var(--color-border);overflow:hidden;margin:18px 0 10px;}
+  .meter i{display:block;height:100%;width:0;background:var(--color-primary);transition:width 300ms ease-out;}
+  .result{font-weight:600;font-size:17px;} .result-sub{font-size:14.5px;color:var(--color-fg-muted);margin-top:4px;}
+  .form-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:14px 0;}
+  label.f{display:block;font-size:13px;font-weight:600;color:var(--color-fg-muted);}
+  label.f input{display:block;width:100%;margin-top:6px;padding:12px 14px;border:1px solid var(--color-border);border-radius:8px;font-family:inherit;font-size:16px;background:var(--color-bg);color:var(--color-fg);min-height:44px;}
+  label.f input:focus{outline:3px solid var(--color-primary);outline-offset:1px;border-color:var(--color-primary);}
+  .kpis{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:14px;}
+  .kpi{background:var(--color-bg);border:1px solid var(--color-border);border-radius:12px;padding:18px;}
+  .kpi .v{font-size:28px;font-weight:700;color:var(--color-primary);line-height:1.1;}
+  .kpi .l{font-size:13px;color:var(--color-fg-muted);margin-top:6px;}
+  .small{font-size:13px;color:var(--color-fg-muted);}
+  .gloss dt{font-weight:600;margin-top:14px;} .gloss dd{margin:2px 0 0;color:var(--color-fg-muted);font-size:15px;}
+  .sign{margin-top:36px;padding:28px;border-radius:16px;background:var(--color-dark);color:var(--color-on-dark);}
+  .sign p{color:var(--color-on-dark-muted);max-width:620px;} .sign strong{color:var(--color-on-dark);}
+  footer{border-top:1px solid var(--color-border);padding:24px 0 40px;font-size:13px;color:var(--color-fg-muted);}
+  /* mobile */
+  @media (max-width:980px){
+    .layout{grid-template-columns:1fr;gap:0;padding:0 18px;}
+    .side{position:sticky;top:0;z-index:20;height:auto;padding:calc(env(safe-area-inset-top,0px) + 10px) 0 8px;background:var(--color-bg);border-bottom:1px solid var(--color-border);overflow:visible;}
+    .brand{margin-bottom:8px;} .brand small{display:none;}
+    .toc{flex-direction:row;overflow-x:auto;gap:6px;padding-bottom:4px;max-width:100%;}
+    .side{min-width:0;max-width:100vw;}
+    .toc a{white-space:nowrap;border-left:none;border-bottom:3px solid transparent;border-radius:8px;padding:8px 12px;}
+    .toc a.active{border-bottom-color:var(--color-primary);}
+    .theme-btn{position:absolute;top:calc(env(safe-area-inset-top,0px) + 8px);right:0;width:auto;margin:0;padding:8px 12px;}
+    .hero{padding:36px 24px;} .hero::after{width:200px;height:200px;right:-70px;top:-70px;}
+    .g2,.g3,.sbi,.form-row,.kpis{grid-template-columns:1fr;}
+    section{padding-top:44px;}
+  }
+  @media print{
+    .side,.theme-btn{display:none;} .layout{display:block;padding:0;} section{break-inside:avoid-page;padding-top:28px;}
+    details{break-inside:avoid;} details .body{display:block;} .hero::after,.hero::before{display:none;}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important;}}
+</style>
+</head>
+<body>
+<div class="layout">
+
+<aside class="side">
+  <div class="brand">
+    <span class="logo-chip"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABACAYAAADlNHIOAAAFS0lEQVR4nO2cv3LbNgDGP5Buo63OZjtD5aFjUunajD1LYyc7T2DqCSwtvXiyMvScrfITmH6CKk9geU56lpMHKDsk1lZ5SwYK+SBKkWxRFkHCppLD7w4GxBz+8UeAAKKTwBTnOCyGEAdMVgAUAfQZ2hLy5Cn2O7AYRzAM+QeHnoQ4ZnIebRcPamU0lBSLIYYCEtz8IRLoPsXzMpMWQ4jRtPMv04kQkLVfsO/DYgTxBi9bjPcYkhL8iuebjC0GEK/x8lwAJaYT40JulrEfwJIZNQIkYy24KqraVZEZlIAu458ZEuPCKZfxh8pnyYgS0GK8x5CUK74DVhlbDKC9CuL084LTTxMWI/D9C7zGYVNEO+BFXHAzVrGbMXMMBSje4NDnx13Mhzff8ezcb5YvAhQcCRWOhDqT2wwj5H8S8FdQaNkn3zzXBEyjZHCu78Byp8wVYLkfrICcsQI0WFsrFYHBFoAi340MKuZNFKIrJbrcoga93vkZLyWGZ0GHHQGhCk0M9wLV8fthbe1Jk1cOoEGv904wWkiastmlF73e2ybIKP8WNHBdt/H+fZc3M6JYLK1+/DjYFgJ1KWWJl26FMvqMfCmdo16vG2AB37iAxx0AWwwauFXeuA7IxkZpZzAY/MU2FJEOv1BwG0HQVVJisQJmiAQw7zE/eMiIGhEcDc9UmYjBCriB47jPpBwcyATTjSY19tvHDayAe0TJ/fCh22byC1bAPTKajsqcjgKMsALunw77X2U8xArIgempyArIBRGwjZtMWAH5ES13rYDFnAkh2nx5dl0X/TDEquNgVcrQ4/HDNv89JeKE7fSsgLmIK8dxvPFcHUd0NhT6SFEHpfYvL98+tALmwDOh8vSZ0G2wnT7buQtNVla++8kKiGVSRlLY1oBt/REacBT8bgXEwAO0h7cdoMXBujwAxwwauDUr4AY8dn51efluh0ktomPr8H8mE8MR8KcVMMMkvy669VHAkRUwwyS/Lrr1WQGxTPLrolufFRBLtEFCClifZJSY3ATw7V9V23AsgGX7LHsXWmQTwJsy3CAxqQU3ZRVuyk6hAevKRwArbrCTLSZvZX39ybn+/0xlEzCixlHqQwPWdcqoAi3cfJahmDoNnEeaJyrChAARFApOOelegPV40N4DqGPp73/LScAQn09ZjfEMak396dPgVGo//QoTAliKEN0HD5zqIgkcpXtsZ4tJbQqFwnpmAdFXN8K/mdRGCLSldBt8HwQYsbHxeFtK0WSnSvyYAjMCFJTQlxItPqsn021UD4jOd4XiYN4LbvhKmQU8elQqhWF4zmRqoo7KLpMVZMacgBg6bGuJbV1lOhMsp6Heg5kFKDgN9Xn1ByaXgDsVYAhxxXdMUU1vpgT4vLqLpeCrEHDCNnoghgSkXbHcBcsuYPL084MZAYrl6exyC5j+RoTCoIBlGQXLLGAy9YwxJkDBDntIsSGZj7hibZov92wCuDx8xWVwRb/e22G5F2rZyeQ1jApQmHshixP+CVjWAbTIJkDld12nHYaDDus2JGH2yR9jXICCHfeQYSRwjXzENXKdMpus7QBaZBeg8nNKLXJK9aGdfxpxxSe/yb60+CEWoX6saQAUocEKjxEW/VpKmg6wsRfcGde56+yA5CkAI1iGx3bVpdT5PQ01daLN1U59vNqZh2C4U5QIIQbsgNqyC4brw5qdu+DfjuM4/s2vgai8AIrQI6DAAIQ3r4OMAsZEO/7BDttfQXyZZ8wbsB/t6VXOIgTDN4tJAXeFFTCDFWAMKyBnrICcsQJyxgrIGSsgZ6yAnLECcsYKyJmvQcBnFZ089w1vw14AAAAASUVORK5CYII=" alt="impulseup"></span>
+    <small>Guia de DHO<br>para a QLA</small>
+  </div>
+  <nav class="toc" id="toc" aria-label="Seções do guia">
+    <a href="#inicio"><span class="n">00</span>Início</a>
+    <a href="#conceitos"><span class="n">01</span>Conceitos essenciais</a>
+    <a href="#advocacia"><span class="n">02</span>O que muda na advocacia</a>
+    <a href="#competencias"><span class="n">03</span>Mapa de competências</a>
+    <a href="#avaliar"><span class="n">04</span>Como avaliar sócios</a>
+    <a href="#devolutiva"><span class="n">05</span>Devolutiva</a>
+    <a href="#desenvolver"><span class="n">06</span>Do diagnóstico ao desenvolvimento</a>
+    <a href="#ia"><span class="n">07</span>IA a serviço do RH</a>
+    <a href="#socios"><span class="n">08</span>Construindo o caso com os sócios</a>
+    <a href="#roteiro"><span class="n">09</span>Roteiro de implantação</a>
+    <a href="#ferramentas"><span class="n">10</span>Ferramentas práticas</a>
+    <a href="#glossario"><span class="n">11</span>Glossário e leituras</a>
+    <a href="#combinados"><span class="n">12</span>Próximos passos</a>
+  </nav>
+  <button type="button" class="theme-btn" id="themeBtn" aria-label="Alternar entre tema claro e escuro">Tema claro / escuro</button>
+</aside>
+
+<main>
+
+<!-- INÍCIO -->
+<section id="inicio" style="padding-top:12px">
+  <div class="hero">
+    <div class="eyebrow">Guia de DHO · Outubro de 2026</div>
+    <h1>Gestão de desempenho em escritórios de advocacia</h1>
+    <p>Um guia prático para estruturar o primeiro ciclo de avaliação e desenvolvimento, pensado para a realidade da Queiroz e Lautenschläger Advogados.</p>
+    <div class="meta">Preparado para <strong>Monique Nóbrega</strong> · por <strong>Natália Baldivia</strong>, impulseup</div>
+  </div>
+
+  <div class="note">
+    <p><b>Monique,</b> obrigada pela conversa. Você nos contou que a maior preocupação é ter de estruturar e desenvolver tudo sozinha depois de identificar os gargalos. Este guia nasceu para isso: reunir, em um só lugar, o repertório de DHO que você pode usar já, com ou sem a impulseup.</p>
+    <p>Nada aqui depende de ferramenta. É conteúdo para você estudar no seu ritmo, adaptar ao escritório e, se quiser, levar aos sócios.</p>
+  </div>
+
+  <h3>Como usar este guia</h3>
+  <div class="grid g3">
+    <div class="card"><span class="tag">Para entender</span><h4>Seções 01 a 03</h4><p>Conceitos de gestão de desempenho, o que é diferente na advocacia e como montar um mapa de competências.</p></div>
+    <div class="card"><span class="tag">Para desenhar</span><h4>Seções 04 a 07</h4><p>Avaliar sócios, conduzir devolutivas, transformar lacunas em desenvolvimento e usar IA com critério.</p></div>
+    <div class="card"><span class="tag">Para agir</span><h4>Seções 08 a 10</h4><p>Construir o caso com os sócios, um roteiro em fases e duas ferramentas interativas para começar hoje.</p></div>
+  </div>
+  <p class="small">Os exemplos de competências e de roteiro são pontos de partida. Quem valida o que faz sentido para o escritório são você e os sócios.</p>
+</section>
+
+<!-- 01 CONCEITOS -->
+<section id="conceitos">
+  <div class="eyebrow">01 · Conceitos essenciais</div>
+  <h2>O que é gestão de desempenho, de fato</h2>
+  <p class="lead">Muita gente associa o tema a um formulário preenchido uma vez por ano. Na prática, é um ciclo que ajuda as pessoas a saberem o que se espera delas, como estão indo e o que precisam desenvolver.</p>
+
+  <h3>DHO em uma frase</h3>
+  <p>DHO (Desenvolvimento Humano Organizacional) é a área que cuida da evolução das pessoas e da organização ao mesmo tempo: o que o negócio precisa e o que cada profissional consegue entregar e aprender.</p>
+
+  <h3>Avaliação é um momento. Gestão de desempenho é um ciclo.</h3>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>Avaliação pontual</th><th>Gestão de desempenho</th></tr></thead>
+    <tbody>
+      <tr><td>Olha para o passado e gera uma nota</td><td>Olha para o passado para decidir o futuro</td></tr>
+      <tr><td>Acontece uma vez, geralmente sob pressão</td><td>Tem ritmo previsível e conversas ao longo do ano</td></tr>
+      <tr><td>Foco em julgar</td><td>Foco em desenvolver e em tomar decisões justas</td></tr>
+      <tr><td>Resultado fica no RH</td><td>Resultado vira conversa, ação e acompanhamento</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>As seis etapas do ciclo</h3>
+  <div class="cycle">
+    <div>Alinhar expectativas<span>Competências e entregas esperadas por papel</span></div>
+    <div>Acompanhar<span>Feedbacks e conversas ao longo do período</span></div>
+    <div>Avaliar<span>Coletar a visão de quem convive com o trabalho</span></div>
+    <div>Calibrar<span>Comparar critérios para ser justo entre perfis</span></div>
+    <div>Devolver<span>Conversa estruturada com cada pessoa</span></div>
+    <div>Desenvolver<span>PDI, ações e acompanhamento dos resultados</span></div>
+  </div>
+
+  <h3>Desempenho tem duas dimensões</h3>
+  <div class="grid g2">
+    <div class="card"><span class="tag">O quê</span><h4>Resultados e entregas</h4><p>O que foi produzido: prazos cumpridos, qualidade técnica, satisfação do cliente, contribuição para a receita.</p></div>
+    <div class="card"><span class="tag">Como</span><h4>Comportamentos e competências</h4><p>A forma de entregar: comunicação, colaboração, liderança, ética. É aqui que costumam aparecer as lacunas que incomodam no dia a dia.</p></div>
+  </div>
+</section>
+
+<!-- 02 ADVOCACIA -->
+<section id="advocacia">
+  <div class="eyebrow">02 · O que muda na advocacia</div>
+  <h2>Por que um escritório de advocacia não é uma empresa comum</h2>
+  <p class="lead">A maior parte dos modelos de gestão de desempenho foi pensada para estruturas hierárquicas. Escritórios de advocacia têm outra lógica, e reconhecer isso é o primeiro passo para um projeto que funciona.</p>
+
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>Característica do meio jurídico</th><th>O desafio que cria</th><th>Como o desenho do processo responde</th></tr></thead>
+    <tbody>
+      <tr><td><b>Muitos sócios, pouca hierarquia</b></td><td>Não há "chefe" natural para avaliar um sócio</td><td>Avaliação entre pares e RH como facilitador imparcial das devolutivas</td></tr>
+      <tr><td><b>Autonomia profissional alta</b></td><td>Resistência a ser "controlado" ou comparado</td><td>Posicionar como desenvolvimento, definir regras de confidencialidade antes</td></tr>
+      <tr><td><b>Valor do tempo e das horas</b></td><td>Medo de que o processo consuma tempo produtivo</td><td>Ciclo enxuto, poucas competências, janelas de resposta claras</td></tr>
+      <tr><td><b>Cultura técnica</b></td><td>Competências comportamentais são vistas como secundárias</td><td>Conectar comunicação, liderança e relacionamento a resultado com cliente</td></tr>
+      <tr><td><b>Relação direta com clientes</b></td><td>A qualidade percebida vem de fora do escritório</td><td>Incluir a visão de clientes e parceiros em avaliações selecionadas</td></tr>
+      <tr><td><b>Sigilo e reputação</b></td><td>Cuidado extra com dados e exposição</td><td>Controle de quem vê o quê e anonimato com número mínimo de respondentes</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="note"><p><b>Insight de DHO:</b> em estruturas de sociedade, o objetivo da avaliação não é criar hierarquia. É dar visibilidade a competências que afetam o cliente, a equipe e o resultado, para que a evolução deixe de depender de percepções soltas.</p></div>
+</section>
+
+<!-- 03 COMPETÊNCIAS -->
+<section id="competencias">
+  <div class="eyebrow">03 · Mapa de competências</div>
+  <h2>Antes de avaliar, defina o que vai observar</h2>
+  <p class="lead">Competência é o conjunto de conhecimento, habilidade e atitude que se manifesta em comportamentos observáveis. Sem esse mapa, a avaliação vira opinião.</p>
+
+  <div class="grid g3">
+    <div class="card"><span class="tag">C</span><h4>Conhecimento</h4><p>O que a pessoa sabe. Ex.: domínio de uma área do direito.</p></div>
+    <div class="card"><span class="tag">H</span><h4>Habilidade</h4><p>O que ela sabe fazer. Ex.: redigir um contrato claro e sem ambiguidades.</p></div>
+    <div class="card"><span class="tag">A</span><h4>Atitude</h4><p>O que a move. Ex.: iniciativa para antecipar o problema do cliente.</p></div>
+  </div>
+
+  <h3>Cinco regras para escrever boas competências</h3>
+  <ol class="clean">
+    <li><b>Poucas e relevantes:</b> entre 5 e 8 por papel. Mais que isso dilui o foco.</li>
+    <li><b>Descritas como comportamento:</b> "explica cenários jurídicos em linguagem que o cliente entende", e não "boa comunicação".</li>
+    <li><b>Diferentes por papel:</b> o que se espera de um sócio não é o que se espera de um estagiário.</li>
+    <li><b>Construídas com quem as vive:</b> sócios e coordenadores validam, o RH facilita.</li>
+    <li><b>Revisadas a cada ciclo:</b> o mapa evolui junto com o escritório.</li>
+  </ol>
+
+  <h3>Ponto de partida para a QLA (para validar com os sócios)</h3>
+  <p>Cruzei o que você nos contou (comunicação interna e externa, liderança e redação técnica) com competências recorrentes em escritórios de advocacia. A matriz abaixo é uma hipótese inicial.</p>
+
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>Competência</th><th>O que observar</th><th>Sócio</th><th>Advogado sênior</th><th>Pleno e júnior</th><th>Estagiário</th><th>Administrativo</th></tr></thead>
+    <tbody>
+      <tr><td><b>Excelência técnica</b></td><td>Domínio da matéria, precisão na redação de peças e contratos, atualização constante</td><td class="c"><span class="dot l3" role="img" aria-label="central"></span></td><td class="c"><span class="dot l3" role="img" aria-label="central"></span></td><td class="c"><span class="dot l3" role="img" aria-label="central"></span></td><td class="c"><span class="dot l2" role="img" aria-label="importante"></span></td><td class="c"><span class="dot" role="img" aria-label="desejável"></span></td></tr>
+      <tr><td><b>Comunicação interna e externa</b></td><td>Clareza ao escrever e falar, escuta ativa, tradução do jurídico para a linguagem do cliente</td><td class="c"><span class="dot l3" role="img" aria-label="central"></span></td><td class="c"><span class="dot l3" role="img" aria-label="central"></span></td><td class="c"><span class="dot l3" role="img" aria-label="central"></span></td><td class="c"><span class="dot l2" role="img" aria-label="importante"></span></td><td class="c"><span class="dot l2" role="img" aria-label="importante"></span></td></tr>
+      <tr><td><b>Relacionamento com clientes</b></td><td>Antecipa necessidades, alinha expectativas, mantém o cliente informado</td><td class="c"><span class="dot l3" role="img" aria-label="central"></span></td><td class="c"><span class="dot l3" role="img" aria-label="central"></span></td><td class="c"><span class="dot l2" role="img" aria-label="importante"></span></td><td class="c"><span class="dot" role="img" aria-label="desejável"></span></td><td class="c"><span class="dot l2" role="img" aria-label="importante"></span></td></tr>
+      <tr><td><b>Liderança e formação de equipes</b></td><td>Delega com clareza, dá feedback, desenvolve quem vem depois</td><td class="c"><span class="dot l3" role="img" aria-label="central"></span></td><td class="c"><span class="dot l2" role="img" aria-label="importante"></span></td><td class="c"><span class="dot" role="img" aria-label="desejável"></span></td><td class="c"><span class="dot l0" role="img" aria-label="não se aplica"></span></td><td class="c"><span class="dot" role="img" aria-label="desejável"></span></td></tr>
+      <tr><td><b>Colaboração entre áreas</b></td><td>Compartilha conhecimento e casos, indica clientes, apoia colegas</td><td class="c"><span class="dot l3" role="img" aria-label="central"></span></td><td class="c"><span class="dot l3" role="img" aria-label="central"></span></td><td class="c"><span class="dot l2" role="img" aria-label="importante"></span></td><td class="c"><span class="dot l2" role="img" aria-label="importante"></span></td><td class="c"><span class="dot l2" role="img" aria-label="importante"></span></td></tr>
+      <tr><td><b>Gestão de prazos e prioridades</b></td><td>Cumpre prazos processuais e internos, organiza a carga, sinaliza riscos cedo</td><td class="c"><span class="dot l2" role="img" aria-label="importante"></span></td><td class="c"><span class="dot l3" role="img" aria-label="central"></span></td><td class="c"><span class="dot l3" role="img" aria-label="central"></span></td><td class="c"><span class="dot l3" role="img" aria-label="central"></span></td><td class="c"><span class="dot l3" role="img" aria-label="central"></span></td></tr>
+      <tr><td><b>Desenvolvimento de negócios</b></td><td>Constrói relacionamento, gera e retém oportunidades</td><td class="c"><span class="dot l3" role="img" aria-label="central"></span></td><td class="c"><span class="dot l2" role="img" aria-label="importante"></span></td><td class="c"><span class="dot" role="img" aria-label="desejável"></span></td><td class="c"><span class="dot l0" role="img" aria-label="não se aplica"></span></td><td class="c"><span class="dot l0" role="img" aria-label="não se aplica"></span></td></tr>
+      <tr><td><b>Ética, sigilo e conduta</b></td><td>Protege informações dos clientes e age com integridade</td><td class="c"><span class="dot l3" role="img" aria-label="central"></span></td><td class="c"><span class="dot l3" role="img" aria-label="central"></span></td><td class="c"><span class="dot l3" role="img" aria-label="central"></span></td><td class="c"><span class="dot l3" role="img" aria-label="central"></span></td><td class="c"><span class="dot l3" role="img" aria-label="central"></span></td></tr>
+      <tr><td><b>Uso responsável de tecnologia e IA</b></td><td>Ganha tempo com as ferramentas e sempre valida o resultado antes de entregar</td><td class="c"><span class="dot l2" role="img" aria-label="importante"></span></td><td class="c"><span class="dot l2" role="img" aria-label="importante"></span></td><td class="c"><span class="dot l2" role="img" aria-label="importante"></span></td><td class="c"><span class="dot l2" role="img" aria-label="importante"></span></td><td class="c"><span class="dot l2" role="img" aria-label="importante"></span></td></tr>
+    </tbody>
+  </table></div>
+  <div class="legend">
+    <span><i class="dot l3"></i> Central para o papel</span>
+    <span><i class="dot l2"></i> Importante</span>
+    <span><i class="dot"></i> Desejável</span>
+    <span><i class="dot l0"></i> Não se aplica</span>
+  </div>
+
+  <h3>Como transformar em comportamento observável</h3>
+  <div class="grid g2">
+    <div class="card"><span class="tag">Fraco</span><h4>"Tem boa comunicação"</h4><p>Subjetivo, cada avaliador entende de um jeito.</p></div>
+    <div class="card"><span class="tag">Forte</span><h4>"Explica o risco jurídico ao cliente em linguagem simples e confirma que ele entendeu"</h4><p>Observável, dá para dizer se aconteceu ou não.</p></div>
+  </div>
+</section>
+
+<!-- 04 AVALIAR SÓCIOS -->
+<section id="avaliar">
+  <div class="eyebrow">04 · Como avaliar sócios</div>
+  <h2>Quando todos são pares, quem avalia quem?</h2>
+  <p class="lead">Na ausência de hierarquia, a avaliação ganha legitimidade pela diversidade de olhares e pela forma como o processo é conduzido.</p>
+
+  <h3>As fontes de avaliação possíveis</h3>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>Fonte</th><th>Boa para</th><th>Cuidados</th></tr></thead>
+    <tbody>
+      <tr><td><b>Autoavaliação</b></td><td>Provocar reflexão e preparar a conversa</td><td>Costuma variar bastante entre perfis, use como ponto de partida e não como nota</td></tr>
+      <tr><td><b>Pares (avaliação cruzada)</b></td><td>Colaboração, técnica e postura no dia a dia</td><td>Definir quem avalia quem com critério, garantir número mínimo de respondentes</td></tr>
+      <tr><td><b>Equipe (quem é liderado)</b></td><td>Liderança, delegação e desenvolvimento de pessoas</td><td>Só quando há equipe de fato, proteger a identidade de quem responde</td></tr>
+      <tr><td><b>Clientes internos</b></td><td>Experiência de quem depende do trabalho (outras áreas, administrativo)</td><td>Escolher quem realmente interage com a pessoa avaliada</td></tr>
+      <tr><td><b>Clientes e fornecedores externos</b></td><td>Percepção de quem contrata e de quem presta serviço ao escritório</td><td>Lista curada pelos sócios, aviso prévio ao cliente e formulário curto</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>Princípios para dar legitimidade ao processo</h3>
+  <ul class="clean">
+    <li><b>Regras antes do formulário:</b> quem avalia, quem vê o resultado, como os dados serão usados e guardados. Definidas e comunicadas antes do início.</li>
+    <li><b>Formulários por papel:</b> sócios e equipe administrativa não são avaliados pelas mesmas perguntas, mas o ciclo pode ser o mesmo.</li>
+    <li><b>Anonimato com número mínimo:</b> relatórios agregados só aparecem quando há respondentes suficientes para proteger a identidade.</li>
+    <li><b>Ciclo enxuto:</b> poucas competências, tempo de resposta curto e prazo claro, para respeitar a agenda dos sócios.</li>
+    <li><b>Foco em padrões:</b> um comentário isolado não define ninguém. Padrões repetidos por vários avaliadores é que merecem atenção.</li>
+  </ul>
+
+  <h3>Vieses que distorcem avaliações (e como mitigar)</h3>
+  <div class="grid g3">
+    <div class="card"><h4>Efeito halo</h4><p>Uma qualidade forte contamina todas as notas. Mitigue avaliando uma competência de cada vez, com exemplos.</p></div>
+    <div class="card"><h4>Efeito recência</h4><p>Pesa mais o que aconteceu nas últimas semanas. Mitigue pedindo exemplos do período inteiro.</p></div>
+    <div class="card"><h4>Tendência central ou benevolência</h4><p>Todos recebem notas medianas ou altas para evitar conflito. Mitigue com calibração e com perguntas abertas.</p></div>
+    <div class="card"><h4>Viés de similaridade</h4><p>Avaliamos melhor quem pensa como nós. Mitigue com múltiplos avaliadores de perfis diferentes.</p></div>
+    <div class="card"><h4>Viés de afinidade pessoal</h4><p>Amizade ou atrito influenciam a nota. Mitigue com critérios observáveis e revisão pelo RH.</p></div>
+    <div class="card"><h4>Calibração</h4><p>Reunião em que os resultados são comparados para garantir que o mesmo critério foi aplicado a todos os perfis.</p></div>
+  </div>
+
+  <div class="note"><p><b>O papel do RH aqui:</b> sem um superior hierárquico, o RH assume a função de facilitador neutro. Consolida os resultados, identifica padrões e conduz as devolutivas com imparcialidade. Isso exige que os sócios reconheçam e apoiem esse papel desde o início.</p></div>
+</section>
+
+<!-- 05 DEVOLUTIVA -->
+<section id="devolutiva">
+  <div class="eyebrow">05 · Devolutiva</div>
+  <h2>A conversa que transforma o dado em mudança</h2>
+  <p class="lead">Relatório sem conversa raramente muda comportamento. A devolutiva é a parte do processo em que o desenvolvimento realmente começa.</p>
+
+  <h3>Roteiro de uma devolutiva em sete passos</h3>
+  <ol class="clean">
+    <li><b>Prepare:</b> leia o relatório com antecedência e escolha de 2 a 3 temas, não todos.</li>
+    <li><b>Abra com propósito:</b> explique que o objetivo é desenvolvimento, não julgamento.</li>
+    <li><b>Comece pelo que funciona:</b> reconheça pontos fortes com exemplos concretos.</li>
+    <li><b>Traga padrões, não casos isolados:</b> "mais de um avaliador comentou que...".</li>
+    <li><b>Use o modelo SBI</b> (abaixo) para descrever comportamentos sem rotular a pessoa.</li>
+    <li><b>Ouça:</b> pergunte como a pessoa enxerga os resultados antes de propor soluções.</li>
+    <li><b>Combine 1 ou 2 ações:</b> registre no PDI, defina prazo e data de acompanhamento.</li>
+  </ol>
+
+  <h3>Modelo SBI: Situação, Comportamento, Impacto</h3>
+  <div class="sbi">
+    <div><b>Situação</b><p>"Na reunião com o cliente, na terça passada..."</p></div>
+    <div><b>Comportamento</b><p>"...você interrompeu a explicação do colega duas vezes..."</p></div>
+    <div><b>Impacto</b><p>"...e o cliente perdeu o fio, o time ficou sem saber quem conduzia a conversa."</p></div>
+  </div>
+  <p class="small">O SBI vem de pesquisas do Center for Creative Leadership. A ideia é falar do que foi observável, deixando de lado a interpretação sobre a pessoa.</p>
+
+  <h3>Devolutiva para sócios: particularidades</h3>
+  <ul class="clean">
+    <li>Conduzida pelo RH em parceria com um sócio de confiança do grupo, quando fizer sentido.</li>
+    <li>Foco em impacto no cliente, na equipe e no resultado, que é a linguagem dos sócios.</li>
+    <li>Combinados mais objetivos: uma ou duas ações, com resultado observável.</li>
+    <li>Reservar tempo próprio para a conversa, sem encaixar entre compromissos.</li>
+  </ul>
+
+  <h3>Erros comuns</h3>
+  <div class="grid g2">
+    <div class="card"><h4>Entregar o relatório e ir embora</h4><p>A pessoa lê sozinha, reage na defensiva e nada muda.</p></div>
+    <div class="card"><h4>Falar de personalidade</h4><p>"Você é arrogante" gera resistência. "Você interrompeu duas vezes" abre diálogo.</p></div>
+    <div class="card"><h4>Sobrecarregar de pontos</h4><p>Dez temas viram nenhum. Priorize os que mais impactam.</p></div>
+    <div class="card"><h4>Não acompanhar depois</h4><p>Sem retorno em 30, 60 ou 90 dias, a devolutiva vira só um evento.</p></div>
+  </div>
+</section>
+
+<!-- 06 DESENVOLVER -->
+<section id="desenvolver">
+  <div class="eyebrow">06 · Do diagnóstico ao desenvolvimento</div>
+  <h2>Identificar a lacuna é metade do caminho</h2>
+  <p class="lead">Você trouxe o ponto central: o desafio não é só descobrir os gargalos de competência, é saber como desenvolvê-los na prática. Esta seção é para isso.</p>
+
+  <h3>O que é um PDI (Plano de Desenvolvimento Individual)</h3>
+  <p>É um acordo curto entre a pessoa, o gestor ou sócio e o RH: qual competência será desenvolvida, por quais ações, em quanto tempo e como se saberá que evoluiu. Funciona melhor com poucas ações e prazos realistas.</p>
+
+  <h3>A regra 70-20-10</h3>
+  <p>Modelo popular em desenvolvimento de adultos: cerca de 70% do aprendizado vem da prática no trabalho, 20% da convivência com outras pessoas (mentoria, feedback) e 10% de treinamentos formais. É uma referência, não uma lei exata, mas ajuda a lembrar que curso sozinho raramente basta.</p>
+  <div class="grid g3">
+    <div class="card"><span class="tag">70%</span><h4>Na prática</h4><p>Casos reais, projetos desafiadores, novas responsabilidades.</p></div>
+    <div class="card"><span class="tag">20%</span><h4>Com pessoas</h4><p>Mentoria, observação de reuniões, feedback e leituras em grupo.</p></div>
+    <div class="card"><span class="tag">10%</span><h4>Formal</h4><p>Cursos, workshops, conteúdos gravados.</p></div>
+  </div>
+
+  <h3>Enablement jurídico: o conceito</h3>
+  <p>Em escritórios de advocacia, cursos genéricos muitas vezes não atendem à especificidade técnica. O conceito de <b>enablement jurídico</b> propõe criar materiais e práticas focados na realidade do escritório, com um especialista dedicado ou com tempo interno reservado para isso.</p>
+  <p>Exemplos de práticas de enablement:</p>
+  <ul class="clean">
+    <li>Biblioteca de modelos de peças e minutas revisados pelos sócios, com explicação dos critérios.</li>
+    <li>Playbooks por área, com o "jeito QLA" de atender e de conduzir casos recorrentes.</li>
+    <li>Trilha de integração por área para quem chega, com o que dominar nos primeiros meses.</li>
+    <li>Sessões internas de conhecimento, em que um sócio ou advogado compartilha um caso aprendido.</li>
+    <li>Mentoria entre profissionais seniores e quem está em desenvolvimento.</li>
+  </ul>
+
+  <h3>Cada tipo de lacuna pede uma resposta diferente</h3>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>Tipo de lacuna</th><th>Exemplo</th><th>Ações possíveis</th></tr></thead>
+    <tbody>
+      <tr><td><b>Técnica</b></td><td>Redação de contratos com ambiguidades</td><td>Modelos revisados, revisão por par sênior, sessões de análise de casos</td></tr>
+      <tr><td><b>Comunicação</b></td><td>E-mails longos e difíceis para o cliente</td><td>Oficina de escrita clara, revisão em dupla de comunicações importantes</td></tr>
+      <tr><td><b>Liderança</b></td><td>Delegação confusa, pouco feedback à equipe</td><td>Mentoria entre sócios, leituras em grupo, prática de devolutivas com apoio</td></tr>
+      <tr><td><b>Relacionamento com cliente</b></td><td>Cliente só é procurado quando há problema</td><td>Rotina de acompanhamento periódico, roteiro de reunião, pesquisa curta de satisfação</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="note"><p><b>Sobre a sua dúvida de cursos prontos:</b> estou consultando clientes da área jurídica para entender se usam plataformas de cursos técnicos ou constroem material próprio. Assim que tiver o retorno, envio a você.</p></div>
+
+  <h3>Como medir se o desenvolvimento funcionou (modelo de Kirkpatrick)</h3>
+  <div class="grid g2">
+    <div class="card"><span class="tag">Nível 1</span><h4>Reação</h4><p>As pessoas acharam útil? Pesquisa rápida ao fim da ação.</p></div>
+    <div class="card"><span class="tag">Nível 2</span><h4>Aprendizado</h4><p>O que aprenderam? Teste, exercício prático ou revisão por um sênior.</p></div>
+    <div class="card"><span class="tag">Nível 3</span><h4>Comportamento</h4><p>Mudaram a forma de trabalhar? Observável na próxima avaliação e em conversas de acompanhamento.</p></div>
+    <div class="card"><span class="tag">Nível 4</span><h4>Resultado</h4><p>O que mudou para o negócio? Retrabalho, satisfação de clientes, retenção.</p></div>
+  </div>
+</section>
+
+<!-- 07 IA -->
+<section id="ia">
+  <div class="eyebrow">07 · IA a serviço do RH</div>
+  <h2>Mais tempo para a conversa, não menos humanidade</h2>
+  <p class="lead">No direito, como em RH, a tecnologia ajuda a ganhar tempo e reduzir processos, mas a validação e o acabamento humano seguem indispensáveis. Combinamos disso na nossa conversa.</p>
+  <div class="grid g2">
+    <div class="card"><span class="tag">Onde ajuda</span><h4>Analisar volume de informação</h4><p>Resumir relatórios, identificar padrões em comentários abertos e sugerir diretrizes para a devolutiva.</p></div>
+    <div class="card"><span class="tag">Onde ajuda</span><h4>Preparar a conversa</h4><p>Sugerir pautas de feedback a partir dos resultados, que o RH revisa e adapta.</p></div>
+  </div>
+  <ul class="clean">
+    <li>Trate a sugestão da IA como rascunho: quem conhece a pessoa e o contexto é você.</li>
+    <li>Defina o que pode e o que não pode ser inserido em ferramentas externas, especialmente dados de clientes.</li>
+    <li>Decisões sobre pessoas (promoção, remuneração, sociedade) sempre humanas e justificadas.</li>
+  </ul>
+</section>
+
+<!-- 08 SÓCIOS -->
+<section id="socios">
+  <div class="eyebrow">08 · Construindo o caso com os sócios</div>
+  <h2>Sensibilizar antes de propor</h2>
+  <p class="lead">Em estruturas de sociedade, o projeto só anda quando os sócios patrimoniais enxergam o valor. Quanto mais cedo você os envolver, menor a chance de resistência no meio do caminho.</p>
+
+  <h3>Uma narrativa em quatro passos</h3>
+  <div class="cycle">
+    <div>Problema<span>Quais competências estão deixando a desejar, com exemplos reais</span></div>
+    <div>Impacto<span>Como isso aparece em clientes, equipe e resultado financeiro</span></div>
+    <div>Hipótese<span>Um processo simples de avaliação e desenvolvimento pode ajudar</span></div>
+    <div>Primeiro passo<span>Um piloto pequeno, com regras claras e prazo definido</span></div>
+  </div>
+
+  <h3>Dados que fortalecem a conversa</h3>
+  <ul class="clean">
+    <li>Turnover dos últimos 12 meses e motivos de saída (use a calculadora da seção 10).</li>
+    <li>Tempo que novos profissionais levam para ficar autônomos.</li>
+    <li>Exemplos de retrabalho ou de situações com clientes ligadas às competências em questão.</li>
+    <li>Conversas curtas com 3 a 5 sócios ou coordenadores sobre o que gostariam que fosse diferente.</li>
+  </ul>
+
+  <h3>Perguntas que os sócios provavelmente vão fazer</h3>
+  <details><summary>"Por que avaliar sócios, se somos todos pares?"</summary><div class="body"><p>Porque o objetivo não é criar hierarquia, é dar visibilidade a competências que afetam clientes e equipe. O processo é conduzido de forma neutra pelo RH, com regras de confidencialidade definidas por vocês.</p></div></details>
+  <details><summary>"Isso vai tomar horas faturáveis?"</summary><div class="body"><p>O desenho do ciclo cuida disso: poucas competências, formulários curtos e janela de resposta definida. O tempo investido passa a ser planejado, em vez de se espalhar em conversas informais sem registro.</p></div></details>
+  <details><summary>"Vai expor os sócios?"</summary><div class="body"><p>Só se as regras permitirem. Antes de começar, o grupo define quem vê o quê, quando há anonimato e como os dados são guardados. Esse acordo é parte do projeto.</p></div></details>
+  <details><summary>"E se alguém não quiser participar?"</summary><div class="body"><p>Um piloto com sócios voluntários costuma gerar conversa mais honesta do que uma obrigação para todos. Os resultados e a experiência do piloto ajudam os demais a decidir.</p></div></details>
+  <details><summary>"Qual é o retorno financeiro?"</summary><div class="body"><p>Conecte o projeto às competências que já estão incomodando: retrabalho, relacionamento com clientes, retenção de profissionais e preparação de sucessores. Defina com os sócios quais indicadores acompanhar antes do início, para que o retorno seja observável depois.</p></div></details>
+  <details><summary>"Precisamos de uma ferramenta já?"</summary><div class="body"><p>Não necessariamente. Primeiro vem o método (competências, regras, devolutivas). A ferramenta entra para dar escala e organização quando o método estiver claro.</p></div></details>
+</section>
+
+<!-- 09 ROTEIRO -->
+<section id="roteiro">
+  <div class="eyebrow">09 · Roteiro de implantação</div>
+  <h2>Do zero ao primeiro ciclo, em fases</h2>
+  <p class="lead">Uma sugestão de ordem para estruturar o projeto sem sobrecarregar o escritório. Os prazos dependem da agenda dos sócios e do ritmo que você definir.</p>
+
+  <div class="phases">
+    <div class="phase"><h4>Fase 0 · Sensibilização</h4><p>Conversas individuais com sócios-chave, levantamento de turnover e dos incômodos atuais, apresentação do problema e da hipótese.</p><div class="out">Resultado: apoio de pelo menos um sócio patrocinador</div></div>
+    <div class="phase"><h4>Fase 1 · Mapa de competências</h4><p>Workshop curto com sócios e coordenadores para validar competências por papel, descritas como comportamentos.</p><div class="out">Resultado: mapa de competências aprovado</div></div>
+    <div class="phase"><h4>Fase 2 · Desenho do ciclo piloto</h4><p>Quem participa, quem avalia quem, formulários por papel, regras de confidencialidade e calendário.</p><div class="out">Resultado: regras do jogo comunicadas</div></div>
+    <div class="phase"><h4>Fase 3 · Piloto e devolutivas</h4><p>Coleta das avaliações, consolidação pelo RH e devolutivas individuais, com foco em 2 ou 3 temas por pessoa.</p><div class="out">Resultado: primeiros PDIs combinados</div></div>
+    <div class="phase"><h4>Fase 4 · Desenvolvimento (enablement)</h4><p>Ações priorizadas a partir das lacunas mais recorrentes: modelos, mentoria, sessões de conhecimento, conteúdos externos.</p><div class="out">Resultado: plano de desenvolvimento do escritório</div></div>
+    <div class="phase"><h4>Fase 5 · Revisão e expansão</h4><p>Aprendizados do piloto, ajuste do mapa e decisão sobre ampliar para outros perfis (por exemplo, advogados e equipe administrativa).</p><div class="out">Resultado: decisão sobre o ciclo seguinte</div></div>
+  </div>
+</section>
+
+<!-- 10 FERRAMENTAS -->
+<section id="ferramentas">
+  <div class="eyebrow">10 · Ferramentas práticas</div>
+  <h2>Para começar hoje, sem depender de ninguém</h2>
+
+  <div class="tool" id="tool-maturidade">
+    <h3>1. Termômetro de maturidade em gestão de desempenho</h3>
+    <p class="small">Marque as afirmações que já são verdade hoje no escritório. Nada é salvo, é só para organizar o seu raciocínio.</p>
+    <div id="chkList">
+      <label class="chk"><input type="checkbox"><span>Temos competências definidas por papel (sócio, advogado, administrativo).</span></label>
+      <label class="chk"><input type="checkbox"><span>Os profissionais sabem o que se espera deles e como são vistos.</span></label>
+      <label class="chk"><input type="checkbox"><span>Existe um momento regular e registrado de feedback.</span></label>
+      <label class="chk"><input type="checkbox"><span>Há critérios claros para promoção e para entrada na sociedade.</span></label>
+      <label class="chk"><input type="checkbox"><span>Sabemos o turnover e os principais motivos de saída.</span></label>
+      <label class="chk"><input type="checkbox"><span>Existe plano de desenvolvimento individual para pelo menos parte do time.</span></label>
+      <label class="chk"><input type="checkbox"><span>Os sócios conhecem e apoiam a iniciativa de avaliação.</span></label>
+      <label class="chk"><input type="checkbox"><span>Há alguém responsável por conduzir devolutivas com imparcialidade.</span></label>
+    </div>
+    <div class="meter" aria-hidden="true"><i id="meterBar"></i></div>
+    <div class="result" id="resultTitle" aria-live="polite">Marque as afirmações para ver o resultado.</div>
+    <div class="result-sub" id="resultSub"></div>
+  </div>
+
+  <div class="tool" id="tool-turnover">
+    <h3>2. Calculadora de turnover e custo estimado</h3>
+    <p class="small">Preencha com dados do escritório. Os cálculos são feitos no seu navegador e não são enviados nem guardados.</p>
+    <div class="form-row">
+      <label class="f">Profissionais (média no período)<input type="number" id="inHead" min="0" inputmode="numeric" placeholder="Ex.: 110"></label>
+      <label class="f">Desligamentos nos últimos 12 meses<input type="number" id="inOut" min="0" inputmode="numeric" placeholder="Ex.: 12"></label>
+      <label class="f">Salário médio mensal (R$)<input type="number" id="inSal" min="0" inputmode="decimal" placeholder="Ex.: 9000"></label>
+    </div>
+    <div class="kpis">
+      <div class="kpi"><div class="v" id="outRate">0%</div><div class="l">Turnover anual (desligamentos ÷ profissionais)</div></div>
+      <div class="kpi"><div class="v" id="outCost">R$ 0</div><div class="l">Custo estimado de reposição no período</div></div>
+    </div>
+    <p class="small" style="margin-top:14px">O custo usa uma regra prática de referência, de 4 vezes o salário médio por desligamento. Ela é só um ponto de partida para a conversa: ajuste com os custos reais do escritório (recrutamento, tempo de adaptação, horas dos sócios).</p>
+  </div>
+</section>
+
+<!-- 11 GLOSSÁRIO -->
+<section id="glossario">
+  <div class="eyebrow">11 · Glossário e leituras</div>
+  <h2>Termos que vão aparecer</h2>
+  <dl class="gloss">
+    <dt>360 graus</dt><dd>Avaliação que reúne a visão de várias fontes: pares, equipe, gestor, clientes e a própria pessoa.</dd>
+    <dt>Avaliação cruzada</dt><dd>Quando colegas de mesmo nível avaliam uns aos outros.</dd>
+    <dt>Calibração</dt><dd>Revisão conjunta dos resultados para garantir critério equilibrado entre pessoas e áreas.</dd>
+    <dt>Nine Box</dt><dd>Matriz que combina desempenho e potencial para apoiar decisões sobre talentos e sucessão.</dd>
+    <dt>PDI</dt><dd>Plano de Desenvolvimento Individual: ações combinadas para evoluir em competências específicas.</dd>
+    <dt>LMS</dt><dd>Learning Management System: ambiente para disponibilizar conteúdos próprios e acompanhar acessos e conclusões.</dd>
+    <dt>Enablement</dt><dd>Conjunto de materiais e práticas que habilitam as pessoas a executar bem o trabalho.</dd>
+    <dt>Turnover</dt><dd>Taxa de rotatividade: proporção de desligamentos em relação ao total de profissionais.</dd>
+  </dl>
+
+  <h3>Para aprofundar</h3>
+  <ul class="clean">
+    <li><b>Radical Candor</b>, de Kim Scott: como dar feedback direto com cuidado genuíno.</li>
+    <li><b>Conversas Difíceis</b>, de Douglas Stone, Bruce Patton e Sheila Heen: como conduzir conversas com carga emocional.</li>
+    <li><b>Four Levels of Training Evaluation</b>, de Donald e James Kirkpatrick: como medir o efeito de ações de desenvolvimento.</li>
+  </ul>
+  <p class="small">Estou reunindo também conteúdos e eventos gravados sobre gestão de desempenho voltados a escritórios de advocacia, e envio por e-mail assim que tiver a seleção.</p>
+</section>
+
+<!-- 12 COMBINADOS -->
+<section id="combinados">
+  <div class="eyebrow">12 · Próximos passos</div>
+  <h2>O que combinamos</h2>
+  <div class="grid g2">
+    <div class="card"><span class="tag">Natália</span><h4>Do meu lado</h4>
+      <ul class="clean" style="margin:6px 0 0;font-size:14.5px;color:var(--color-fg-muted)">
+        <li>Enviar materiais de gestão de desempenho, DHO e competências.</li>
+        <li>Verificar se temos uma planilha de competências para compartilhar.</li>
+        <li>Pesquisar e enviar conteúdos e eventos para escritórios de advocacia.</li>
+        <li>Consultar clientes da área jurídica sobre onde desenvolvem competências técnicas.</li>
+      </ul></div>
+    <div class="card"><span class="tag">Monique</span><h4>Do seu lado</h4>
+      <ul class="clean" style="margin:6px 0 0;font-size:14.5px;color:var(--color-fg-muted)">
+        <li>Estudar os materiais, começando por este guia.</li>
+        <li>Revisar os dados internos de turnover.</li>
+        <li>Depois do retorno dos clientes, pensar a melhor solução de capacitação para o escritório.</li>
+      </ul></div>
+  </div>
+
+  <div class="sign">
+    <p><strong>Sem pressa e sem compromisso.</strong> Quando você sentir que o repertório está sólido e as ideias, mais claras, a gente decide juntas se faz sentido ver a plataforma na prática, e com quem do escritório. O tempo do projeto é seu.</p>
+    <p style="margin:0"><strong>Natália Baldivia</strong> · impulseup</p>
+  </div>
+</section>
+
+<footer>impulseup · Material preparado para a Queiroz e Lautenschläger Advogados · Outubro de 2026</footer>
+</main>
+</div>
+
+<script>
+(function(){
+  // Tema (guardado só como conveniência do leitor)
+  var root = document.documentElement;
+  try { var saved = localStorage.getItem('iup-guia-theme'); if (saved) root.setAttribute('data-theme', saved); } catch(e){}
+  document.getElementById('themeBtn').addEventListener('click', function(){
+    var cur = root.getAttribute('data-theme') || 'light';
+    var next = cur === 'light' ? 'dark' : 'light';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('iup-guia-theme', next); } catch(e){}
+  });
+
+  // Destaque do menu conforme a rolagem
+  var links = Array.prototype.slice.call(document.querySelectorAll('#toc a'));
+  var map = {};
+  links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
+  var current = null;
+  function setActive(id){
+    if (current === id || !map[id]) return;
+    links.forEach(function(a){ a.classList.remove('active'); });
+    map[id].classList.add('active'); current = id;
+    if (window.innerWidth <= 980) { map[id].scrollIntoView({block:'nearest', inline:'center'}); }
+  }
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if (e.isIntersecting) setActive(e.target.id); });
+    }, { rootMargin: '-20% 0px -70% 0px' });
+    document.querySelectorAll('main section').forEach(function(s){ io.observe(s); });
+  }
+  setActive('inicio');
+
+  // Termômetro de maturidade
+  var boxes = document.querySelectorAll('#chkList input');
+  var bar = document.getElementById('meterBar');
+  var rt = document.getElementById('resultTitle');
+  var rs = document.getElementById('resultSub');
+  function updateScore(){
+    var n = 0; boxes.forEach(function(b){ if (b.checked) n++; });
+    bar.style.width = (n / boxes.length * 100) + '%';
+    if (n === 0) { rt.textContent = 'Marque as afirmações para ver o resultado.'; rs.textContent = ''; return; }
+    if (n <= 2) { rt.textContent = n + ' de 8 · Ponto de partida'; rs.textContent = 'Ótimo momento para começar pela sensibilização dos sócios e pelo mapa de competências (fases 0 e 1 do roteiro).'; }
+    else if (n <= 5) { rt.textContent = n + ' de 8 · Em construção'; rs.textContent = 'Já existem alguns alicerces. Vale organizar o que existe e fechar as lacunas antes de desenhar o ciclo piloto.'; }
+    else { rt.textContent = n + ' de 8 · Base sólida'; rs.textContent = 'O escritório já tem boa parte da base. O foco pode ir para o desenho do piloto e para o plano de desenvolvimento.'; }
+  }
+  boxes.forEach(function(b){ b.addEventListener('change', updateScore); });
+
+  // Calculadora de turnover
+  var h = document.getElementById('inHead'), o = document.getElementById('inOut'), s = document.getElementById('inSal');
+  var rate = document.getElementById('outRate'), cost = document.getElementById('outCost');
+  var brl = new Intl.NumberFormat('pt-BR', { style:'currency', currency:'BRL', maximumFractionDigits:0 });
+  function calc(){
+    var head = parseFloat(h.value), out = parseFloat(o.value), sal = parseFloat(s.value);
+    if (head > 0 && out >= 0) { rate.textContent = (out / head * 100).toFixed(1).replace('.', ',') + '%'; } else { rate.textContent = '0%'; }
+    if (out >= 0 && sal >= 0) { cost.textContent = brl.format(4 * sal * out); } else { cost.textContent = 'R$ 0'; }
+  }
+  [h, o, s].forEach(function(i){ i.addEventListener('input', calc); });
+})();
+</script>
+</body>
+</html>
