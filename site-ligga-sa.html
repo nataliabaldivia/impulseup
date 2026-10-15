@@ -372,6 +372,15 @@
     border-bottom:1px solid var(--color-border);font-size:10px;text-transform:uppercase;
   }
   .cenarios-comparativo .detalhamento-table td{padding:7px 4px;border-bottom:1px solid var(--color-bg-alt);}
+  .cenarios-comparativo .detalhamento{overflow-x:auto;min-width:0;}
+  .cenarios-comparativo .detalhamento-table{table-layout:fixed;}
+  .cenarios-comparativo .detalhamento-table th:nth-child(1){width:31%;}
+  .cenarios-comparativo .detalhamento-table th:nth-child(2){width:26%;}
+  .cenarios-comparativo .detalhamento-table th:nth-child(3){width:19%;}
+  .cenarios-comparativo .detalhamento-table th:nth-child(4){width:24%;}
+  .cenarios-comparativo .detalhamento-table td{overflow-wrap:break-word;}
+  .cenarios-comparativo .detalhamento-table th,.cenarios-comparativo .detalhamento-table td{padding-left:3px;padding-right:3px;font-size:10px;}
+  .cenarios-comparativo .detalhamento-table td:nth-child(2){white-space:nowrap;}
   .cenarios-comparativo .additional-title{font-size:11px;font-weight:700;letter-spacing:0.05em;color:var(--color-fg-muted);text-transform:uppercase;margin:0 0 12px 4px;}
   .cenarios-comparativo .additional-list{display:flex;flex-direction:column;gap:10px;}
   .cenarios-comparativo .additional-row{
@@ -895,39 +904,15 @@
       <h1 class="section-title">Proposta comercial</h1>
       <p class="section-sub">Investimento para a Ligga</p>
 
-      <div class="empty-state" id="tab7EmptyState">
+      <div class="empty-state" id="tab7EmptyState" style="display:none;">
         <i class="fa-regular fa-file-invoice-dollar"></i>
         <h3>Aba liberada após o closer informar a proposta comercial</h3>
         <p>Assim que o closer passar os valores definidos na ferramenta de precificação da impulseup, esta aba mostra o investimento, os módulos e serviços incluídos e o detalhamento de valores.</p>
       </div>
 
-      <div id="tab7ProposalWrap" style="display:none;">
-        <div class="investment-hero">
-          <div class="label">Investimento mensal</div>
-          <div class="value">R$ 12.400/mês</div>
-        </div>
-        <p class="investment-hero-meta">Investimento total do contrato: R$ 148.800 · Validade da proposta: 15 dias · Duração do contrato: 12 meses</p>
-
-        <div class="block-title"><i class="fa-regular fa-layer-group"></i>Módulos e serviços incluídos</div>
-        <div class="module-list">
-          <div class="module-row">
-            <div class="module-row-main"><h4>Avaliação de Desempenho</h4><p>Ciclos completos com nine-box e PDI integrado.</p></div>
-            <div class="module-row-users">500 usuários</div>
-          </div>
-          <div class="module-row">
-            <div class="module-row-main"><h4>Plano de Serviço III</h4><p>Implementação assistida por especialista em DHO.</p></div>
-            <div class="module-row-users"></div>
-          </div>
-        </div>
-
-        <div class="block-title"><i class="fa-regular fa-table"></i>Detalhamento de valores</div>
-        <table class="rfp-table" id="proposalValuesTable">
-          <tr><th>Item</th><th>Usuários</th><th>Valor unitário</th><th>Valor mensal</th><th>Observação</th></tr>
-          <tr><td><div class="feat-name">Avaliação de Desempenho</div></td><td class="check-cell">500</td><td class="check-cell">R$ 22,00</td><td class="check-cell">R$ 11.000,00</td><td class="check-cell">—</td></tr>
-          <tr><td><div class="feat-name">Plano de Serviço III</div></td><td class="check-cell">—</td><td class="check-cell">R$ 16.800,00</td><td class="check-cell">—</td><td class="check-cell">Cobrança única</td></tr>
-          <tr><td colspan="4" style="text-align:right;font-weight:600;">Total do contrato (12 meses)</td><td class="check-cell" style="font-weight:700;color:var(--color-primary);">R$ 148.800</td></tr>
-        </table>
-
+      <div id="tab7ProposalWrap" style="display:block;">
+        <p class="investment-hero-meta">Três cenários para a Ligga escolher · Validade da proposta: 5 dias · Duração do contrato: 12 meses</p>
+        <div class="cenarios-comparativo"><div class="cards"><div class="card"><div class="card-header"><div class="eyebrow-card">Cenário 1</div><div class="card-title">MVP</div></div><div class="card-body"><div class="price-line"><span class="price-value">R$ 4.716,32</span><span class="price-unit">/ mês (12x)</span></div><div class="price-base">Investimento total do contrato: R$ 56.595,84</div><hr class="divider"><div class="inclui-label">Inclui</div><ul class="check-list"><li><span class="tick">&#10003;</span>Avaliações de desempenho para todos os colaboradores</li><li><span class="tick">&#10003;</span>Remuneração variável para todos os colaboradores</li><li><span class="tick">&#10003;</span>Metas e OKRs para os gestores</li><li><span class="tick">&#10003;</span>Desenvolvimento incluso (PDIs, feedbacks e reuniões 1:1)</li><li><span class="tick">&#10003;</span>Plano de Serviço II</li></ul><details class="detalhamento"><summary>Ver detalhamento</summary><table class="detalhamento-table"><thead><tr><th>Item</th><th>Quantidade</th><th>Valor unitário</th><th>Valor total</th></tr></thead><tbody><tr><td>Avaliações (mensal)</td><td>250 usuários</td><td>R$ 11,54</td><td>R$ 2.885,00</td></tr><tr><td>Metas e OKRs (mensal)</td><td>27 usuários</td><td>R$ 6,16</td><td>R$ 166,32</td></tr><tr><td>Remuneração Variável (mensal)</td><td>250 usuários</td><td>R$ 2,56</td><td>R$ 640,00</td></tr><tr><td>Desenvolvimento (mensal)</td><td>250 usuários</td><td>Incluso</td><td>Incluso</td></tr><tr><td>Plano de Serviço II</td><td>—</td><td>Valor único</td><td>R$ 7.500,00</td></tr><tr><td>SSO</td><td>—</td><td>Valor único</td><td>R$ 2.800,00</td></tr><tr><td>Treinamento (4 horas)</td><td>—</td><td>Valor único</td><td>R$ 2.000,00</td></tr></tbody></table></details></div></div><div class="card recommended"><div class="card-header"><span class="badge-recommended">Recomendado</span><div class="eyebrow-card">Cenário 2</div><div class="card-title">Metas para todos os colaboradores</div></div><div class="card-body"><div class="price-line"><span class="price-value">R$ 6.323,33</span><span class="price-unit">/ mês (12x)</span></div><div class="price-base">Investimento total do contrato: R$ 75.880,00</div><hr class="divider"><div class="inclui-label">Inclui tudo do Cenário 1, mais</div><ul class="check-list"><li><span class="tick">&#10003;</span>Metas e OKRs para todos os colaboradores, cada pessoa com autonomia sobre as suas metas e entregas</li><li><span class="tick">&#10003;</span>Líderes propondo metas e trabalhando de perto com seus liderados</li><li><span class="tick">&#10003;</span>Plano de Serviço III, com implementação mais próxima e detalhada</li></ul><details class="detalhamento"><summary>Ver detalhamento</summary><table class="detalhamento-table"><thead><tr><th>Item</th><th>Quantidade</th><th>Valor unitário</th><th>Valor total</th></tr></thead><tbody><tr><td>Avaliações (mensal)</td><td>250 usuários</td><td>R$ 11,54</td><td>R$ 2.885,00</td></tr><tr><td>Metas e OKRs (mensal)</td><td>250 usuários</td><td>R$ 6,16</td><td>R$ 1.540,00</td></tr><tr><td>Remuneração Variável (mensal)</td><td>250 usuários</td><td>R$ 2,56</td><td>R$ 640,00</td></tr><tr><td>Desenvolvimento (mensal)</td><td>250 usuários</td><td>Incluso</td><td>Incluso</td></tr><tr><td>Plano de Serviço III</td><td>—</td><td>Valor único</td><td>R$ 10.300,00</td></tr><tr><td>SSO</td><td>—</td><td>Valor único</td><td>R$ 2.800,00</td></tr><tr><td>Treinamento (4 horas)</td><td>—</td><td>Valor único</td><td>R$ 2.000,00</td></tr></tbody></table></details></div></div><div class="card"><div class="card-header"><div class="eyebrow-card">Cenário 3</div><div class="card-title">Com pesquisas de clima</div></div><div class="card-body"><div class="price-line"><span class="price-value">R$ 6.750,00</span><span class="price-unit">/ mês (12x)</span></div><div class="price-base">Investimento total do contrato: R$ 81.000,00</div><hr class="divider"><div class="inclui-label">Inclui tudo do Cenário 2, mais</div><p class="module-desc"><b>Pesquisas</b> &mdash; Mensure o engajamento e satisfação do seu time.</p><ul class="check-list"><li><span class="tick">&#10003;</span>Clima, pulso e engajamento para todos os colaboradores</li><li><span class="tick">&#10003;</span>Plano de Serviço III cobrindo também a implementação de Pesquisas</li></ul><details class="detalhamento"><summary>Ver detalhamento</summary><table class="detalhamento-table"><thead><tr><th>Item</th><th>Quantidade</th><th>Valor unitário</th><th>Valor total</th></tr></thead><tbody><tr><td>Avaliações (mensal)</td><td>250 usuários</td><td>R$ 11,54</td><td>R$ 2.885,00</td></tr><tr><td>Pesquisas (mensal)</td><td>250 usuários</td><td>R$ 2,72</td><td>R$ 680,00</td></tr><tr><td>Metas e OKRs (mensal)</td><td>250 usuários</td><td>R$ 5,05</td><td>R$ 1.262,50</td></tr><tr><td>Remuneração Variável (mensal)</td><td>250 usuários</td><td>R$ 2,09</td><td>R$ 522,50</td></tr><tr><td>Desenvolvimento (mensal)</td><td>250 usuários</td><td>Incluso</td><td>Incluso</td></tr><tr><td>Plano de Serviço III</td><td>—</td><td>Valor único</td><td>R$ 12.000,00</td></tr><tr><td>SSO</td><td>—</td><td>Valor único</td><td>R$ 2.800,00</td></tr><tr><td>Treinamento (4 horas)</td><td>—</td><td>Valor único</td><td>R$ 2.000,00</td></tr></tbody></table></details></div></div></div><div class="additional-title">Serviços adicionais</div><div class="additional-list"><div class="additional-row"><div class="additional-left"><div class="additional-name">Plano de Serviço</div><div class="additional-desc">Implementação de Avaliação de Desempenho, Metas e Remuneração Variável (e Pesquisas no Cenário 3)</div></div><div class="additional-right"><div class="additional-value">Cenários 1, 2 e 3</div><span class="additional-status">R$ 7.500,00 · R$ 10.300,00 · R$ 12.000,00</span></div></div><div class="additional-row"><div class="additional-left"><div class="additional-name">SSO</div><div class="additional-desc">Login único</div></div><div class="additional-right"><div class="additional-value">Todos os cenários</div><span class="additional-status">R$ 2.800,00</span></div></div><div class="additional-row"><div class="additional-left"><div class="additional-name">Treinamento</div><div class="additional-desc">4 horas</div></div><div class="additional-right"><div class="additional-value">Todos os cenários</div><span class="additional-status">R$ 2.000,00</span></div></div></div></div>
         <label class="proposal-upload-slot" id="proposalSlot" style="margin-top:24px;">
           <div id="proposalPlaceholder">
             <i class="fa-regular fa-image" style="font-size:22px;color:var(--color-border);display:block;margin-bottom:10px;"></i>
@@ -1018,7 +1003,10 @@
     }
   ],
   "comparativo": null,
-  "investimento": null,
+  "investimento": {
+    "parcelaValor": "R$ 6.323,33/mês",
+    "duracaoContrato": "12 meses"
+  },
   "cronogramaMacro": [
     {
       "data": "02 out",
