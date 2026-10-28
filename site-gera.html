@@ -694,15 +694,16 @@
     <section class="tab-panel" id="tab-3">
       <h1 class="section-title">Demonstração</h1>
       <p class="section-sub">Vídeos da plataforma, orientados aos desafios da Gera</p>
-      <div class="empty-state" id="tab3EmptyState">
+      <div class="empty-state" id="tab3EmptyState" style="display:none;">
         <i class="fa-regular fa-circle-play"></i>
         <h3>Aba liberada após a reunião de Demo</h3>
         <p>O closer vai incluir aqui vídeos curtos mostrando a solução aplicada aos desafios mapeados no Diagnóstico.</p>
       </div>
-      <div id="tab3Content" style="display:none;">
+      <div id="tab3Content">
         <div class="stat-grid" id="tab3ImpactoGrid">
-          <!-- Preenchido pela skill a partir de "impacto" (estrutura-abas.md, Aba 3). Ex:
-               <div class="stat-card"><div class="num">32%</div><div class="label">redução no tempo de ciclo de avaliação</div></div> -->
+          <div class="stat-card"><div class="num">80 → 100</div><div class="label">colaboradores cobertos pela nova metodologia: 80 hoje e até 100 em 2027</div></div>
+          <div class="stat-card"><div class="num">0</div><div class="label">metas individuais hoje: a promoção acontece pela entrega da rotina do cargo</div></div>
+          <div class="stat-card"><div class="num">A confirmar</div><div class="label">turnover, média salarial e tempo gasto nas análises de mérito, dados que a Gera vai enviar para o ROI</div></div>
         </div>
         <div style="overflow-x:auto;margin-bottom:40px;">
           <table class="rfp-table" id="tab3ComparativoTable">
@@ -710,48 +711,18 @@
               <tr><th>Situação atual</th><th>Módulo impulseup</th><th>Como fica</th></tr>
             </thead>
             <tbody>
-              <!-- Preenchido pela skill a partir de "comparativo" (máx. 4 linhas). Ex:
-                   <tr><td>Avaliação só em planilha</td><td class="feat-name">Ciclos de avaliação</td><td>Fluxo 100% digital com lembretes automáticos</td></tr> -->
+              <tr><td>Painel mistura meta institucional e coletiva, sem meta individual</td><td class="feat-name">Gestão de Metas</td><td>Metas da empresa, da área e de cada pessoa em cascata, com peso, progresso e evidência</td></tr>
+              <tr><td>Competência confundida com o comportamento do gestor</td><td class="feat-name">Avaliação de Desempenho</td><td>Competências por cargo e por nível no mesmo formulário, com histórico entre ciclos</td></tr>
+              <tr><td>Mérito e promoção decididos pela percepção do gestor, com planilha manual</td><td class="feat-name">N-Box e calibração</td><td>Ranking e calibração com os dados do ciclo, cruzando avaliação e metas</td></tr>
+              <tr><td>Resultados para o comitê montados à mão</td><td class="feat-name">Insights com IA</td><td>Análise do ciclo por área e por cargo, em HTML, pronta para apresentar ao comitê</td></tr>
             </tbody>
           </table>
         </div>
         <div class="video-grid" id="tab3VideoGrid">
-          <!-- Preenchido pela skill a partir de "videos" (estrutura-abas.md, Aba 3), um .video-card por vídeo.
-               Ver scripts/gerar_video_embed.py::gerar_bloco_video() para a lógica de geração.
-
-               Caso 1 — url_video já veio do closer (link de Drive ou YouTube) e foi reconhecida:
-               <div class="video-card">
-                 <h4>{{titulo}}</h4><p>{{descricao}}</p>
-                 <div class="video-embed-wrap">
-                   <iframe src="{{embed_url}}" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-                 </div>
-               </div>
-
-               Caso 2 — url_video veio mas não foi possível gerar embed (ex: link de pasta do Drive,
-               sem permissão de embed): mostrar card de link em vez de iframe.
-               <div class="video-card">
-                 <h4>{{titulo}}</h4><p>{{descricao}}</p>
-                 <div class="video-link-card">
-                   <i class="fa-brands fa-google-drive"></i>
-                   <p>Vídeo disponível para acesso externo</p>
-                   <a href="{{url_video}}" target="_blank" rel="noopener" class="video-link-btn">Assistir vídeo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                 </div>
-               </div>
-
-               Caso 3 — vídeo ainda sem url_video: slot de colagem manual, para o closer colar o link
-               direto no site (fica salvo no localStorage do navegador via saveImage/loadStore).
-               <div class="video-card">
-                 <h4>{{titulo}}</h4><p>{{descricao}}</p>
-                 <div class="video-embed-wrap video-embed-empty" data-video-idx="{{indice}}">
-                   <label class="video-paste-label">
-                     <i class="fa-regular fa-circle-play"></i>
-                     <span>Cole aqui o link do vídeo (YouTube ou Drive)</span>
-                   </label>
-                   <input type="text" class="video-url-input" data-video-idx="{{indice}}" placeholder="https://...">
-                 </div>
-               </div> -->
+<div class="video-card"><h4>Demonstração da visão de administrador</h4><p>Configuração de metas, avaliação e calibração na plataforma</p><div class="video-embed-wrap video-embed-empty" data-video-idx="0"><label class="video-paste-label"><i class="fa-regular fa-circle-play"></i><span>Cole aqui o link do vídeo (YouTube ou Drive)</span></label><input type="text" class="video-url-input" data-video-idx="0" placeholder="https://..."></div></div>
         </div>
       </div>
+    
     </section>
 
     <!-- ABA 4 — DIFERENCIAIS IMPULSEUP -->
@@ -981,13 +952,14 @@
       <p class="section-sub">Jornada de compra da Gera</p>
       <div class="timeline">
         <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">23 out</span><div><span class="tl-desc">Reunião de Diagnóstico</span><div class="tl-meta">Entender contexto e desafios · Camila Dantas e Karine</div></div></div>
-        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">28 out</span><div><span class="tl-desc">Demonstração personalizada</span><div class="tl-meta">Visão de administrador e configuração da plataforma, com o time ampliado de RH</div></div></div>
+        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">28 out, 13h30</span><div><span class="tl-desc">Demonstração personalizada</span><div class="tl-meta">Visão de administrador e configuração da plataforma, com o time ampliado de RH</div></div></div>
         <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">Após 28 out</span><div><span class="tl-desc">Construção de projeto e proposta</span><div class="tl-meta">Benchmark de metas para tecnologia, ROI para o comitê e negociação da proposta</div></div></div>
         <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">Semana de 19 nov</span><div><span class="tl-desc">Apresentação para diretoria</span><div class="tl-meta">Camila apresenta o projeto ao comitê executivo, com apoio da impulseup</div></div></div>
         <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">A definir</span><div><span class="tl-desc">Aprovação da proposta</span><div class="tl-meta">Decisão do comitê executivo</div></div></div>
         <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">A definir</span><div><span class="tl-desc">Revisão jurídica</span></div></div>
         <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">A definir</span><div><span class="tl-desc">Assinatura e kickoff</span><div class="tl-meta">Meta da Gera: metas na plataforma em dezembro e início em janeiro</div></div></div>
       </div>
+    
     </section>
 
     </main>
