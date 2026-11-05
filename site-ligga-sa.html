@@ -966,14 +966,6 @@
   </div>
 </div>
 </div>
-
-        <label class="proposal-upload-slot" id="proposalSlot" style="margin-top:24px;">
-          <div id="proposalPlaceholder">
-            <i class="fa-regular fa-image" style="font-size:22px;color:var(--color-border);display:block;margin-bottom:10px;"></i>
-            <span style="font-size:13px;color:var(--color-fg-muted);">Clique para anexar</span>
-          </div>
-          <input type="file" accept="image/*" id="proposalInput">
-        </label>
       </div>
     </section>
 
@@ -1482,7 +1474,8 @@ ${comparativoSectionHtml}
   document.querySelectorAll('.logo-grid-input').forEach(input => {
     input.addEventListener('change', handleLogoGridChange);
   });
-  document.getElementById('proposalInput').addEventListener('change', e => {
+  const proposalInputEl = document.getElementById('proposalInput');
+  if(proposalInputEl) proposalInputEl.addEventListener('change', e => {
     const file = e.target.files[0];
     if(!file) return;
     const reader = new FileReader();
@@ -1497,7 +1490,7 @@ ${comparativoSectionHtml}
 
   (function restoreProposalImage(){
     const store = loadStore();
-    if(store.proposalImage){
+    if(store.proposalImage && document.getElementById('proposalSlot')){
       const slot = document.getElementById('proposalSlot');
       slot.innerHTML = '<img src="' + store.proposalImage + '">';
       const input = document.createElement('input');
